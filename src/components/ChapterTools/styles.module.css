@@ -1,0 +1,173 @@
+/* Chapter Tools Styles */
+
+.chapterTools {
+  margin-bottom: 24px;
+  padding: 16px;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.toolButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.toolButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid var(--ifm-color-primary);
+  background: transparent;
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toolButton:hover:not(:disabled) {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.toolButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.toolButton.active {
+  background: var(--ifm-color-primary);
+  color: white;
+}
+
+.translateButton {
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.translateButton:hover:not(:disabled),
+.translateButton.active {
+  background: #10b981;
+  color: white;
+}
+
+.resetButton {
+  border-color: var(--ifm-color-emphasis-500);
+  color: var(--ifm-color-emphasis-700);
+}
+
+.resetButton:hover:not(:disabled) {
+  background: var(--ifm-color-emphasis-500);
+  color: white;
+}
+
+.icon {
+  font-size: 18px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loginPrompt {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[data-theme='dark'] .loginPrompt {
+  background: #78350f;
+  color: #fef3c7;
+}
+
+.loginPrompt a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.errorMessage {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #fee2e2;
+  color: #991b1b;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[data-theme='dark'] .errorMessage {
+  background: #7f1d1d;
+  color: #fecaca;
+}
+
+.infoMessage {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #dbeafe;
+  color: #1e40af;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+[data-theme='dark'] .infoMessage {
+  background: #1e3a8a;
+  color: #bfdbfe;
+}
+
+.modifiedContent {
+  margin-top: 16px;
+  padding: 20px;
+  background: var(--ifm-background-color);
+  border: 2px solid var(--ifm-color-primary-light);
+  border-radius: 8px;
+}
+
+.contentArea {
+  line-height: 1.7;
+}
+
+/* RTL Support for Urdu */
+.contentArea[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+}
+
+@media (max-width: 768px) {
+  .toolButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolButton {
+    justify-content: center;
+  }
+}

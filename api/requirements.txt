@@ -1,0 +1,37 @@
+# RAG Chatbot API Requirements
+# Physical AI & Humanoid Robotics Textbook
+
+# Core Framework
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic[email]==2.10.4
+
+# Database
+asyncpg==0.30.0
+neon-serverless==0.6.0
+
+# Vector Database
+qdrant-client==1.12.1
+
+# OpenAI & AI
+openai==1.58.1
+httpx==0.28.1
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.2.1
+
+# Rate Limiting
+slowapi==0.1.9
+
+# Environment & Utils
+python-dotenv==1.0.1
+python-multipart==0.0.18
+
+# MCP (Model Context Protocol) Support
+# mcp-sdk>=0.1.0  # Install when available
+
+# Development
+pytest==8.3.4
+pytest-asyncio==0.24.0
