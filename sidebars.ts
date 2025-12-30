@@ -20,6 +20,7 @@ const sidebars: SidebarsConfig = {
       collapsible: true,
       collapsed: false,
       items: [
+        'intro/m1-gateway',
         {
           type: 'category',
           label: 'Chapter 1: Foundations & Hardware',
@@ -67,6 +68,7 @@ const sidebars: SidebarsConfig = {
       collapsible: true,
       collapsed: true,
       items: [
+        'intro/m2-gateway',
         {
           type: 'category',
           label: 'Chapter 1: Gazebo Physics Engine',
@@ -114,6 +116,7 @@ const sidebars: SidebarsConfig = {
       collapsible: true,
       collapsed: true,
       items: [
+        'intro/m3-gateway',
         {
           type: 'category',
           label: 'Chapter 1: Isaac Sim & Omniverse',
@@ -163,6 +166,7 @@ const sidebars: SidebarsConfig = {
       collapsible: true,
       collapsed: true,
       items: [
+        'intro/m4-gateway',
         {
           type: 'category',
           label: 'Chapter 1: Multimodal Perception',
@@ -203,6 +207,7 @@ const sidebars: SidebarsConfig = {
             'M4/C3/m4-c3-s7',
           ],
         },
+        'intro/final-verdict',
       ],
     },
     {
