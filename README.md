@@ -117,6 +117,19 @@ hackathon-1/
 
 ---
 
+## 🎬 90-Second Demo Script (For Judges)
+
+Use this script to record your demo video to ensure 300+ points are awarded:
+
+*   **00:00 - 00:15 (Req 1 & 3)**: Show the **Docusaurus Homepage** and scroll through the 4 Modules. Mention the **Spec-Driven** process using Claude Code.
+*   **00:15 - 00:30 (Req 5)**: Go to the **Signup Page**. Show the **Better-Auth** integration and the **Hardware/Software Background** questions.
+*   **00:30 - 00:45 (Req 6 & 7)**: Open Module 1. Click the **"Personalize Content"** button (shows background adaptation) and then the **"Translate to Urdu"** button (shows RTL translation).
+*   **00:45 - 01:10 (Req 2)**: Open the **RAG Chatbot**. Ask: "What hardware do I need for Module 1?" then select some text on the page and ask "Explain this selected text."
+*   **01:10 - 01:25 (Req 4)**: Open the terminal or GitHub folder `.specify/commands`. Mention the **25+ Custom Agent Skills** used to automate this project.
+*   **01:25 - 01:30 (The Close)**: Show the **"Founder Blueprint"** page and state: "Ready to join the Panaversity core team."
+
+---
+
 ## 🛠️ Developer Setup
 
 ### 1. Frontend Development

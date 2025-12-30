@@ -216,6 +216,7 @@ const sidebars: SidebarsConfig = {
       collapsible: true,
       collapsed: true,
       items: [
+        'startup-founder-blueprint',
         'glossary',
         'references',
         'benchmark-tables',
