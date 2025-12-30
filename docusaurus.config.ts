@@ -15,15 +15,17 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://github.com',
+  url: 'https://Muhammad-Junaid-Sajjad.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/Hackathon-1/',
+  baseUrl: '/Hackathon1/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'junaid', // Usually your GitHub org/user name.
-  projectName: 'Hackathon-1', // Usually your repo name.
+  organizationName: 'Muhammad-Junaid-Sajjad', // Usually your GitHub org/user name.
+  projectName: 'Hackathon1', // Usually your repo name.
+
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
 
@@ -71,7 +73,7 @@ const config: Config = {
           label: 'Textbook',
         },
         {
-          href: 'https://github.com/junaid/Hackathon-1',
+          href: 'https://github.com/Muhammad-Junaid-Sajjad/Hackathon1',
           label: 'GitHub',
           position: 'right',
         },
