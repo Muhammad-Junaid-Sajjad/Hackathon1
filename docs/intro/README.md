@@ -1,3 +1,10 @@
+---
+id: intro-hub
+title: "The Narrative Hub"
+sidebar_position: 0
+slug: /intro
+---
+
 # 🎬 The Narrative Hub
 
 This directory contains the "Gateway" pages for each season of the Physical AI curriculum. These pages are designed to provide the **Vision and Motivation** required to conquer the difficult technical challenges ahead.
@@ -14,7 +21,7 @@ This directory contains the "Gateway" pages for each season of the Physical AI c
 
 <div align="center">
 
-| [🔙 Back to Library](../README.md) | [🚀 Start M1](./m1-gateway.md) |
+| [🔙 Back to Library](/docs) | [🚀 Start M1](/docs/intro/m1-gateway) |
 |:---:|:---:|
 
 </div>

@@ -27,4 +27,4 @@ You will graduate from this book not as a student, but as a **Humanoid Architect
 
 **Let the machine walk.**
 
-[**Next: S1 - Multimodal Foundations →**](../M4/C1/S1)
+[**Next: S1 - Multimodal Foundations →**](/docs/M4/C1/m4-c1-s1)

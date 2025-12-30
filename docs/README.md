@@ -1,3 +1,9 @@
+---
+id: docs-home
+title: "Physical AI Knowledge Base"
+sidebar_position: 0
+---
+
 # 📚 The Physical AI Knowledge Base
 
 This directory contains the core educational intelligence of the project. It is structured as a recursive sequence of modules that take a developer from fundamental physics to integrated humanoid embodiment.

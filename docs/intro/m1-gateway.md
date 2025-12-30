@@ -29,4 +29,4 @@ By the end of this module, you will have a workstation that breathes, a Jetson t
 
 **Are you ready to build the spine?**
 
-[**Next: S1 - Workstation Setup →**](../M1/C1/S1)
+[**Next: S1 - Workstation Setup →**](/docs/M1/C1/m1-c1-s1)

@@ -1,3 +1,10 @@
+---
+id: module1
+title: "Module 1: The Nervous System"
+sidebar_position: 1
+slug: /M1
+---
+
 # 🦾 Module 1: The Nervous System
 
 This module establishes the physical and logical foundations of humanoid robotics. We focus on building the spinal cord (ROS 2) and the nervous system (Jetson Thor).
@@ -12,7 +19,7 @@ This module establishes the physical and logical foundations of humanoid robotic
 
 <div align="center">
 
-| [📖 Back to Library](../README.md) | [🌊 Gateway Intro](../intro/m1-gateway.md) | [⚡ C1 Start](./C1/m1-c1-s1.md) |
+| [📖 Back to Library](/docs) | [🌊 Gateway Intro](/docs/intro/m1-gateway) | [⚡ C1 Start](/docs/M1/C1/m1-c1-s1) |
 |:---:|:---:|:---:|
 
 </div>

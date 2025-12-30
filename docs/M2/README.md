@@ -1,3 +1,10 @@
+---
+id: module2
+title: "Module 2: The Hallucination"
+sidebar_position: 1
+slug: /M2
+---
+
 # 🌀 Module 2: The Hallucination
 
 This module dives into the "Dream World" of simulation. We use synthetic evolution to train robots ten thousand years in a single day using high-fidelity physics engines.
@@ -12,7 +19,7 @@ This module dives into the "Dream World" of simulation. We use synthetic evoluti
 
 <div align="center">
 
-| [📖 Back to Library](../README.md) | [🌀 Gateway Intro](../intro/m2-gateway.md) | [⚡ C1 Start](./C1/m2-c1-s1.md) |
+| [📖 Back to Library](/docs) | [🌀 Gateway Intro](/docs/intro/m2-gateway) | [⚡ C1 Start](/docs/M2/C1/m2-c1-s1) |
 |:---:|:---:|:---:|
 
 </div>

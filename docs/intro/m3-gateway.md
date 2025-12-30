@@ -27,4 +27,4 @@ By the end of this module, your robot will no longer be a machine following a sc
 
 **It's time to open the eyes.**
 
-[**Next: S1 - Isaac Sim Mastery →**](../M3/C1/S1)
+[**Next: S1 - Isaac Sim Mastery →**](/docs/M3/C1/m3-c1-s1)

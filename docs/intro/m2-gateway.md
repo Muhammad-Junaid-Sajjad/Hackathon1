@@ -27,4 +27,4 @@ By the end of this module, your robot will have "lived" more lifetimes in simula
 
 **Are you ready to dream in silicon?**
 
-[**Next: S1 - Gazebo Infrastructure →**](../M2/C1/S1)
+[**Next: S1 - Gazebo Infrastructure →**](/docs/M2/C1/m2-c1-s1)
