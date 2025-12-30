@@ -204,6 +204,7 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 - `specs/<feature>/tasks.md` — Testable tasks with cases
 - `history/prompts/` — Prompt History Records
 - `history/adr/` — Architecture Decision Records
+- `history/state/state.md` — Conversation state management
 - `.specify/` — SpecKit Plus templates and scripts
 
 ## Code Standards
