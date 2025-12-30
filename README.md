@@ -13,6 +13,33 @@ A world-class, production-grade interactive textbook and intelligence platform d
 ## 📽️ Core Vision
 This is not a static book. It is a **Living Ecosystem** that marries high-fidelity simulation (Gazebo Ionic), photorealistic perception (Isaac Sim), and Vision-Language-Action (VLA) integration into a single, unified developer experience.
 
+<div align="center">
+
+| [📖 Start Reading](./docs/intro/m1-gateway) | [🧠 Talk to RAG Bot](#2-physical-ai-backend) | [🤖 View Agent Skills](#-exclusive-claude-code-skills) | [🛠️ Setup Guide](#-developer-setup) |
+|:---:|:---:|:---:|:---:|
+
+</div>
+
+---
+
+## 🏗️ System Architecture (The Physical AI Loop)
+
+```mermaid
+graph TD
+    A[Human Voice/Command] -->|VLA Fusion| B(LLM Reasoning & Task Decomposition)
+    B -->|Behavior Trees| C{The Navigator}
+    C -->|Local Path Planning| D[Isaac ROS Perception]
+    D -->|Sensors| E[Jetson Thor Edge Kit]
+    E -->|Real-Time Control| F[Actuators & Motors]
+    F -->|Physical Action| G(Interaction with World)
+    G -->|Feedback Loop| D
+
+    subgraph "The Digital Hub (Training)"
+    H[Workstation] -->|Weights Transfer| E
+    I[Gazebo Ionic] -->|Synthetic Data| H
+    end
+```
+
 > "The first step in building a god is building a spine."
 
 ---
