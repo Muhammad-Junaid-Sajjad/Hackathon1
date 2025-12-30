@@ -68,16 +68,16 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
-    // Announcement bar
+    // Announcement bar - Agent Factory Style
     announcementBar: {
       id: 'announcement',
       content: '🚀 <b>New:</b> Complete ROS 2 Kilted Kaiju & Jetson Thor curriculum now available!',
-      backgroundColor: 'var(--color-accent-blue)',
-      textColor: '#ffffff',
+      backgroundColor: 'var(--color-bg-tertiary)',
+      textColor: 'var(--color-text-primary)',
       isCloseable: true,
     },
     navbar: {
-      title: 'Physical AI & Humanoid Robotics',
+      title: '🤖 Physical AI & Humanoid Robotics',
       logo: {
         alt: 'Physical AI Logo',
         src: 'img/logo.svg',
@@ -89,7 +89,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'textbookSidebar',
           position: 'left',
-          label: 'Textbook',
+          label: '📚 Textbook',
         },
         {
           type: 'docsVersionDropdown',
@@ -97,7 +97,7 @@ const config: Config = {
         },
         {
           href: 'https://github.com/Muhammad-Junaid-Sajjad/Hackathon1',
-          label: 'GitHub',
+          label: '⭐ GitHub',
           position: 'right',
           className: 'header-github-link',
         },
@@ -110,20 +110,20 @@ const config: Config = {
           title: 'Modules',
           items: [
             {
-              label: 'Module 1: The Nervous System',
-              to: '/docs/M1/C1/m1-c1-s1',
+              label: '🧠 Module 1: The Nervous System',
+              to: '/docs/M1',
             },
             {
-              label: 'Module 2: The Hallucination',
-              to: '/docs/M2/C1/m2-c1-s1',
+              label: '💭 Module 2: The Hallucination',
+              to: '/docs/M2',
             },
             {
-              label: 'Module 3: The Awakening',
-              to: '/docs/M3/C1/m3-c1-s1',
+              label: '👁️ Module 3: The Awakening',
+              to: '/docs/M3',
             },
             {
-              label: 'Module 4: The Embodiment',
-              to: '/docs/M4/C1/m4-c1-s1',
+              label: '✨ Module 4: The Embodiment',
+              to: '/docs/M4',
             },
           ],
         },
@@ -131,15 +131,15 @@ const config: Config = {
           title: 'Resources',
           items: [
             {
-              label: 'GitHub Repository',
+              label: '🔗 GitHub Repository',
               href: 'https://github.com/Muhammad-Junaid-Sajjad/Hackathon1',
             },
             {
-              label: 'Hardware Budget Guide',
+              label: '💰 Hardware Budget Guide',
               to: '/docs/hardware-budget-guide',
             },
             {
-              label: 'Deployment Checklists',
+              label: '✅ Deployment Checklists',
               to: '/docs/deployment-checklists',
             },
           ],
@@ -148,15 +148,15 @@ const config: Config = {
           title: 'Reference',
           items: [
             {
-              label: 'Glossary',
+              label: '📖 Glossary',
               to: '/docs/glossary',
             },
             {
-              label: 'Self Assessment',
+              label: '📝 Self Assessment',
               to: '/docs/self-assessment',
             },
             {
-              label: 'Benchmark Tables',
+              label: '📊 Benchmark Tables',
               to: '/docs/benchmark-tables',
             },
           ],

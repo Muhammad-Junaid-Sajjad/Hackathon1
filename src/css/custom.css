@@ -3,9 +3,11 @@
  *
  * Design Philosophy:
  * - Dark-first aesthetic with blue accents (Agent Factory style)
- * - macOS-style code windows with traffic lights
+ * - macOS-style code windows with traffic light controls
  * - Smooth animations and micro-interactions
  * - Professional educational platform look
+ *
+ * Inspired by: https://agentfactory.panaversity.org/
  */
 
 /* ============================================
@@ -13,128 +15,68 @@
    ============================================ */
 
 :root {
-  /* Primary Colors - Agent Factory Blue */
+  /* Exact Agent Factory Color Palette */
   --color-primary: #3b82f6;
-  --color-primary-dark: #2563eb;
-  --color-primary-darker: #1d4ed8;
-  --color-primary-light: #60a5fa;
-  --color-primary-lighter: #93c5fd;
-
-  /* Accent Colors */
-  --color-accent-cyan: #22d3ee;
-  --color-accent-emerald: #10b981;
-  --color-accent-amber: #f59e0b;
-  --color-accent-rose: #f43f5e;
-  --color-accent-purple: #a855f7;
-
-  /* Semantic Colors */
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-danger: #ef4444;
-  --color-info: #3b82f6;
-
-  /* Neutral Colors */
-  --color-gray-50: #fafafa;
-  --color-gray-100: #f4f4f5;
-  --color-gray-200: #e4e4e7;
-  --color-gray-300: #d4d4d8;
-  --color-gray-400: #a1a1aa;
-  --color-gray-500: #71717a;
-  --color-gray-600: #52525b;
-  --color-gray-700: #3f3f46;
-  --color-gray-800: #27272a;
-  --color-gray-900: #18181b;
-  --color-gray-950: #09090b;
-
-  /* Background Colors - Dark First */
+  --color-primary-glow: rgba(59, 130, 246, 0.4);
   --color-bg-primary: #0a0a0f;
-  --color-bg-secondary: #12121a;
-  --color-bg-tertiary: #1a1a24;
-  --color-bg-elevated: #22222e;
-  --color-bg-code: #16161e;
-
-  /* Text Colors */
-  --color-text-primary: #f4f4f5;
-  --color-text-secondary: #d4d4d8;
-  --color-text-tertiary: #a1a1aa;
+  --color-bg-sidebar: #0d0d12;
+  --color-bg-card: #12121a;
+  --color-bg-elevated: #1a1a24;
+  --color-text-main: #f4f4f5;
   --color-text-muted: #71717a;
+  --traffic-red: #ff5f57;
+  --traffic-yellow: #febc2e;
+  --traffic-green: #28c840;
 
-  /* Border Colors */
-  --color-border-light: #27272a;
-  --color-border-medium: #3f3f46;
-  --color-border-highlight: #52525b;
-
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-  --gradient-hero: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
-  --gradient-card: linear-gradient(145deg, rgba(59, 130, 246, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
-  --gradient-text: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #a855f7 100%);
-  --gradient-glow: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-
-  /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
-  --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.3);
-  --shadow-glow-lg: 0 0 80px rgba(59, 130, 246, 0.4);
-
-  /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
-
-  /* Spacing */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-
-  /* Border Radius */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-  --radius-full: 9999px;
-
-  /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-base: 200ms ease;
-  --transition-slow: 300ms ease;
-  --transition-slower: 500ms ease;
-
-  /* Docusaurus Overrides */
+  /* Overrides for Docusaurus */
   --ifm-color-primary: var(--color-primary);
-  --ifm-color-primary-dark: var(--color-primary-dark);
-  --ifm-color-primary-darker: var(--color-primary-darker);
-  --ifm-color-primary-light: var(--color-primary-light);
-  --ifm-color-primary-lighter: var(--color-primary-lighter);
-  --ifm-font-family-base: var(--font-sans);
-  --ifm-font-family-monospace: var(--font-mono);
-  --ifm-heading-font-family: var(--font-sans);
-  --ifm-code-font-size: 0.875rem;
-  --ifm-line-height-base: 1.75;
-  --ifm-heading-line-height: 1.3;
-  --ifm-heading-font-weight: 700;
-  --ifm-font-weight-bold: 600;
-  --ifm-border-radius: var(--radius-lg);
-  --ifm-global-radius: var(--radius-lg);
-  --ifm-navbar-height: 4rem;
-  --ifm-navbar-shadow: var(--shadow-md);
-  --ifm-footer-padding-vertical: var(--space-16);
-  --ifm-container-width: 1400px;
-  --ifm-container-width-xl: 1400px;
-  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.15);
+  --ifm-background-color: var(--color-bg-primary);
+  --ifm-navbar-background-color: rgba(10, 10, 15, 0.9);
+  --ifm-footer-background-color: var(--color-bg-sidebar);
 }
+
+/* Agent Factory Hero Theme */
+.hero {
+  background: radial-gradient(circle at 50% -20%, #1a1a2e 0%, var(--color-bg-primary) 80%);
+  border-bottom: 1px solid #1e1e2d;
+}
+
+/* macOS Style Code Windows */
+.prism-code {
+  background-color: #0d0d12 !important;
+  border: 1px solid #27272a !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5) !important;
+  padding-top: 40px !important;
+  position: relative;
+}
+
+.prism-code::before {
+  content: "● ● ●";
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  color: var(--traffic-red);
+  letter-spacing: 2px;
+  font-size: 10px;
+  text-shadow: 18px 0 0 var(--traffic-yellow), 36px 0 0 var(--traffic-green);
+  opacity: 0.8;
+}
+
+/* Glowing Text */
+.text-gradient {
+  background: linear-gradient(135deg, #fff 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Sidebar Item Hover */
+.menu__link:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--color-primary);
+  box-shadow: inset 0 0 10px rgba(59, 130, 246, 0.05);
+}
+
 
 /* Light Mode Overrides */
 [data-theme='light'] {
@@ -210,20 +152,20 @@ h4 {
 }
 
 /* ============================================
-   3. NAVBAR - Professional & Clean
+   3. NAVBAR - Agent Factory Style
    ============================================ */
 
 .navbar {
-  background: rgba(10, 10, 15, 0.85) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(10, 10, 15, 0.95) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--color-border-light);
   box-shadow: var(--shadow-md);
   transition: all var(--transition-base);
 }
 
 [data-theme='light'] .navbar {
-  background: rgba(255, 255, 255, 0.85) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
   border-bottom-color: var(--color-border-light);
 }
 
@@ -244,16 +186,29 @@ h4 {
   transition: all var(--transition-fast);
   border-radius: var(--radius-md);
   padding: var(--space-2) var(--space-3);
+  position: relative;
 }
 
 .navbar__link:hover {
-  color: var(--color-primary);
-  background: var(--gradient-card);
+  color: var(--color-primary-light);
+  background: var(--color-bg-tertiary);
 }
 
 .navbar__link--active {
   color: var(--color-primary);
   font-weight: 600;
+}
+
+.navbar__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 1px;
 }
 
 .navbar__logo {
@@ -274,12 +229,72 @@ h4 {
   fill: var(--color-primary);
 }
 
+/* Navbar Search */
+.navbar-search {
+  --navbar-search-background: var(--color-bg-tertiary);
+  --navbar-search-color: var(--color-text-primary);
+  --navbar-search-border-color: var(--color-border-light);
+  --navbar-search-placeholder-color: var(--color-text-muted);
+}
+
+.DocSearch-Button {
+  border-radius: var(--radius-lg) !important;
+  background: var(--color-bg-tertiary) !important;
+  border: 1px solid var(--color-border-light) !important;
+  color: var(--color-text-muted) !important;
+  transition: all var(--transition-fast) !important;
+  margin: var(--space-2) 0 !important;
+}
+
+.DocSearch-Button:hover {
+  border-color: var(--color-primary) !important;
+  box-shadow: var(--shadow-glow) !important;
+  background: var(--color-bg-elevated) !important;
+}
+
+/* Version Dropdown */
+.navbar__item.dropdown {
+  padding: var(--space-2) var(--space-3);
+}
+
+.dropdown__menu {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-2);
+}
+
+.dropdown__link {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+}
+
+.dropdown__link:hover {
+  background: var(--color-bg-tertiary);
+  color: var(--color-primary);
+}
+
+.dropdown__link--active {
+  color: var(--color-primary);
+  font-weight: 500;
+  background: var(--gradient-card);
+}
+
 /* ============================================
-   4. SIDEBAR - Clean Navigation
+   4. SIDEBAR - Agent Factory Style
    ============================================ */
 
 .theme-doc-sidebar-container {
   border-right: 1px solid var(--color-border-light);
+  background: var(--gradient-sidebar);
+}
+
+.theme-doc-sidebar-container .theme-doc-sidebar {
+  background: transparent;
 }
 
 .menu {
@@ -293,11 +308,12 @@ h4 {
   font-size: 0.875rem;
   color: var(--color-text-secondary);
   transition: all var(--transition-fast);
+  position: relative;
 }
 
 .menu__link:hover {
-  color: var(--color-primary);
-  background: var(--gradient-card);
+  color: var(--color-primary-light);
+  background: var(--color-bg-tertiary);
 }
 
 .menu__link--active {
@@ -310,10 +326,11 @@ h4 {
 .menu__list-item-collapsible .menu__link {
   font-weight: 600;
   color: var(--color-text-primary);
+  background: transparent;
 }
 
 .menu__list-item-collapsible .menu__link:hover {
-  background: var(--gradient-card);
+  background: var(--color-bg-tertiary);
   color: var(--color-primary);
 }
 
@@ -321,10 +338,35 @@ h4 {
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
   color: var(--color-text-muted);
   padding-top: var(--space-4);
+  padding-bottom: var(--space-2);
+  background: transparent;
+}
+
+/* Sidebar Collapse Icons */
+.menu__caret {
+  color: var(--color-text-muted);
+  transition: transform var(--transition-fast);
+}
+
+.menu__list-item-collapsible .menu__link:hover .menu__caret {
+  color: var(--color-primary);
+}
+
+/* Active indicator dot */
+.menu__link--active::before {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: var(--color-primary);
+  border-radius: 0 2px 2px 0;
 }
 
 /* ============================================
@@ -393,10 +435,10 @@ h4 {
 }
 
 /* ============================================
-   7. CODE BLOCKS - macOS Style
+   7. CODE BLOCKS - macOS Style with Traffic Lights
    ============================================ */
 
-/* Code Block Container - macOS Window */
+/* Code Block Container */
 .prism-code {
   font-family: var(--font-mono) !important;
   font-size: 0.875rem !important;
@@ -407,37 +449,78 @@ h4 {
   overflow: hidden;
 }
 
-/* Code Block Header with Window Controls */
+/* Code Block Content Wrapper */
 .codeBlockContent_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
   border-radius: var(--radius-xl) !important;
   position: relative;
+  overflow: hidden;
 }
 
+/* macOS Window Header */
 .codeBlockContent_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 32px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+  height: 36px;
+  background: var(--gradient-header);
   border-bottom: 1px solid var(--color-border-light);
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   display: flex;
   align-items: center;
   padding: 0 var(--space-4);
+  z-index: 10;
 }
 
-/* Window Controls - Traffic Lights */
+/* macOS Traffic Light Controls */
 .codeBlockContent_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module::after {
-  content: '● ● ●';
+  content: '';
   position: absolute;
-  top: 10px;
+  top: 12px;
   left: 14px;
-  font-size: 10px;
-  letter-spacing: 4px;
-  line-height: 1;
-  z-index: 1;
+  width: 12px;
+  height: 12px;
+  background: var(--traffic-red);
+  border-radius: 50%;
+  box-shadow:
+    22px 0 0 var(--traffic-yellow),
+    44px 0 0 var(--traffic-green);
+  z-index: 11;
+  animation: trafficPulse 3s ease-in-out infinite;
+}
+
+@keyframes trafficPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Code Block Title */
+.codeBlockTitle_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
+  background: transparent !important;
+  border-bottom: none !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: var(--color-text-muted) !important;
+  padding-top: 12px !important;
+  padding-bottom: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  text-align: center !important;
+  z-index: 11;
+}
+
+/* Adjust code content to account for header */
+.codeBlockContent_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module .prism-code {
+  padding-top: 36px !important;
+  padding-left: var(--space-4) !important;
+  padding-right: var(--space-4) !important;
+  padding-bottom: var(--space-4) !important;
 }
 
 /* Inline Code */
@@ -451,26 +534,6 @@ code {
   font-weight: 500;
 }
 
-/* Code Title */
-.codeBlockTitle_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Content-styles-module {
-  background: transparent !important;
-  border-bottom: none !important;
-  font-family: var(--font-mono) !important;
-  font-size: 0.75rem !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  color: var(--color-text-muted) !important;
-  padding-top: 10px !important;
-  padding-bottom: 0 !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  text-align: center !important;
-  z-index: 1;
-}
-
 /* Copy Button */
 .copyButton_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-CopyButton-styles-module {
   background: var(--color-bg-tertiary) !important;
@@ -478,6 +541,9 @@ code {
   border-radius: var(--radius-md) !important;
   color: var(--color-text-secondary) !important;
   transition: all var(--transition-fast) !important;
+  top: 8px !important;
+  right: 14px !important;
+  z-index: 11 !important;
 }
 
 .copyButton_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-CopyButton-styles-module:hover {
@@ -730,7 +796,7 @@ tr:hover {
 }
 
 /* ============================================
-   15. ANIMATIONS
+   15. ANIMATIONS - Agent Factory Style
    ============================================ */
 
 /* Fade In */
@@ -781,6 +847,141 @@ tr:hover {
 
 .cursor-blink {
   animation: blink 1s step-end infinite;
+}
+
+/* Typing Dots Animation */
+@keyframes typingDot {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-4px); }
+}
+
+.typing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  margin: 0 2px;
+  animation: typingDot 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Scan Line Animation */
+@keyframes scanLine {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 20%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(59, 130, 246, 0.1) 50%,
+    transparent 100%
+  );
+  animation: scanLine 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Glow Ring */
+@keyframes glowRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.glow-ring {
+  position: relative;
+}
+
+.glow-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 2px solid var(--color-primary);
+  animation: glowRing 2s ease-out infinite;
+}
+
+/* Shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(59, 130, 246, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Bounce */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.bounce {
+  animation: bounce 1s ease infinite;
+}
+
+/* Fade In Scale */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fadeInScale {
+  animation: fadeInScale 0.3s ease forwards;
+}
+
+/* Hover Lift */
+.hover-lift {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Gradient Text Animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
 }
 
 /* ============================================
