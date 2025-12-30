@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics',
-  tagline: 'Bridge the Digital Brain and the Physical Body',
+  tagline: 'Build the Nervous System of Tomorrow\'s Machines',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -44,6 +44,13 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: 'docs',
+          // Enable last update
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: '2025 Edition',
+            },
+          },
         },
         blog: false,
         theme: {
@@ -57,7 +64,17 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
       respectPrefersColorScheme: true,
+    },
+    // Announcement bar
+    announcementBar: {
+      id: 'announcement',
+      content: '🚀 <b>New:</b> Complete ROS 2 Kilted Kaiju & Jetson Thor curriculum now available!',
+      backgroundColor: 'var(--color-accent-blue)',
+      textColor: '#ffffff',
+      isCloseable: true,
     },
     navbar: {
       title: 'Physical AI & Humanoid Robotics',
@@ -65,6 +82,8 @@ const config: Config = {
         alt: 'Physical AI Logo',
         src: 'img/logo.svg',
       },
+      hideOnScroll: false,
+      style: 'dark',
       items: [
         {
           type: 'docSidebar',
@@ -73,9 +92,14 @@ const config: Config = {
           label: 'Textbook',
         },
         {
+          type: 'docsVersionDropdown',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/Muhammad-Junaid-Sajjad/Hackathon1',
           label: 'GitHub',
           position: 'right',
+          className: 'header-github-link',
         },
       ],
     },
@@ -86,19 +110,19 @@ const config: Config = {
           title: 'Modules',
           items: [
             {
-              label: 'Module 1: ROS 2',
+              label: 'Module 1: The Nervous System',
               to: '/docs/M1/C1/m1-c1-s1',
             },
             {
-              label: 'Module 2: Digital Twin',
+              label: 'Module 2: The Hallucination',
               to: '/docs/M2/C1/m2-c1-s1',
             },
             {
-              label: 'Module 3: NVIDIA Isaac',
+              label: 'Module 3: The Awakening',
               to: '/docs/M3/C1/m3-c1-s1',
             },
             {
-              label: 'Module 4: VLA Integration',
+              label: 'Module 4: The Embodiment',
               to: '/docs/M4/C1/m4-c1-s1',
             },
           ],
@@ -108,16 +132,49 @@ const config: Config = {
           items: [
             {
               label: 'GitHub Repository',
-              href: 'https://github.com/junaid/Hackathon-1',
+              href: 'https://github.com/Muhammad-Junaid-Sajjad/Hackathon1',
+            },
+            {
+              label: 'Hardware Budget Guide',
+              to: '/docs/hardware-budget-guide',
+            },
+            {
+              label: 'Deployment Checklists',
+              to: '/docs/deployment-checklists',
+            },
+          ],
+        },
+        {
+          title: 'Reference',
+          items: [
+            {
+              label: 'Glossary',
+              to: '/docs/glossary',
+            },
+            {
+              label: 'Self Assessment',
+              to: '/docs/self-assessment',
+            },
+            {
+              label: 'Benchmark Tables',
+              to: '/docs/benchmark-tables',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Textbook - Hackathon I. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics - Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'python', 'yaml', 'json', 'cmake'],
+    },
+    // Algolia DocSearch configuration
+    algolia: {
+      appId: 'YOUR_APP_ID',
+      apiKey: 'YOUR_SEARCH_API_KEY',
+      indexName: 'your_index_name',
+      contextualSearch: true,
     },
   } satisfies Preset.ThemeConfig,
 };
