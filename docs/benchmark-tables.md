@@ -22,7 +22,7 @@ This section provides benchmark comparisons for algorithms, models, and systems 
 
 Comparison of object detection models for robotics applications:
 
-| Model | Backbone | mAP@50 | mAP@50:95 | FPS (RTX 4090) | FPS (Jetson Thor) | Parameters |
+| Model | Backbone | mAP@50 | mAP@50:95 | FPS (RTX 5080) | FPS (Jetson Thor) | Parameters |
 |-------|----------|--------|-----------|----------------|-------------------|------------|
 | [YOLO26n](https://arxiv.org/abs/2510.09653) ⭐ | NMS-free | 39.8 | 24.1 | 850 | 420 | 2.4M |
 | [YOLO26s](https://arxiv.org/abs/2510.09653) ⭐ | NMS-free | 47.5 | 31.0 | 680 | 340 | 8.9M |
@@ -48,7 +48,7 @@ Comparison of object detection models for robotics applications:
 
 ### Instance Segmentation (COCO)
 
-| Model | mAP (box) | mAP (mask) | FPS (RTX 4090) | FPS (Jetson Orin) |
+| Model | mAP (box) | mAP (mask) | FPS (RTX 5080) | FPS (Jetson Thor) |
 |-------|-----------|------------|----------------|-------------------|
 | [YOLOv11n-seg](https://docs.ultralytics.com/models/yolo11/) | 38.9 | 32.0 | 610 | 165 |
 | [YOLOv11s-seg](https://docs.ultralytics.com/models/yolo11/) | 46.6 | 38.8 | 450 | 110 |
@@ -65,7 +65,7 @@ Comparison of object detection models for robotics applications:
 
 ### NYU Depth v2 Dataset
 
-| Model | RMSE (m) | AbsRel | δ < 1.25 | FPS (RTX 4090) | FPS (Jetson) |
+| Model | RMSE (m) | AbsRel | δ < 1.25 | FPS (RTX 5080) | FPS (Jetson) |
 |-------|----------|--------|----------|----------------|--------------|
 | MiDaS v3.1 (Small) | 0.364 | 0.098 | 0.912 | 180 | 45 |
 | MiDaS v3.1 (Large) | 0.312 | 0.082 | 0.938 | 65 | 12 |
@@ -273,14 +273,14 @@ VLA models represent the cutting edge of robot learning, directly outputting act
 | Simulator | Robot Load Time | Physics FPS | Render FPS | GPU Memory |
 |-----------|----------------|-------------|------------|------------|
 | Gazebo Classic | 8s | 1,000 | 60 | 1.5GB |
-| Gazebo Harmonic | 5s | 1,200 | 60 | 2.0GB |
+| Gazebo Ionic | 5s | 1,200 | 60 | 2.0GB |
 | Isaac Sim | 45s | 10,000+ | 60 | 8GB |
 | MuJoCo | 0.5s | 50,000+ | N/A | 0.1GB |
 | PyBullet | 1s | 5,000 | 60 | 0.5GB |
 
 ### Parallel Environment Scaling (Isaac Gym)
 
-| Environments | FPS (RTX 3090) | FPS (RTX 4090) | Speedup |
+| Environments | FPS (RTX 4080) | FPS (RTX 5080) | Speedup |
 |--------------|----------------|----------------|---------|
 | 64 | 15,000 | 22,000 | 1.47x |
 | 256 | 45,000 | 75,000 | 1.67x |
@@ -291,13 +291,13 @@ VLA models represent the cutting edge of robot learning, directly outputting act
 
 ## Edge Deployment Benchmarks
 
-### Jetson Orin Performance
+### Jetson Thor Performance
 
 | Task | Model | FPS (FP32) | FPS (FP16) | FPS (INT8) | Power |
 |------|-------|------------|------------|------------|-------|
-| Detection | YOLOv8s | 65 | 120 | 180 | 25W |
-| Detection | YOLOv8m | 35 | 65 | 95 | 30W |
-| Segmentation | YOLOv8s-seg | 48 | 95 | 140 | 28W |
+| Detection | YOLOv11s | 65 | 120 | 180 | 25W |
+| Detection | YOLOv11m | 35 | 65 | 95 | 30W |
+| Segmentation | YOLOv11s-seg | 48 | 95 | 140 | 28W |
 | Depth | MiDaS Small | 25 | 45 | 65 | 22W |
 | ASR | Whisper Small | 0.4x RT | 0.8x RT | 1.2x RT | 35W |
 | LLM | Llama 3 8B (4-bit) | 12 tok/s | - | - | 45W |

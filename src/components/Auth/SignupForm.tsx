@@ -23,7 +23,7 @@ interface SignupFormProps {
 
 const HARDWARE_OPTIONS = [
   { id: 'jetson-nano', label: 'NVIDIA Jetson Nano' },
-  { id: 'jetson-orin', label: 'NVIDIA Jetson Orin' },
+  { id: 'jetson-thor', label: 'NVIDIA Jetson Thor' },
   { id: 'realsense', label: 'Intel RealSense Camera' },
   { id: 'lidar', label: 'LiDAR Sensor' },
   { id: 'robot-arm', label: 'Robot Arm (any)' },

@@ -18,7 +18,7 @@ These checklists ensure safe, reliable deployment of Physical AI and humanoid ro
 Before beginning hardware integration:
 
 - [ ] **ROS 2 Humble** installed and tested (`ros2 doctor`)
-- [ ] **Gazebo Harmonic** launches without errors
+- [ ] **Gazebo Ionic** launches without errors
 - [ ] **Isaac Sim** runs smoothly (if using NVIDIA sim)
 - [ ] All **Python dependencies** installed in virtual environment
 - [ ] **CUDA** and **cuDNN** versions match PyTorch requirements

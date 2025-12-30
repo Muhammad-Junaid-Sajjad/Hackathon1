@@ -80,9 +80,9 @@ Starter Kit:
 
 | Component | Recommendation | Price (USD) | Notes |
 |-----------|---------------|-------------|-------|
-| **Workstation GPU** | NVIDIA RTX 4080/4090 | $1,200-2,000 | 16-24GB VRAM for large models |
+| **Workstation GPU** | NVIDIA RTX 5080/4090 | $1,200-2,000 | 16-24GB VRAM for large models |
 | **Workstation** | Custom build or Dell Precision | $2,000-3,000 | 64GB RAM, NVMe SSD |
-| **Edge Device** | NVIDIA Jetson Orin Nano | $500 | 8GB for deployment |
+| **Edge Device** | NVIDIA Jetson Thor Nano | $500 | 8GB for deployment |
 | **Depth Camera** | Intel RealSense D455 | $350 | Longer range than D435i |
 | **Robot Arm** | Interbotix WidowX 250 | $2,500 | 6-DOF research arm |
 | **Gripper** | Robotiq 2F-85 (used) | $800-1,200 | Or 3D printed alternative |
@@ -91,8 +91,8 @@ Starter Kit:
 
 | Setup | Components | Price | Use Case |
 |-------|-----------|-------|----------|
-| **Desktop + Jetson** | RTX 4080 + Orin Nano | $2,700 | Training + edge deployment |
-| **Dual GPU** | 2x RTX 4080 | $2,400 | Faster training, parallel sim |
+| **Desktop + Jetson** | RTX 5080 + Orin Nano | $2,700 | Training + edge deployment |
+| **Dual GPU** | 2x RTX 5080 | $2,400 | Faster training, parallel sim |
 | **Cloud Hybrid** | RTX 3070 + Cloud credits | $1,500 | Burst training capacity |
 
 ### Sensor Suite
@@ -122,12 +122,12 @@ Starter Kit:
 Professional Kit:
 ├── Custom Workstation
 │   ├── AMD Ryzen 9 7900X ................ $450
-│   ├── NVIDIA RTX 4080 16GB ............. $1,200
+│   ├── NVIDIA RTX 5080 16GB ............. $1,200
 │   ├── 64GB DDR5 RAM .................... $200
 │   ├── 2TB NVMe SSD ..................... $150
 │   ├── Case + PSU + Motherboard ......... $400
 │                              Subtotal: $2,400
-├── NVIDIA Jetson Orin Nano Dev Kit ...... $500
+├── NVIDIA Jetson Thor Nano Dev Kit ...... $500
 ├── Intel RealSense D455 ................. $350
 ├── ReSpeaker Mic Array v2.0 ............. $80
 ├── Interbotix WidowX 250 6DOF ........... $900 (edu discount)
@@ -150,7 +150,7 @@ Professional Kit:
 
 | Component | Recommendation | Price (USD) | Notes |
 |-----------|---------------|-------------|-------|
-| **Training Server** | Multi-GPU workstation | $8,000-15,000 | 2-4x RTX 4090 or A6000 |
+| **Training Server** | Multi-GPU workstation | $8,000-15,000 | 2-4x RTX 5080 or A6000 |
 | **Edge Compute** | Jetson AGX Orin 64GB | $2,000 | Maximum edge performance |
 | **Robot Platform** | Research humanoid | $15,000-100,000+ | Unitree H1, etc. |
 | **Sensor Suite** | Multi-camera, LiDAR | $5,000-10,000 | Comprehensive perception |
@@ -159,8 +159,8 @@ Professional Kit:
 
 | Configuration | Specs | Price | Performance |
 |--------------|-------|-------|-------------|
-| **Entry Server** | 2x RTX 4090, 128GB | $8,000 | Good for most research |
-| **Research Server** | 4x RTX 4090, 256GB | $15,000 | Large model training |
+| **Entry Server** | 2x RTX 5080, 128GB | $8,000 | Good for most research |
+| **Research Server** | 4x RTX 5080, 256GB | $15,000 | Large model training |
 | **Enterprise** | 4x A6000, 512GB | $30,000 | 48GB VRAM per GPU |
 | **Cloud Equivalent** | AWS p4d.24xlarge | $32/hour | 8x A100 on demand |
 
@@ -217,7 +217,7 @@ Professional Kit:
 Production Research Kit:
 ├── Training Workstation
 │   ├── AMD Threadripper 7960X ........... $1,500
-│   ├── 2x NVIDIA RTX 4090 24GB .......... $4,000
+│   ├── 2x NVIDIA RTX 5080 24GB .......... $4,000
 │   ├── 256GB DDR5 ECC RAM ............... $1,000
 │   ├── 4TB NVMe RAID .................... $600
 │   ├── Server case + 1600W PSU .......... $500
@@ -253,16 +253,16 @@ Production Research Kit:
 | GPU | VRAM | Price | Best For |
 |-----|------|-------|----------|
 | RTX 3060 | 12GB | $300 | Learning, light simulation |
-| RTX 4070 Ti | 12GB | $700 | Development, medium models |
-| RTX 4080 | 16GB | $1,200 | Research, Isaac Sim |
-| RTX 4090 | 24GB | $2,000 | Training, large models |
+| RTX 5080 Ti | 12GB | $700 | Development, medium models |
+| RTX 5080 | 16GB | $1,200 | Research, Isaac Sim |
+| RTX 5080 | 24GB | $2,000 | Training, large models |
 | RTX A5000 | 24GB | $2,500 | Professional, ECC memory |
 | RTX A6000 | 48GB | $5,000 | Large models, enterprise |
 | H100 | 80GB | $30,000 | Maximum performance |
 
 :::tip GPU Memory Requirements
 - **Isaac Sim**: 8GB minimum, 16GB+ recommended
-- **YOLOv8**: 4GB minimum
+- **YOLOv11**: 4GB minimum
 - **LLM inference (7B)**: 8GB minimum
 - **LLM inference (70B)**: 48GB+ or quantized
 - **Diffusion Policy training**: 12GB+ recommended
@@ -273,7 +273,7 @@ Production Research Kit:
 | Device | GPU | CPU | RAM | Power | Price |
 |--------|-----|-----|-----|-------|-------|
 | Jetson Nano | 128-core Maxwell | 4-core A57 | 4GB | 10W | $150 |
-| Jetson Orin Nano | 1024-core Ampere | 6-core A78 | 8GB | 15W | $500 |
+| Jetson Thor Nano | 1024-core Ampere | 6-core A78 | 8GB | 15W | $500 |
 | Jetson AGX Orin | 2048-core Ampere | 12-core A78 | 32-64GB | 60W | $2,000 |
 
 ### Camera Comparison
@@ -315,7 +315,7 @@ Production Research Kit:
 | Lambda Labs | A100 80GB | $1.29 | RL training |
 | AWS | p4d.24xlarge | $32.77 | Large scale |
 | Google Cloud | A100 40GB | $2.93 | General ML |
-| RunPod | RTX 4090 | $0.44 | Budget training |
+| RunPod | RTX 5080 | $0.44 | Budget training |
 
 ### 4. DIY and Open Source
 

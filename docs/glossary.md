@@ -276,7 +276,7 @@ The set of force directions that can be applied at a contact point without slipp
 One complete sequence of leg movements during walking, from heel strike to the next heel strike of the same foot.
 
 ### Gazebo
-An open-source robotics simulator providing physics, sensors, and 3D visualization. Gazebo Harmonic is the latest version.
+An open-source robotics simulator providing physics, sensors, and 3D visualization. Gazebo Ionic is the latest version.
 
 ### Gaze Estimation
 Determining where a person is looking, used for human-robot interaction and attention-aware behavior.

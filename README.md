@@ -116,7 +116,7 @@ Reusable AI skills for development:
 
 ### Prerequisites
 - Node.js 20+
-- Python 3.10+
+- Python 3.11+
 - npm or yarn
 
 ### Frontend Setup

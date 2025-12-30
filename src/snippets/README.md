@@ -4,7 +4,7 @@ This directory contains Python code examples and ROS 2 configurations referenced
 
 ## Structure
 
-- `ros2/` - ROS 2 Humble code examples (nodes, launch files, URDF/Xacro files)
+- `ros2/` - ROS 2 Kilted Kaiju code examples (nodes, launch files, URDF/Xacro files)
 - `gazebo/` - Gazebo simulation configurations and plugins
 - `isaac/` - NVIDIA Isaac Sim and Isaac ROS examples
 - `vla/` - Vision-Language-Action integration code (Whisper, LLM, behavior trees)
@@ -30,7 +30,7 @@ All Python code follows:
 - PEP 8 style guidelines
 - Type hints for function signatures
 - Docstrings for all public functions/classes
-- ROS 2 Humble API conventions
+- ROS 2 Kilted Kaiju API conventions
 - Inline comments for complex logic
 
 All bash scripts include:
