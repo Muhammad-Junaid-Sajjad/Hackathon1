@@ -347,7 +347,7 @@ function FeaturesSection() {
   ];
 
   return (
-    <section className={styles.featuresSection}>
+    <section id="github-options" className={styles.featuresSection}>
       <div className={styles.sectionContainer}>
         <div className={styles.sectionHeader}>
           <span className={styles.sectionBadge}>Features</span>
@@ -442,7 +442,7 @@ function ModulesSection() {
 // AI Features section
 function AIFeaturesSection() {
   return (
-    <section className={styles.aiSection}>
+    <section id="free-account" className={styles.aiSection}>
       <div className={styles.sectionContainer}>
         <div className={styles.aiContent}>
           <div className={styles.aiText}>

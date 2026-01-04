@@ -96,10 +96,10 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/Muhammad-Junaid-Sajjad/Hackathon1',
+          href: '#github-options',
           position: 'right',
           className: 'header-github-link',
-          'aria-label': 'GitHub repository',
+          'aria-label': 'GitHub repository options',
         },
         {
           href: '#free-account',
