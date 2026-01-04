@@ -572,22 +572,6 @@ function RobotShowcaseItem({ name, src, delay }: { name: string; src: string; de
 
 // Robot Showcase Section
 function RobotShowcase() {
-  const robots = [
-    {
-      name: 'Figure 02',
-      src: 'https://www.youtube.com/embed/Q5XNoIK8nbM?si=En9nm_XQZ6_X_X_X', // Placeholder - realistic embed
-      delay: 100,
-    },
-    {
-      name: 'Unitree G1',
-      src: 'https://www.youtube.com/embed/-e1_QhJ1X6U?si=En9nm_XQZ6_X_X_X', // Placeholder - realistic embed
-    },
-    {
-      name: 'Apptronik Apollo',
-      src: 'https://www.youtube.com/embed/vsc_vsc_vsc', // Placeholder
-    }
-  ];
-
   return (
     <section className={styles.showcaseSection}>
       <div className={styles.sectionContainer}>
@@ -598,13 +582,12 @@ function RobotShowcase() {
             <span className={styles.gradientText}> 2025 Generation</span>
           </h2>
           <p className={styles.sectionSubtitle}>
-            Witness the physical manifestation of the digital brain.
-            Our curriculum integrates with the leading humanoid platforms on earth.
+            Witness the physical manifestation of the digital brain. Our curriculum integrates with the leading humanoid platforms on earth.
           </p>
         </div>
-        <div className={styles.robotGrid}>
+        <div id="video-showcase" className={styles.robotGrid}>
           <RobotShowcaseItem name="Figure 02" src="https://www.youtube.com/embed/Q5XNoIK8nbM" delay={100} />
-          <RobotShowcaseItem name="Unitree G1" src="https://www.youtube.com/embed/-e1_QhJ1X6U" delay={300} />
+          <RobotShowcaseItem name="Unitree G1" src="https://www.youtube.com/embed/Me8_vofae98" delay={300} />
           <RobotShowcaseItem name="Tesla Optimus Gen 2" src="https://www.youtube.com/embed/cpraXaw7dyc" delay={500} />
         </div>
       </div>
