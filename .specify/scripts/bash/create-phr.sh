@@ -13,7 +13,7 @@ set -euo pipefail
 #    → history/prompts/<spec-name>/
 #    → stages: spec, plan, tasks, red, green, refactor, explainer, misc
 #    → naming: 0001-title.spec.prompt.md
-#
+#  
 # 3. General stage (catch-all):
 #    → history/prompts/general/
 #    → stage: general

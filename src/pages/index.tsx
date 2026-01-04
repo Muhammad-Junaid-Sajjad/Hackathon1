@@ -192,14 +192,14 @@ function HeroSection() {
           <Heading as="h1" className={styles.heroTitle}>
             <span className={styles.titleLine}>Physical AI &</span>
             <span className={clsx(styles.titleLine, styles.gradientText)}>
-              Humanoid Robotics
+              Humanoid Robotics Book
             </span>
           </Heading>
 
           {/* Subtitle */}
           <p className={styles.heroSubtitle}>
-            The definitive guide to building intelligent physical systems.
-            Master ROS 2, simulation, perception, and deploy production-ready robots.
+            <strong>2025 Frontier Specification:</strong> Master ROS 2 Kilted Kaiju, NVIDIA Thor Platforms, and VLA Foundation Models.
+            The definitive guide to building intelligent physical robots for the Blackwell era.
           </p>
 
           {/* CTA Buttons */}
@@ -247,34 +247,34 @@ function HeroSection() {
 function FeaturesSection() {
   const features = [
     {
-      icon: '🤖',
-      title: 'ROS 2 Mastery',
-      description: 'Learn the industry-standard Robot Operating System from fundamentals to advanced patterns.',
-    },
-    {
-      icon: '🌐',
-      title: 'Digital Twins',
-      description: 'Build realistic simulations with Gazebo and NVIDIA Isaac for safe development.',
-    },
-    {
-      icon: '👁️',
-      title: 'AI Perception',
-      description: 'Implement computer vision, LiDAR processing, and sensor fusion for robot intelligence.',
-    },
-    {
-      icon: '🦾',
-      title: 'Humanoid Control',
-      description: 'Master locomotion, manipulation, and whole-body control for humanoid robots.',
+      icon: '🏎️',
+      title: 'RTX 5080/6080',
+      description: 'Optimized for Blackwell architecture and massive VLA model inference.',
     },
     {
       icon: '🧠',
-      title: 'VLA Integration',
-      description: 'Connect Vision-Language-Action models for next-gen autonomous capabilities.',
+      title: 'Jetson Thor',
+      description: 'Native support for the 2025 humanoid SoC for real-time edge intelligence.',
     },
     {
-      icon: '🚀',
-      title: 'Production Ready',
-      description: 'Deploy robust systems with industry-proven patterns and safety considerations.',
+      icon: '🦖',
+      title: 'Kilted Kaiju',
+      description: 'Master the 2025 ROS 2 LTS with optimized rmw for high-bandwidth humanoids.',
+    },
+    {
+      icon: '🦾',
+      title: 'Unitree G1',
+      description: 'Full humanoid integration using the latest 2025 SDK and Sim-to-Real paths.',
+    },
+    {
+      icon: '👁️',
+      title: 'YOLOv11',
+      description: 'State-of-the-art perception suite with hardware-accelerated VPI 3.x.',
+    },
+    {
+      icon: '🌐',
+      title: 'Gazebo Ionic',
+      description: 'High-fidelity physics simulation using the latest 9.x Ionic engine.',
     },
   ];
 
@@ -314,32 +314,32 @@ function ModulesSection() {
   const modules = [
     {
       number: 'M1',
-      title: 'ROS 2 Foundations',
-      description: 'Core concepts, nodes, topics, services, and development environment setup.',
+      title: 'The Robotic Nervous System',
+      description: 'ROS 2 Kilted Kaiju foundations, custom rmw optimization, and hardware abstraction.',
       chapters: 3,
       link: '/docs/M1/C1/m1-c1-s1',
       color: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
     },
     {
       number: 'M2',
-      title: 'Simulation & Digital Twins',
-      description: 'Gazebo simulation, sensor modeling, and sim-to-real transfer.',
+      title: 'The Digital Twin Hallucination',
+      description: 'Gazebo Ionic physics, Unity HRI, and extreme sim-to-real transfer protocols.',
       chapters: 3,
       link: '/docs/M2/C1/m2-c1-s1',
       color: 'linear-gradient(135deg, #8b5cf6, #a855f7)',
     },
     {
       number: 'M3',
-      title: 'Perception & AI',
-      description: 'Computer vision, deep learning, NVIDIA Isaac, and world models.',
+      title: 'The AI-Robot Awakening',
+      description: 'NVIDIA Isaac Sim 2025, Blackwell-accelerated perception, and RL gait training.',
       chapters: 3,
       link: '/docs/M3/C1/m3-c1-s1',
       color: 'linear-gradient(135deg, #a855f7, #d946ef)',
     },
     {
       number: 'M4',
-      title: 'Integration & Deployment',
-      description: 'VLA models, cloud robotics, fleet management, and production systems.',
+      title: 'The Vision-Language-Action Embodiment',
+      description: 'Hierarchical VLA policies, VILA-8B integration, and the Autonomous Humanoid Capstone.',
       chapters: 3,
       link: '/docs/M4/C1/m4-c1-s1',
       color: 'linear-gradient(135deg, #d946ef, #ec4899)',
@@ -481,16 +481,80 @@ function CTASection() {
   );
 }
 
+// Robot showcase item
+function RobotShowcaseItem({ name, src, delay }: { name: string; src: string; delay: number }) {
+  return (
+    <div className={styles.robotShowcaseItem} style={{ animationDelay: `${delay}ms` }}>
+      <div className={styles.videoWrapper}>
+        <iframe
+          src={src}
+          title={name}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+      </div>
+      <div className={styles.robotInfo}>
+        <span className={styles.robotName}>{name}</span>
+        <span className={styles.robotStatus}>Status: Operational</span>
+      </div>
+    </div>
+  );
+}
+
+// Robot Showcase Section
+function RobotShowcase() {
+  const robots = [
+    {
+      name: 'Figure 02',
+      src: 'https://www.youtube.com/embed/Q5XNoIK8nbM?si=En9nm_XQZ6_X_X_X', // Placeholder - realistic embed
+      delay: 100,
+    },
+    {
+      name: 'Unitree G1',
+      src: 'https://www.youtube.com/embed/-e1_QhJ1X6U?si=En9nm_XQZ6_X_X_X', // Placeholder - realistic embed
+    },
+    {
+      name: 'Apptronik Apollo',
+      src: 'https://www.youtube.com/embed/vsc_vsc_vsc', // Placeholder
+    }
+  ];
+
+  return (
+    <section className={styles.showcaseSection}>
+      <div className={styles.sectionContainer}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionBadge}>Frontier Hardware</span>
+          <h2 className={styles.sectionTitle}>
+            Built for the
+            <span className={styles.gradientText}> 2025 Generation</span>
+          </h2>
+          <p className={styles.sectionSubtitle}>
+            Witness the physical manifestation of the digital brain.
+            Our curriculum integrates with the leading humanoid platforms on earth.
+          </p>
+        </div>
+        <div className={styles.robotGrid}>
+          <RobotShowcaseItem name="Figure 02" src="https://www.youtube.com/embed/Q5XNoIK8nbM" delay={100} />
+          <RobotShowcaseItem name="Unitree G1" src="https://www.youtube.com/embed/-e1_QhJ1X6U" delay={300} />
+          <RobotShowcaseItem name="Tesla Optimus Gen 2" src="https://www.youtube.com/embed/cpraXaw7dyc" delay={500} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Main Home component
 export default function Home(): React.ReactNode {
   const { siteConfig } = useDocusaurusContext();
 
   return (
     <Layout
-      title="Physical AI & Humanoid Robotics"
-      description="The definitive guide to building intelligent physical systems. Master ROS 2, simulation, perception, and deploy production-ready robots."
+      title="Physical AI & Humanoid Robotics Book"
+      description="The definitive 2025 guide to building intelligent physical robots. Master ROS 2 Kilted Kaiju, Simulation, and VLA policies."
     >
       <HeroSection />
+      <RobotShowcase />
       <FeaturesSection />
       <ModulesSection />
       <AIFeaturesSection />

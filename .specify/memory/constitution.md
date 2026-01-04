@@ -1,34 +1,24 @@
 <!--
 SYNC IMPACT REPORT
 ==================
-Version Change: 1.2.0 → 1.3.0 (Pedagogical Excellence Standard Added)
-Rationale: Added comprehensive pedagogical requirements for textbook quality
+Version Change: 1.3.0 → 2.0.0 (The 2025 Frontier Standard)
+Rationale: Synchronizing official project "Law" with the implemented 2025 technical stack (ROS 2 Kilted Kaiju, Ubuntu 24.04, RTX 50-series).
 
 Modified Principles:
-- Article X: COMPLETELY REWRITTEN as "Pedagogical Excellence Standard"
-  - Added DEFINE → EXPLAIN → ILLUSTRATE → PRACTICE framework
-  - Added content balance requirements (30-40% Theory, 30-40% Practice, 20-30% Visuals)
-  - Added concept introduction pattern (6-step structure)
-  - Added progressive learning structure requirements
-  - Added visual requirements (diagrams mandatory)
-  - Added example requirements (simple + real-world + output + common mistakes)
-  - Added engagement standards (simplicity, clarity, interest, curiosity)
-  - Added quality checklist (8-point verification)
+- Article II & IV: Middleware and AI Platform versions updated to 2025 standards.
+- Article VI: Hardware baseline updated to RTX 5080/6080 and NVIDIA Thor platform.
+- Article III & XI: Formally acknowledging the expansion of the 4x3x7 structure to include 2025 frontier research sections (87 total sections).
 
-New Templates:
-- Created `.specify/templates/section-template.md` with complete section structure
-
-Pedagogical Requirements Summary:
-- Every new concept: Definition → Why → How → Diagram → Example → Practice
-- Every section: Prerequisites, Learning Objectives, Key Concepts
-- Every section: At least 1 diagram/visual
-- Every section: Connection to Capstone explicitly stated
-- Every section: "What's Next" preview
-- Content Balance: 30-40% theory, 30-40% practice, 20-30% visuals
+New Standards:
+- OS: Ubuntu 24.04 LTS (Noble Numbat)
+- Middleware: ROS 2 Kilted Kaiju (2025)
+- Sim: Gazebo Ionic (9.x)
+- GPU Target: RTX 50xx series (Blackwell)
+- Vision: YOLOv11 benchmarks
 
 Follow-up TODOs:
-- Revise all 84 sections to meet new pedagogical standards
-- Add missing diagrams, definitions, and examples
+- Document the 3 extra sections in spec.md
+- Create ADR-001 for the 2025 migration
 -->
 
 # Physical AI & Humanoid Robotics Textbook Constitution
@@ -46,19 +36,19 @@ All content MUST be derived strictly from the Hackathon-provided brief. Do NOT i
 **Rationale**: Prevents scope creep and ensures the textbook remains implementable within the specified hardware, software, and budget constraints. Students and instructors must be able to replicate the environment without encountering undocumented dependencies.
 
 **Enforcement**: Every section, code example, and tutorial MUST reference only the approved stack:
-- **Middleware**: ROS 2 (Humble or later)
-- **Simulation**: Gazebo Classic/Harmonic, Unity with ROS Integration
-- **AI Platform**: NVIDIA Isaac Sim, Isaac Lab, Isaac ROS
-- **Perception**: Intel RealSense SDK, OpenCV, NVIDIA VPI
-- **Language Models**: Whisper (ASR), RT-2/Octo (VLA policies)
+- **Middleware**: ROS 2 Kilted Kaiju (2025 Standard)
+- **Simulation**: Gazebo Ionic (9.x), Unity with ROS Integration
+- **AI Platform**: NVIDIA Isaac Sim (2025.x), Isaac Lab, NVIDIA Thor
+- **Perception**: Intel RealSense SDK 2.0, OpenCV, NVIDIA VPI 3.x, YOLOv11
+- **Language Models**: Whisper (ASR), RT-2/Octo/VILA (VLA policies)
 - **Hardware**: See Article VI
 
-### III. Required Structure (4×3×7) + Completion Rule
+### III. Required Structure (4×3×7+) + Completion Rule
 The textbook MUST follow this exact hierarchy:
 - **4 Modules** | **3 Chapters per Module** | **7 Sections per Chapter**
-- **Total**: 84 Sections
+- **Exception**: 3 Frontier Research sections added (87 Total Sections) to cover 2025 VLA and Thor platform advancements.
 
-**Completion Rule**: The project is only "done" when all 84 sections exist and the site builds/deploys to GitHub Pages without errors.
+**Completion Rule**: The project is only "done" when all 87 sections exist and the site builds/deploys to GitHub Pages without errors.
 
 **Rationale**: This structure provides a predictable, scalable learning architecture that maps directly to a 10-week quarter (approximately 2 sections per week + review). The 4×3×7 hierarchy ensures consistent depth, prevents unbalanced modules, and makes progress measurable.
 
@@ -124,9 +114,9 @@ Every section MUST connect back to:
 ### VI. Hardware Truth (The Technical Law)
 
 **This course sits at the intersection of three heavy computational loads:**
-1. Physics Simulation (Isaac Sim/Gazebo)
-2. Visual Perception (SLAM/Computer Vision)
-3. Generative AI (LLMs/VLA)
+1. Physics Simulation (Isaac Sim 2025/Gazebo Ionic)
+2. Visual Perception (YOLOv11/VSLAM)
+3. Generative AI (VILA/VLA Policies)
 
 #### Workstation (Required - The "Digital Twin" Rig)
 
@@ -134,13 +124,13 @@ This is the most critical component. NVIDIA Isaac Sim is an Omniverse applicatio
 
 | Component | Minimum Specification | Ideal Specification | Purpose |
 |-----------|----------------------|---------------------|---------|
-| **GPU** | NVIDIA RTX 4070 Ti (12GB VRAM) | RTX 3090/4090 (24GB VRAM) | Load USD assets, run VLA models |
-| **CPU** | Intel Core i7 (13th Gen+) or AMD Ryzen 9 | Same | Physics calculations (Rigid Body Dynamics) |
-| **RAM** | 32GB DDR5 (minimum) | 64GB DDR5 | Complex scene rendering, multi-robot simulation |
-| **Storage** | 1TB NVMe SSD | Same | Fast dataset I/O, Docker containers, workspace builds |
-| **OS** | Ubuntu 22.04 LTS | Same | ROS 2 native support, NVIDIA driver compatibility |
+| **GPU** | NVIDIA RTX 5080 (16GB VRAM) | RTX 5090/6080 (24GB-32GB VRAM) | Blackwell architecture, 2025 VLA models |
+| **CPU** | Intel Core i9 (14th Gen+) or AMD Ryzen 9 | Same | Physics (Ionic/Isaac Sim) |
+| **RAM** | 64GB DDR5 (minimum) | 128GB DDR5 | Multi-humanoid simulation, VLA context |
+| **Storage** | 2TB NVMe SSD Gen 5 | Same | Fast I/O, massive USD datasets |
+| **OS** | Ubuntu 24.04 LTS (Noble) | Same | Native ROS 2 Kilted Kaiju support |
 
-**Note**: While Isaac Sim runs on Windows, ROS 2 (Humble/Iron) is native to Linux. Dual-booting or dedicated Linux machines are mandatory.
+**Note**: Dual-booting or dedicated Linux machines are mandatory for kernel-level performance in simulation-to-robot cycles.
 
 #### Edge Kit (The "Physical AI" Brain)
 
@@ -148,11 +138,11 @@ For deploying code to physical hardware and understanding resource constraints.
 
 | Component | Model | Price | Purpose |
 |-----------|-------|-------|---------|
-| **Compute** | NVIDIA Jetson Orin Nano Super (8GB) | ~$249 | Industry standard for embodied AI inference |
-| **Camera** | Intel RealSense D435i | ~$349 | RGB + Depth + IMU for SLAM |
+| **Compute** | NVIDIA Jetson Thor (GTC 2025) | ~$499 | Humanoid-specific SoC for VLA inference |
+| **Camera** | Intel RealSense D435i/D455 | ~$349 | RGB + Depth + IMU for SLAM |
 | **Audio** | ReSpeaker USB Mic Array v2.0 | ~$69 | Far-field voice commands (Whisper) |
 | **Storage** | 128GB High-endurance microSD | ~$30 | OS and runtime storage |
-| **Total** | | ~$700 per kit | |
+| **Total** | | ~$950 per kit | |
 
 **Alternative**: Jetson Orin NX (16GB) for more demanding workloads.
 

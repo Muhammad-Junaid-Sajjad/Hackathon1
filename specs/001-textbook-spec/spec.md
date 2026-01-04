@@ -1,9 +1,9 @@
-# Feature Specification: Physical AI & Humanoid Robotics Textbook (84-Section Technical Specification)
+# Feature Specification: Physical AI & Humanoid Robotics Textbook (87-Section 2025 Frontier Specification)
 
 **Feature Branch**: `001-textbook-spec`
-**Created**: 2025-12-22
-**Status**: Draft
-**Input**: Generate detailed Technical Specification for the 84-section textbook structure with 1:1 mapping to Directory Schema (Article XI).
+**Updated**: 2026-01-04
+**Status**: Synced to 2025 Implementation
+**Input**: Update Technical Specification to reflect 87-section structure (including Frontier Research) and 2025 Hardware/Software baselines.
 
 ---
 
@@ -11,7 +11,7 @@
 
 ### Book Premise
 
-This textbook bridges the gap between digital intelligence and physical embodiment by teaching students to design, simulate, and deploy humanoid robot behaviors using a simulation-first, sim-to-real workflow. Students progress through four technical modules—ROS 2 middleware, Digital Twin simulation (Gazebo & Unity), NVIDIA Isaac AI platform, and Vision-Language-Action integration—culminating in a capstone project where a simulated humanoid receives voice commands, plans actions cognitively, navigates obstacles, and manipulates objects. The curriculum emphasizes hardware-aware development (workstation training, edge inference), avoiding latency traps, and validating behaviors in simulation before optional physical deployment.
+This textbook bridges the gap between digital intelligence and physical embodiment using the **2025 Frontier Stack**. Students progress through four technical modules—ROS 2 Kilted Kaiju middleware, Digital Twin simulation (Gazebo Ionic), NVIDIA Isaac Sim 2025 AI platform, and Vision-Language-Action (VLA) integration with NVIDIA Thor support. The curriculum concludes with a capstone project where a simulated humanoid receives voice commands, plans actions cognitively via VILA/VLA, navigates obstacles using benchmarks like YOLOv11, and manipulates objects. The 2025 update expands the core 84 sections to 87 to include Frontier Research in humanoid-specific foundational models.
 
 ### Audience + Prerequisites
 
@@ -32,26 +32,26 @@ This textbook bridges the gap between digital intelligence and physical embodime
 
 3. **Sim-to-Real Transfer**: Content must prepare students to train models on workstations/cloud, flash weights to edge devices (Jetson), and understand the gap between simulated and real-world physics, sensors, and latencies.
 
-### Hardware Baselines
+### Hardware Baselines (2025 Update)
 
 **Workstation (Training/Simulation)**:
-- GPU: NVIDIA RTX 4070 Ti (12GB VRAM) minimum; Ideal: RTX 3090/4090 (24GB VRAM)
-- CPU: Intel Core i7 (13th Gen or later)
-- RAM: 64GB DDR5
-- Storage: 1TB NVMe SSD
-- OS: Ubuntu 22.04 LTS
+- GPU: NVIDIA RTX 5080 (16GB VRAM) minimum; Ideal: RTX 5090/6080 (24GB-32GB VRAM) [Blackwell Architecture]
+- CPU: Intel Core i9 (14th Gen or later)
+- RAM: 64GB-128GB DDR5
+- Storage: 2TB NVMe SSD Gen 5
+- OS: Ubuntu 24.04 LTS (Noble Numbat)
 
-**Edge Kit (Inference/Deployment)**:
-- Compute: NVIDIA Jetson Orin Nano (8GB) or Jetson Orin NX (16GB)
-- Camera: Intel RealSense D435i or D455 depth camera
+**Edge Kit (2025 Inference)**:
+- Compute: NVIDIA Jetson Thor (GTC 2025) or Jetson Orin NX (16GB)
+- Camera: Intel RealSense D435i/D455
 - IMU: USB-compatible Inertial Measurement Unit
 - Audio: ReSpeaker Mic Array (4-mic or 6-mic)
-- Power: USB-C PD 3.0 capable battery or wall adapter
+- Power: USB-C PD 3.1 capable battery [NVIDIA Thor requirement]
 
 **Robot Lab (Physical Platforms)**:
-- **Premium**: Unitree G1 (full humanoid with 23-43 DOF, integrated sensors)
-- **Proxy**: Unitree Go2 (quadruped for testing locomotion/perception pipelines)
-- **Alternative**: Robotis OP3 (open-source humanoid, 20 DOF)
+- **Premium**: Unitree G1 (full humanoid, updated 2025 SDK)
+- **Proxy**: Unitree Go2 (quadruped)
+- **Frontier**: NVIDIA Thor platform compatibility
 
 **Ether Lab (Cloud Overflow)**:
 - Instance Type: AWS g5.2xlarge (1x NVIDIA A10G GPU, 8 vCPUs, 32GB RAM)

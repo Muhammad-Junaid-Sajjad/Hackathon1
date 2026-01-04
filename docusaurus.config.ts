@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Physical AI & Humanoid Robotics',
+  title: 'Physical AI & Humanoid Robotics Book',
   tagline: 'Build the Nervous System of Tomorrow\'s Machines',
   favicon: 'img/favicon.ico',
 
@@ -77,7 +77,7 @@ const config: Config = {
       isCloseable: true,
     },
     navbar: {
-      title: '🤖 Physical AI & Humanoid Robotics',
+      title: '🤖 Physical AI & Humanoid Robotics Book',
       logo: {
         alt: 'Physical AI Logo',
         src: 'img/logo.svg',
