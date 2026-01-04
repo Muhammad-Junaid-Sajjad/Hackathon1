@@ -166,7 +166,44 @@ function ModuleCard({
   );
 }
 
-// Interactive Book Component
+// Figure-style Robotic Face Component
+function RoboticFace() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      // Calculate normalized mouse position (-1 to 1)
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = (e.clientY / window.innerHeight) * 2 - 1;
+      setMousePos({ x, y });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  return (
+    <div className={styles.roboticFaceContainer} style={{
+      transform: `perspective(1000px) rotateY(${mousePos.x * 10}deg) rotateX(${mousePos.y * -10}deg)`
+    }}>
+      <div className={styles.roboticFace}>
+        <div className={styles.faceGlow} />
+        <div className={styles.eyeContainer}>
+          <div className={styles.roboticEye}>
+            <div className={styles.eyeIris} />
+            <div className={styles.eyePupil} />
+          </div>
+          <div className={styles.roboticEye}>
+            <div className={styles.eyeIris} />
+            <div className={styles.eyePupil} />
+          </div>
+        </div>
+        <div className={styles.breathingCore} />
+      </div>
+    </div>
+  );
+}
+
+// Interactive Book Component (Simplified for sequence)
 function InteractiveBook() {
   const [isActive, setIsActive] = useState(false);
   const [messageIndex, setMessageIndex] = useState(0);
@@ -186,7 +223,7 @@ function InteractiveBook() {
         setMessageIndex(0);
         setTimeout(() => setIsActive(false), 3000);
       }
-    }, 2000); // Greet 2 seconds after landing
+    }, 2000);
 
     return () => clearTimeout(autoGreetingTimer);
   }, []);
@@ -196,13 +233,10 @@ function InteractiveBook() {
     if (!isActive) {
       setIsActive(true);
       setMessageIndex(0);
-      // Sequence the messages
       setTimeout(() => setMessageIndex(1), 2000);
       setTimeout(() => setMessageIndex(2), 4000);
       setTimeout(() => setMessageIndex(3), 6000);
-      setTimeout(() => {
-        setIsActive(false);
-      }, 8000);
+      setTimeout(() => setIsActive(false), 8000);
     } else {
       setIsActive(false);
     }
@@ -213,14 +247,8 @@ function InteractiveBook() {
       className={clsx(styles.interactiveHero, isActive && styles.bookActive)}
       onClick={toggleBook}
     >
-      <div className={styles.bookWrapper}>
-        <div className={styles.book}>
-          <div className={styles.robotFace}>🤖</div>
-          <div className={styles.bookTitle}>
-            PHYSICAL AI &<br/>HUMANOID ROBOTICS
-          </div>
-          <div className={styles.bookYear}>2025 EDITION</div>
-        </div>
+      <div className={styles.heroVisualContent}>
+        <RoboticFace />
 
         <div className={styles.agentAvatar}>
           <div className={styles.robotFace}>✨🤖</div>
@@ -257,7 +285,7 @@ function HeroSection() {
           </div>
 
           {/* Title */}
-          <Heading as="h1" className={styles.heroTitle}>
+          <Heading as="h1" className={clsx(styles.heroTitle, styles.neonTitle)}>
             <span className={styles.titleLine}>Physical AI &</span>
             <span className={clsx(styles.titleLine, styles.gradientText)}>
               Humanoid Robotics Book

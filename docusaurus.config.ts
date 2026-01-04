@@ -77,11 +77,6 @@ const config: Config = {
       isCloseable: true,
     },
     navbar: {
-      title: '🤖 Physical AI & Humanoid Robotics Book',
-      logo: {
-        alt: 'Physical AI Logo',
-        src: 'img/logo.svg',
-      },
       hideOnScroll: false,
       style: 'dark',
       items: [

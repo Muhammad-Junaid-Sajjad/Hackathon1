@@ -150,12 +150,14 @@
 }
 
 /* Title */
-.heroTitle {
-  font-size: 4rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.03em;
+.neonTitle {
+  text-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+  animation: neonPulse 4s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% { text-shadow: 0 0 20px rgba(59, 130, 246, 0.2); }
+  50% { text-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
 }
 
 .titleLine {
@@ -305,71 +307,118 @@
 }
 
 /* Interactive Book & Agent */
-.interactiveHero {
+/* Robotic Face Styles */
+.roboticFaceContainer {
+  position: relative;
+  width: 400px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 1000px;
-  cursor: pointer;
-  position: relative;
-  width: 100%;
-  height: 450px;
-}
-
-.bookWrapper {
-  position: relative;
-  width: 280px;
-  height: 380px;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.1s ease-out;
   transform-style: preserve-3d;
 }
 
-.bookActive .bookWrapper {
-  transform: rotateY(-30deg) translateZ(50px);
-}
-
-.book {
+.roboticFace {
   position: relative;
-  width: 100%;
-  height: 100%;
-  background: var(--gradient-primary);
-  border-radius: 4px 16px 16px 4px;
-  box-shadow: 20px 20px 60px rgba(0,0,0,0.5);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0f 100%);
+  border-radius: 50% 50% 45% 45%;
+  border: 4px solid rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 0 50px rgba(59, 130, 246, 0.2),
+    inset 0 0 30px rgba(59, 130, 246, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
-  text-align: center;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
+  animation: breathing 4s ease-in-out infinite;
 }
 
-.book::before {
-  content: '';
+.faceGlow {
   position: absolute;
-  left: 10px;
   top: 0;
+  left: 0;
+  right: 0;
   bottom: 0;
-  width: 2px;
-  background: rgba(255,255,255,0.2);
+  background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
 }
 
-.bookTitle {
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-top: 1rem;
+.eyeContainer {
+  display: flex;
+  gap: 60px;
+  margin-bottom: 20px;
+  z-index: 2;
 }
 
-.bookYear {
+.roboticEye {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: #0a0a0f;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+.eyeIris {
+  width: 20px;
+  height: 20px;
+  background: #3b82f6;
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: eyePulse 3s ease-in-out infinite;
+}
+
+.eyePupil {
   position: absolute;
-  bottom: 2rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.6);
-  letter-spacing: 0.2em;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px white;
+}
+
+.breathingCore {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+  border-radius: 2px;
+  opacity: 0.5;
+  filter: blur(1px);
+  animation: corePulse 4s ease-in-out infinite;
+}
+
+@keyframes breathing {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.02) translateY(-5px); }
+}
+
+@keyframes eyePulse {
+  0%, 100% { opacity: 1; transform: scale(1); filter: blur(2px); }
+  50% { opacity: 0.8; transform: scale(1.1); filter: blur(4px); }
+}
+
+@keyframes corePulse {
+  0%, 100% { opacity: 0.3; width: 40px; }
+  50% { opacity: 0.8; width: 80px; }
+}
+
+.heroVisualContent {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookActive .heroVisualContent {
+  transform: translateX(-50px);
 }
 
 /* Agent Avatar */
