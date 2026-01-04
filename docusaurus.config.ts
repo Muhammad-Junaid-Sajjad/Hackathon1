@@ -71,7 +71,7 @@ const config: Config = {
     // Announcement bar - Agent Factory Style
     announcementBar: {
       id: 'announcement',
-      content: '🚀 <b>New:</b> Complete ROS 2 Kilted Kaiju & Jetson Thor curriculum now available!',
+      content: '🚀 <b>New:</b> Complete ROS 2 Kilted Kaiju & Jetson Thor curriculum for 2026 now available!',
       backgroundColor: 'var(--color-bg-tertiary)',
       textColor: 'var(--color-text-primary)',
       isCloseable: true,

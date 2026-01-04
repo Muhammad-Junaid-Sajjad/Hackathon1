@@ -166,15 +166,23 @@ function ModuleCard({
   );
 }
 
-// Figure-style Robotic Face Component
-function RoboticFace() {
+// Neural Network / Nervous System Animation Component
+function NervousSystemVisual() {
+  const [nodes, setNodes] = useState<{ x: number; y: number; id: number }[]>([]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    // Generate static nodes
+    const initialNodes = Array.from({ length: 15 }).map((_, i) => ({
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      id: i,
+    }));
+    setNodes(initialNodes);
+
     const handleMouseMove = (e: MouseEvent) => {
-      // Calculate normalized mouse position (-1 to 1)
-      const x = (e.clientX / window.innerWidth) * 2 - 1;
-      const y = (e.clientY / window.innerHeight) * 2 - 1;
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
       setMousePos({ x, y });
     };
     window.addEventListener('mousemove', handleMouseMove);
@@ -182,81 +190,95 @@ function RoboticFace() {
   }, []);
 
   return (
-    <div className={styles.roboticFaceContainer} style={{
-      transform: `perspective(1000px) rotateY(${mousePos.x * 10}deg) rotateX(${mousePos.y * -10}deg)`
-    }}>
-      <div className={styles.roboticFace}>
-        <div className={styles.faceGlow} />
-        <div className={styles.eyeContainer}>
-          <div className={styles.roboticEye}>
-            <div className={styles.eyeIris} />
-            <div className={styles.eyePupil} />
-          </div>
-          <div className={styles.roboticEye}>
-            <div className={styles.eyeIris} />
-            <div className={styles.eyePupil} />
-          </div>
-        </div>
-        <div className={styles.breathingCore} />
-      </div>
+    <div className={styles.nervousSystemContainer}>
+      <svg className={styles.neuralSvg} viewBox="0 0 100 100">
+        {/* Connection lines */}
+        {nodes.map((node, i) =>
+          nodes.slice(i + 1).map((other) => {
+            const dist = Math.hypot(node.x - other.x, node.y - other.y);
+            if (dist < 30) {
+              return (
+                <line
+                  key={`${node.id}-${other.id}`}
+                  x1={node.x}
+                  y1={node.y}
+                  x2={other.x}
+                  y2={other.y}
+                  className={styles.neuralLine}
+                  style={{ opacity: 1 - dist / 30 }}
+                />
+              );
+            }
+            return null;
+          })
+        )}
+        {/* Interaction lines to mouse */}
+        {nodes.map((node) => {
+          const dist = Math.hypot(node.x - mousePos.x % 100, node.y - mousePos.y % 100);
+          if (dist < 20) {
+            return (
+              <line
+                key={`mouse-${node.id}`}
+                x1={node.x}
+                y1={node.y}
+                x2={mousePos.x % 100}
+                y2={mousePos.y % 100}
+                className={styles.mouseLine}
+                style={{ opacity: 1 - dist / 20 }}
+              />
+            );
+          }
+          return null;
+        })}
+        {/* Nodes */}
+        {nodes.map((node) => (
+          <circle
+            key={node.id}
+            cx={node.x}
+            cy={node.y}
+            r="1"
+            className={styles.neuralNode}
+          />
+        ))}
+      </svg>
+      <div className={styles.neuralGlow} />
     </div>
   );
 }
 
-// Interactive Book Component (Simplified for sequence)
-function InteractiveBook() {
+// Interactive Hero Wrapper
+function InteractiveHero() {
   const [isActive, setIsActive] = useState(false);
   const [messageIndex, setMessageIndex] = useState(0);
 
   const messages = [
-    "Hello! I am your AI Guide. 👋",
-    "Ready to explore the Future of Robotics?",
-    "Okay! Let's dive into the Book! 🚀",
-    "Closing data stream... see you inside!"
+    "System Initialized. 🧠",
+    "Robotic Nervous System Online. ⚡",
+    "Frontier 2026 Core Loaded. 🚀",
+    "Neural pathways active... Welcome."
   ];
 
-  // Auto-greeting effect
   useEffect(() => {
-    const autoGreetingTimer = setTimeout(() => {
-      if (!isActive) {
-        setIsActive(true);
-        setMessageIndex(0);
-        setTimeout(() => setIsActive(false), 3000);
-      }
-    }, 2000);
-
-    return () => clearTimeout(autoGreetingTimer);
+    const timer = setTimeout(() => {
+      setIsActive(true);
+      const interval = setInterval(() => {
+        setMessageIndex((prev) => (prev + 1) % messages.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }, 1000);
+    return () => clearTimeout(timer);
   }, []);
 
-  const toggleBook = (e?: React.MouseEvent) => {
-    if (e) e.preventDefault();
-    if (!isActive) {
-      setIsActive(true);
-      setMessageIndex(0);
-      setTimeout(() => setMessageIndex(1), 2000);
-      setTimeout(() => setMessageIndex(2), 4000);
-      setTimeout(() => setMessageIndex(3), 6000);
-      setTimeout(() => setIsActive(false), 8000);
-    } else {
-      setIsActive(false);
-    }
-  };
-
   return (
-    <div
-      className={clsx(styles.interactiveHero, isActive && styles.bookActive)}
-      onClick={toggleBook}
-    >
-      <div className={styles.heroVisualContent}>
-        <RoboticFace />
-
-        <div className={styles.agentAvatar}>
-          <div className={styles.robotFace}>✨🤖</div>
+    <div className={clsx(styles.interactiveHero, isActive && styles.heroActive)}>
+      <NervousSystemVisual />
+      <div className={styles.speechBubble}>
+        <div className={styles.typingIndicator}>
+          <span className="typing-dot" />
+          <span className="typing-dot" />
+          <span className="typing-dot" />
         </div>
-
-        <div className={styles.speechBubble}>
-          {messages[messageIndex]}
-        </div>
+        {messages[messageIndex]}
       </div>
     </div>
   );
@@ -294,7 +316,7 @@ function HeroSection() {
 
           {/* Subtitle */}
           <p className={styles.heroSubtitle}>
-            <strong>2025 Frontier Specification:</strong> Master ROS 2 Kilted Kaiju, NVIDIA Thor Platforms, and VLA Foundation Models.
+            <strong>2026 Frontier Specification:</strong> Master ROS 2 Kilted Kaiju, NVIDIA Thor Platforms, and VLA Foundation Models.
             The definitive guide to building intelligent physical robots for the Blackwell era.
           </p>
 
@@ -319,14 +341,14 @@ function HeroSection() {
           <div className={styles.heroStats}>
             <StatItem number="87" label="Sections" delay={200} />
             <StatItem number="4" label="Modules" delay={400} />
-            <StatItem number="2025" label="Edition" delay={600} />
+            <StatItem number="2026" label="Edition" delay={600} />
             <StatItem number="∞" label="Knowledge" delay={800} />
           </div>
         </div>
 
-        {/* Interactive Book Illustration */}
+        {/* Interactive Neural Visual */}
         <div className={styles.heroVisual}>
-          <InteractiveBook />
+          <InteractiveHero />
         </div>
       </div>
 
@@ -607,7 +629,7 @@ function RobotShowcase() {
           <span className={styles.sectionBadge}>Frontier Hardware</span>
           <h2 className={styles.sectionTitle}>
             Built for the
-            <span className={styles.gradientText}> 2025 Generation</span>
+            <span className={styles.gradientText}> 2026 Generation</span>
           </h2>
           <p className={styles.sectionSubtitle}>
             Witness the physical manifestation of the digital brain. Our curriculum integrates with the leading humanoid platforms on earth.
