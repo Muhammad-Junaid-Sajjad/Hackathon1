@@ -166,6 +166,74 @@ function ModuleCard({
   );
 }
 
+// Interactive Book Component
+function InteractiveBook() {
+  const [isActive, setIsActive] = useState(false);
+  const [messageIndex, setMessageIndex] = useState(0);
+
+  const messages = [
+    "Hello! I am your AI Guide. 👋",
+    "Ready to explore the Future of Robotics?",
+    "Okay! Let's dive into the Book! 🚀",
+    "Closing data stream... see you inside!"
+  ];
+
+  // Auto-greeting effect
+  useEffect(() => {
+    const autoGreetingTimer = setTimeout(() => {
+      if (!isActive) {
+        setIsActive(true);
+        setMessageIndex(0);
+        setTimeout(() => setIsActive(false), 3000);
+      }
+    }, 2000); // Greet 2 seconds after landing
+
+    return () => clearTimeout(autoGreetingTimer);
+  }, []);
+
+  const toggleBook = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    if (!isActive) {
+      setIsActive(true);
+      setMessageIndex(0);
+      // Sequence the messages
+      setTimeout(() => setMessageIndex(1), 2000);
+      setTimeout(() => setMessageIndex(2), 4000);
+      setTimeout(() => setMessageIndex(3), 6000);
+      setTimeout(() => {
+        setIsActive(false);
+      }, 8000);
+    } else {
+      setIsActive(false);
+    }
+  };
+
+  return (
+    <div
+      className={clsx(styles.interactiveHero, isActive && styles.bookActive)}
+      onClick={toggleBook}
+    >
+      <div className={styles.bookWrapper}>
+        <div className={styles.book}>
+          <div className={styles.robotFace}>🤖</div>
+          <div className={styles.bookTitle}>
+            PHYSICAL AI &<br/>HUMANOID ROBOTICS
+          </div>
+          <div className={styles.bookYear}>2025 EDITION</div>
+        </div>
+
+        <div className={styles.agentAvatar}>
+          <div className={styles.robotFace}>✨🤖</div>
+        </div>
+
+        <div className={styles.speechBubble}>
+          {messages[messageIndex]}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Hero section
 function HeroSection() {
   const { siteConfig } = useDocusaurusContext();
@@ -208,29 +276,29 @@ function HeroSection() {
               className={clsx('button', 'button--lg', styles.primaryButton)}
               to="/docs/M1/C1/m1-c1-s1"
             >
-              Start Learning
+              Start Reading
               <span className={styles.buttonIcon}>→</span>
             </Link>
             <Link
               className={clsx('button', 'button--lg', styles.secondaryButton)}
               to="/docs/glossary"
             >
-              Explore Content
+              Glossary
             </Link>
           </div>
 
           {/* Stats */}
           <div className={styles.heroStats}>
-            <StatItem number="84+" label="Sections" delay={200} />
+            <StatItem number="87" label="Sections" delay={200} />
             <StatItem number="4" label="Modules" delay={400} />
-            <StatItem number="200+" label="Terms" delay={600} />
+            <StatItem number="2025" label="Edition" delay={600} />
             <StatItem number="∞" label="Knowledge" delay={800} />
           </div>
         </div>
 
-        {/* Robot Illustration */}
+        {/* Interactive Book Illustration */}
         <div className={styles.heroVisual}>
-          <RobotIllustration />
+          <InteractiveBook />
         </div>
       </div>
 

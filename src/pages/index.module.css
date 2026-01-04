@@ -304,25 +304,145 @@
   letter-spacing: 0.05em;
 }
 
-/* Hero Visual - Robot */
-.heroVisual {
+/* Interactive Book & Agent */
+.interactiveHero {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeInUp 0.8s ease 0.3s forwards;
-  opacity: 0;
-}
-
-@media (max-width: 996px) {
-  .heroVisual {
-    display: none;
-  }
-}
-
-.robotContainer {
+  perspective: 1000px;
+  cursor: pointer;
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 450px;
+}
+
+.bookWrapper {
+  position: relative;
+  width: 280px;
+  height: 380px;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.bookActive .bookWrapper {
+  transform: rotateY(-30deg) translateZ(50px);
+}
+
+.book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: 4px 16px 16px 4px;
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.book::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.2);
+}
+
+.bookTitle {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-top: 1rem;
+}
+
+.bookYear {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.2em;
+}
+
+/* Agent Avatar */
+.agentAvatar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  background: #1a1a2e;
+  border: 3px solid var(--color-primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  box-shadow: 0 0 30px var(--color-primary-glow);
+}
+
+.bookActive .agentAvatar {
+  transform: translate(80px, -180px) scale(1);
+}
+
+.robotFace {
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Speech Bubble */
+.speechBubble {
+  position: absolute;
+  top: -240px;
+  right: -120px;
+  background: white;
+  color: #0a0a0f;
+  padding: 1rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  width: 200px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.speechBubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: white transparent transparent;
+}
+
+.bookActive .speechBubble {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+[data-theme='light'] .speechBubble {
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-light);
+}
+
+[data-theme='light'] .speechBubble::after {
+  border-color: var(--color-bg-elevated) transparent transparent;
 }
 
 .robotSvg {
