@@ -334,6 +334,13 @@ The platform successfully delivers a comprehensive educational experience for hu
 - **Industry Insights**: Real-world case studies and best practices
 - **Community Features**: Discussion forums and peer collaboration
 
+### New Interactive Homepage Features
+- **YouTube Video Showcase**: Embedded videos of Figure 02, Unitree G1, Tesla Optimus, and NVIDIA Blackwell
+- **Enhanced Module Cards**: 6 beautiful, equally-sized cards for M1-M4, Glossary, and Self-Assessment modules
+- **Animated VS Code Demo**: Real-time demonstration of code development with terminal interaction
+- **Interactive Elements**: Hover animations, dynamic routing, and responsive design
+- **Auto-cycling Demo**: Shows code snippets, agent interaction, and terminal output in a continuous loop
+
 ### Technical Features
 - **Responsive Design**: Works on all device sizes and platforms
 - **Offline Capability**: Progressive web app functionality
