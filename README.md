@@ -1,4 +1,4 @@
-# 🤖 Physical AI & Humanoid Robotics: The Revolutionary Digital Textbook
+# 🤖 Physical AI & Humanoid Robotics Book: The Revolutionary Digital Textbook
 
 <div align="center">
 
@@ -28,13 +28,11 @@
 
 ## 🎯 Project Overview
 
-**Project Title**: Physical AI & Humanoid Robotics: The Revolutionary Digital Textbook
-**Student Name(s)**: Muhammad Junaid Sajjad
-**Course Title / Code**: Advanced Robotics & AI Systems Development
+**Book Title**: Physical AI & Humanoid Robotics Book
+**Author**: Muhammad Junaid Sajjad
 **Institution**: Panaversity
-**Advisor**: Sir Junaid
 
-This groundbreaking project represents a revolutionary transformation in educational technology, moving from traditional bulky physical books to an optimized, interactive, AI-powered digital textbook experience. The platform delivers comprehensive coverage of Physical AI and Humanoid Robotics through a standardized documentation structure that ensures consistency while providing advanced interactive features including RAG-based AI assistance, real-time Q&A from book content, and immersive multimedia experiences.
+This groundbreaking digital textbook represents a revolutionary transformation in educational technology, moving from traditional bulky physical books to an optimized, interactive, AI-powered learning experience. The platform delivers comprehensive coverage of Physical AI and Humanoid Robotics through a standardized documentation structure that ensures consistency while providing advanced interactive features including RAG-based AI assistance, real-time Q&A from book content, and immersive multimedia experiences.
 
 ---
 
@@ -63,7 +61,7 @@ This groundbreaking project represents a revolutionary transformation in educati
   <img src="https://raw.githubusercontent.com/muhammad-junaid-sajjad/Hackathon1/main/static/img/ai-robot-concept.png" alt="AI Robot Concept" width="400">
 </div>
 
-This project presents a **revolutionary digital textbook** and intelligence platform for Physical AI and Humanoid Robotics, transforming traditional education from bulky physical books to an optimized, interactive learning experience. This pioneering platform bridges the gap between digital intelligence and embodied systems, representing the future of educational technology. The system implements a production-grade educational platform featuring ROS 2 Kilted Kaiju, NVIDIA Isaac Sim 2025, and Jetson Thor platforms, delivered through an AI-powered learning environment that revolutionizes how students interact with complex robotics concepts.
+This revolutionary digital textbook and intelligence platform for Physical AI and Humanoid Robotics transforms traditional education from bulky physical books to an optimized, interactive learning experience. This pioneering platform bridges the gap between digital intelligence and embodied systems, representing the future of educational technology. The system implements a production-grade educational platform featuring ROS 2 Kilted Kaiju, NVIDIA Isaac Sim 2025, and Jetson Thor platforms, delivered through an AI-powered learning environment that revolutionizes how students interact with complex robotics concepts.
 
 The solution addresses the critical challenge of teaching embodied intelligence through an **interactive, personalized learning experience** that combines theoretical knowledge with practical implementation. Unlike traditional textbooks that are limited to static content, this platform offers **real-time interaction** through its RAG-based AI chatbot that can answer questions directly from the book content, **personalized learning paths** that adapt to individual student needs, and **immersive multimedia experiences** that bring robotics concepts to life. Using advanced AI techniques including Retrieval-Augmented Generation (RAG), personalized content delivery, and real-time translation capabilities, the platform delivers a world-class educational experience that was impossible with traditional physical books.
 
@@ -1115,10 +1113,9 @@ Each learning module follows this standardized template:
   <img src="https://raw.githubusercontent.com/muhammad-junaid-sajjad/Hackathon1/main/static/img/acknowledgments.png" alt="Acknowledgments" width="500">
 </div>
 
-Special thanks to the Panaversity community for their support and guidance throughout this revolutionary project. The development of this groundbreaking digital textbook pioneers the transformation from traditional physical books to AI-powered interactive learning, setting new standards for educational technology globally. This achievement represents a collaborative effort to revolutionize how knowledge is accessed, consumed, and understood in the digital age. The platform demonstrates how standardized documentation templates can ensure consistency while enabling revolutionary features like RAG-based Q&A, real-time assistance, and personalized learning paths. Special recognition goes to the contributors of ROS 2, NVIDIA Isaac Sim, and the broader robotics community whose foundational work enables this next-generation educational advancement.
+Special thanks to the Panaversity community for their support throughout this revolutionary project. The development of this groundbreaking digital textbook pioneers the transformation from traditional physical books to AI-powered interactive learning, setting new standards for educational technology globally. This achievement represents an effort to revolutionize how knowledge is accessed, consumed, and understood in the digital age. The platform demonstrates how standardized documentation templates can ensure consistency while enabling revolutionary features like RAG-based Q&A, real-time assistance, and personalized learning paths. Special recognition goes to the contributors of ROS 2, NVIDIA Isaac Sim, and the broader robotics community whose foundational work enables this next-generation educational advancement.
 
 **Author**: Muhammad Junaid Sajjad
-**Advisor**: Sir Junaid
 **Institution**: Panaversity
 **Powered By**: Claude Opus 4.5 & Spec-Kit Plus
 
