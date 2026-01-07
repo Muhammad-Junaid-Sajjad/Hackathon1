@@ -664,6 +664,268 @@ function RobotShowcase() {
   );
 }
 
+// YouTube Video Showcase Item
+function YouTubeVideoItem({ title, videoId, delay }: { title: string; videoId: string; delay: number }) {
+  return (
+    <div className={styles.youtubeVideoItem} style={{ animationDelay: `${delay}ms` }}>
+      <div className={styles.videoWrapper}>
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title={title}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        ></iframe>
+      </div>
+      <div className={styles.videoInfo}>
+        <span className={styles.videoTitle}>{title}</span>
+      </div>
+    </div>
+  );
+}
+
+// Enhanced Module Card Component
+function EnhancedModuleCard({
+  number,
+  title,
+  description,
+  link,
+  color,
+  icon
+}: {
+  number: string;
+  title: string;
+  description: string;
+  link: string;
+  color: string;
+  icon: string;
+}) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <Link
+      to={link}
+      className={styles.enhancedModuleCard}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        background: color,
+        transform: isHovered ? 'translateY(-10px) scale(1.02)' : 'translateY(0) scale(1)',
+        transition: 'all 0.3s ease'
+      }}
+    >
+      <div className={styles.enhancedModuleContent}>
+        <div className={styles.enhancedModuleIcon}>{icon}</div>
+        <div className={styles.enhancedModuleText}>
+          <h3 className={styles.enhancedModuleTitle}>{title}</h3>
+          <p className={styles.enhancedModuleDescription}>{description}</p>
+        </div>
+        <div className={styles.enhancedModuleNumber}>{number}</div>
+      </div>
+    </Link>
+  );
+}
+
+// VS Code Animated Demo Component
+function VSCodeDemo() {
+  const [activeTab, setActiveTab] = useState('code');
+  const [terminalOpen, setTerminalOpen] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveTab(prev => prev === 'code' ? 'agent' : prev === 'agent' ? 'terminal' : 'code');
+      if (!terminalOpen && activeTab === 'terminal') {
+        setTerminalOpen(true);
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [terminalOpen, activeTab]);
+
+  return (
+    <div className={styles.vscodeDemo}>
+      <div className={styles.vscodeWindow}>
+        {/* VS Code Title Bar */}
+        <div className={styles.vscodeTitleBar}>
+          <div className={styles.vscodeTrafficLights}>
+            <div className={styles.trafficLight}></div>
+            <div className={styles.trafficLight}></div>
+            <div className={styles.trafficLight}></div>
+          </div>
+          <div className={styles.vscodeTitle}>physical-ai-book/main.py - Visual Studio Code</div>
+        </div>
+
+        {/* VS Code Tabs */}
+        <div className={styles.vscodeTabs}>
+          <div className={`${styles.vscodeTab} ${activeTab === 'code' ? styles.activeTab : ''}`}>
+            main.py
+          </div>
+          <div className={`${styles.vscodeTab} ${activeTab === 'agent' ? styles.activeTab : ''}`}>
+            agent.tsx
+          </div>
+        </div>
+
+        {/* VS Code Editor */}
+        <div className={styles.vscodeEditor}>
+          <pre className={styles.codeSnippet}>
+            <code>
+{`# Physical AI & Humanoid Robotics
+import rospy
+from geometry_msgs.msg import Twist
+
+class HumanoidController:
+    def __init__(self):
+        self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
+        rospy.init_node('humanoid_controller')
+
+    def move_forward(self):
+        twist = Twist()
+        twist.linear.x = 1.0
+        self.pub.publish(twist)
+
+if __name__ == '__main__':
+    controller = HumanoidController()
+    controller.move_forward()`}
+            </code>
+          </pre>
+        </div>
+
+        {/* VS Code Terminal */}
+        <div className={`${styles.vscodeTerminal} ${terminalOpen ? styles.terminalOpen : ''}`}>
+          <div className={styles.terminalHeader}>
+            <span>bash</span>
+          </div>
+          <div className={styles.terminalContent}>
+            <div className={styles.terminalLine}>
+              <span className={styles.terminalPrompt}>$</span>
+              <span className={styles.terminalCommand}>npm run build</span>
+            </div>
+            <div className={styles.terminalOutput}>
+              Compiled successfully!
+              <br />
+              ./src/App.js → ./dist/App.js
+            </div>
+            <div className={styles.terminalLine}>
+              <span className={styles.terminalPrompt}>$</span>
+              <span className={styles.terminalCommand}>roslaunch humanoid_bringup bringup.launch</span>
+            </div>
+            <div className={styles.terminalOutput}>
+              [INFO] [1234567890.123]: Humanoid robot initialized
+              <br />
+              [INFO] [1234567890.456]: Controllers loaded successfully
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Enhanced Content Section
+function EnhancedContentSection() {
+  return (
+    <section className={styles.enhancedContentSection}>
+      <div className={styles.sectionContainer}>
+        {/* Part 1: YouTube Videos */}
+        <div className={styles.youtubeSection}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionBadge}>Featured Videos</span>
+            <h2 className={styles.sectionTitle}>
+              Watch <span className={styles.gradientText}>Physical AI</span> in Action
+            </h2>
+            <p className={styles.sectionSubtitle}>
+              See the latest advancements in humanoid robotics and AI
+            </p>
+          </div>
+          <div className={styles.youtubeGrid}>
+            <YouTubeVideoItem title="Figure 02 Humanoid Robot" videoId="Q5XNoIK8nbM" delay={100} />
+            <YouTubeVideoItem title="Unitree G1 Walking Demo" videoId="Me8_vofae98" delay={300} />
+            <YouTubeVideoItem title="Tesla Optimus Gen 2" videoId="cpraXaw7dyc" delay={500} />
+            <YouTubeVideoItem title="NVIDIA Blackwell Architecture" videoId="JNVYEIzY6tg" delay={700} />
+          </div>
+        </div>
+
+        {/* Part 2: Enhanced Modules */}
+        <div className={styles.enhancedModulesSection}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionBadge}>Complete Curriculum</span>
+            <h2 className={styles.sectionTitle}>
+              Explore All <span className={styles.gradientText}>Learning Modules</span>
+            </h2>
+            <p className={styles.sectionSubtitle}>
+              From fundamentals to advanced topics
+            </p>
+          </div>
+          <div className={styles.enhancedModulesGrid}>
+            <EnhancedModuleCard
+              number="M1"
+              title="The Robotic Nervous System"
+              description="ROS 2 Kilted Kaiju foundations, custom rmw optimization, and hardware abstraction."
+              link="/docs/M1/C1/m1-c1-s1"
+              color="linear-gradient(135deg, #6366f1, #8b5cf6)"
+              icon="🧠"
+            />
+            <EnhancedModuleCard
+              number="M2"
+              title="The Digital Twin Hallucination"
+              description="Gazebo Ionic physics, Unity HRI, and extreme sim-to-real transfer protocols."
+              link="/docs/M2/C1/m2-c1-s1"
+              color="linear-gradient(135deg, #8b5cf6, #a855f7)"
+              icon="🔄"
+            />
+            <EnhancedModuleCard
+              number="M3"
+              title="The AI-Robot Awakening"
+              description="NVIDIA Isaac Sim 2025, Blackwell-accelerated perception, and RL gait training."
+              link="/docs/M3/C1/m3-c1-s1"
+              color="linear-gradient(135deg, #a855f7, #d946ef)"
+              icon="👁️"
+            />
+            <EnhancedModuleCard
+              number="M4"
+              title="The Vision-Language-Action Embodiment"
+              description="Hierarchical VLA policies, VILA-8B integration, and the Autonomous Humanoid Capstone."
+              link="/docs/M4/C1/m4-c1-s1"
+              color="linear-gradient(135deg, #d946ef, #ec4899)"
+              icon="🤖"
+            />
+            <EnhancedModuleCard
+              number="G"
+              title="Glossary"
+              description="Comprehensive terminology and definitions for robotics and AI concepts."
+              link="/docs/glossary"
+              color="linear-gradient(135deg, #ec4899, #f43f5e)"
+              icon="📖"
+            />
+            <EnhancedModuleCard
+              number="A"
+              title="Self Assessment"
+              description="Evaluate your knowledge and track your progress through interactive quizzes."
+              link="/docs/self-assessment"
+              color="linear-gradient(135deg, #f43f5e, #f97316)"
+              icon="🎯"
+            />
+          </div>
+        </div>
+
+        {/* Part 3: VS Code Demo */}
+        <div className={styles.vscodeDemoSection}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionBadge}>Live Demo</span>
+            <h2 className={styles.sectionTitle}>
+              Experience <span className={styles.gradientText}>Development</span> in Action
+            </h2>
+            <p className={styles.sectionSubtitle}>
+              Watch how our code comes to life in a real development environment
+            </p>
+          </div>
+          <VSCodeDemo />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Main Home component
 export default function Home(): React.ReactNode {
   const { siteConfig } = useDocusaurusContext();
@@ -698,9 +960,8 @@ export default function Home(): React.ReactNode {
       description="The definitive 2025 guide to building intelligent physical robots. Master ROS 2 Kilted Kaiju, Simulation, and VLA policies."
     >
       <HeroSection />
-      <RobotShowcase />
+      <EnhancedContentSection />
       <FeaturesSection />
-      <ModulesSection />
       <AIFeaturesSection />
       <CTASection />
 
