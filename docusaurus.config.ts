@@ -51,7 +51,7 @@ const config: Config = {
           lastVersion: 'current',
           versions: {
             current: {
-              label: '2025 Edition',
+              label: '2026 Edition',
             },
           },
         },
@@ -68,8 +68,8 @@ const config: Config = {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       defaultMode: 'dark',
-      disableSwitch: false,
-      respectPrefersColorScheme: true,
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
     },
     // Announcement bar - Agent Factory Style
     announcementBar: {

@@ -11,6 +11,8 @@ const VscodeInterface: React.FC = () => {
   const [activePanel, setActivePanel] = useState<string>('welcome');
   const [terminalLines, setTerminalLines] = useState<TerminalLine[]>([]);
   const [showSignIn, setShowSignIn] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+  const [typedContent, setTypedContent] = useState('');
   const [codePanels] = useState([
     { id: 'welcome', title: 'Welcome.md', content: '# Welcome to Physical AI & Humanoid Robotics Textbook\n\n2026 Edition\n\nThis project was generated using Claude Code + Qwen + SpecifyPlus.' },
     { id: 'app', title: 'App.tsx', content: 'import React from \'react\';\n\nconst App = () => {\n  return (\n    <div>\n      <h1>Physical AI & Humanoid Robotics</h1>\n      <p>2026 Edition</p>\n    </div>\n  );\n};\n\nexport default App;' },
@@ -20,17 +22,20 @@ const VscodeInterface: React.FC = () => {
 
   const terminalRef = useRef<HTMLDivElement>(null);
 
-  // Simulate terminal output
+  // Advanced Terminal Animation
   useEffect(() => {
     const commands = [
       { type: 'prompt', content: '$ ' },
-      { type: 'command', content: 'Building website through Qwen/Claude Code and SpecifyPlus...' },
-      { type: 'output', content: 'Compiling TypeScript files...' },
-      { type: 'output', content: 'Processing assets...' },
-      { type: 'output', content: 'Generating documentation...' },
-      { type: 'success', content: 'Project generated successfully!' },
-      { type: 'output', content: 'Entire website and project completed from 1 prompt' },
-      { type: 'success', content: 'Deployment ready!' }
+      { type: 'command', content: 'npm install' },
+      { type: 'output', content: 'added 1492 packages from 843 contributors and audited 1493 packages in 12s' },
+      { type: 'prompt', content: '$ ' },
+      { type: 'command', content: 'npm run build' },
+      { type: 'output', content: 'Creating an optimized production build...' },
+      { type: 'output', content: 'Compiled successfully.' },
+      { type: 'prompt', content: '$ ' },
+      { type: 'command', content: 'ros2 launch humanoid_robot world_launch.py' },
+      { type: 'output', content: '[INFO] [launch]: All nodes started [Controller, Vision, SensorFusion]' },
+      { type: 'success', content: 'System Status: 2026 Edition Embodiment Ready!' }
     ];
 
     let index = 0;
@@ -42,10 +47,8 @@ const VscodeInterface: React.FC = () => {
           content: commands[index].content
         }]);
         index++;
-      } else {
-        clearInterval(interval);
       }
-    }, 1500);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -57,6 +60,29 @@ const VscodeInterface: React.FC = () => {
     }
   }, [terminalLines]);
 
+  // Typing effect when panel changes
+  useEffect(() => {
+    const currentPanel = codePanels.find(p => p.id === activePanel);
+    if (!currentPanel) return;
+
+    setIsTyping(true);
+    setTypedContent('');
+    let i = 0;
+    const text = currentPanel.content;
+
+    const typingInterval = setInterval(() => {
+      if (i < text.length) {
+        setTypedContent(prev => prev + text.charAt(i));
+        i++;
+      } else {
+        setIsTyping(false);
+        clearInterval(typingInterval);
+      }
+    }, 20);
+
+    return () => clearInterval(typingInterval);
+  }, [activePanel]);
+
   // Rotate code panels
   useEffect(() => {
     const panelIds = ['welcome', 'app', 'styles', 'package'];
@@ -65,7 +91,7 @@ const VscodeInterface: React.FC = () => {
     const interval = setInterval(() => {
       currentIndex = (currentIndex + 1) % panelIds.length;
       setActivePanel(panelIds[currentIndex]);
-    }, 5000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, []);
@@ -73,89 +99,61 @@ const VscodeInterface: React.FC = () => {
   const currentPanel = codePanels.find(panel => panel.id === activePanel) || codePanels[0];
 
   return (
-    <div className="vscodeContainer">
+    <div className="vscodeContainer" style={{ height: '85vh', minHeight: '800px', width: '100%' }}>
       <div className="vscodeHeader">
         <div className="vscodeControls">
           <div className="vscodeControl close"></div>
           <div className="vscodeControl minimize"></div>
           <div className="vscodeControl maximize"></div>
         </div>
-        <div className="vscodeTitle">Physical AI & Humanoid Robotics Textbook - 2026 Edition</div>
+        <div className="vscodeTitle">Frontier 2026 IDE - Physical AI Core</div>
       </div>
 
       <div className="vscodeContent">
         <div className="splitScreen">
-          <div className="sidebarSplit">
+          <div className="sidebarSplit" style={{ width: '200px' }}>
             <div className="fileExplorer">
               <h4>EXPLORER</h4>
               <ul className="fileList">
-                <li onClick={() => setShowSignIn(false)}>Welcome.md</li>
-                <li onClick={() => setShowSignIn(false)}>App.tsx</li>
-                <li onClick={() => setShowSignIn(false)}>styles.css</li>
-                <li onClick={() => setShowSignIn(false)}>package.json</li>
+                {codePanels.map(panel => (
+                  <li
+                    key={panel.id}
+                    className={activePanel === panel.id ? 'active' : ''}
+                    onClick={() => { setActivePanel(panel.id); setShowSignIn(false); }}
+                  >
+                    {panel.title}
+                  </li>
+                ))}
                 <li onClick={() => setShowSignIn(true)} className={showSignIn ? 'active' : ''}>Sign In</li>
               </ul>
             </div>
-
-            <div className="fileExplorer">
-              <h4>PROJECT</h4>
-              <ul className="fileList">
-                <li>src/</li>
-                <li>docs/</li>
-                <li>public/</li>
-                <li>package.json</li>
-                <li>README.md</li>
-              </ul>
-            </div>
           </div>
 
-          <div className="contentSplit">
-            {showSignIn ? (
-              <div className="signInPage">
-                <div className="signInContainer">
-                  <h2 className="signInTitle">Sign In to Your Account</h2>
-                  <form className="signInForm">
-                    <div className="formGroup">
-                      <label htmlFor="email">Email</label>
-                      <input type="email" id="email" placeholder="Enter your email" />
-                    </div>
-                    <div className="formGroup">
-                      <label htmlFor="password">Password</label>
-                      <input type="password" id="password" placeholder="Enter your password" />
-                    </div>
-                    <button type="submit" className="signInButton">Sign In</button>
-                  </form>
-                  <p style={{ marginTop: '1rem', fontSize: '0.9rem', color: '#999' }}>
-                    Don't have an account? <a href="/auth/signup" style={{ color: '#007acc' }}>Sign Up</a>
-                  </p>
-                </div>
-              </div>
-            ) : (
-              <>
-                <div className="editorSplit">
-                  <pre className="codeEditor">
-                    <code>{currentPanel.content}</code>
-                  </pre>
-                </div>
+          <div className="contentSplit" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <div className="editorSplit" style={{ flex: 1, background: '#1e1e1e', padding: '1.5rem', overflow: 'auto' }}>
+              <pre className="codeEditor" style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
+                <code style={{ color: '#d4d4d4', fontFamily: 'var(--font-mono)' }}>
+                  {typedContent}
+                  {isTyping && <span className="terminalTyping">|</span>}
+                </code>
+              </pre>
+            </div>
 
-                <div className="terminalSplit" ref={terminalRef}>
-                  {terminalLines.map((line) => (
-                    <div key={line.id} className={`terminalLine terminal${line.type.charAt(0).toUpperCase() + line.type.slice(1)}`}>
-                      {line.type === 'prompt' && <span className="terminalPrompt">{line.content}</span>}
-                      {(line.type === 'command' || line.type === 'output') && <span className="terminalCommand">{line.content}</span>}
-                      {line.type === 'success' && <span className="terminalSuccess">{line.content}</span>}
-                      {line.type === 'error' && <span className="terminalError">{line.content}</span>}
-                    </div>
-                  ))}
+            <div className="terminalSplit" ref={terminalRef} style={{ height: '250px', background: '#0c0c0c', padding: '1rem', borderTop: '2px solid #333' }}>
+              {terminalLines.map((line) => (
+                <div key={line.id} className={`terminalLine terminal${line.type.charAt(0).toUpperCase() + line.type.slice(1)}`}>
+                  {line.type === 'prompt' && <span className="terminalPrompt" style={{ color: '#4ec9b0' }}>{line.content}</span>}
+                  {(line.type === 'command' || line.type === 'output') && <span className="terminalCommand" style={{ color: '#d4d4d4' }}>{line.content}</span>}
+                  {line.type === 'success' && <span className="terminalSuccess" style={{ color: '#4ec9b0' }}>{line.content}</span>}
+                  {line.type === 'error' && <span className="terminalError" style={{ color: '#f48771' }}>{line.content}</span>}
                 </div>
-              </>
-            )}
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Chatbot positioned in the bottom right corner */}
-        <div className="chatbotContainer">
-          <div className="chatHeader">AI Assistant</div>
+        <div className="chatbotContainer" style={{ zIndex: 100 }}>
+          <div className="chatHeader">2026 RAG Assistant</div>
           <div className="chatMessages">
             <Chatbot apiUrl="" />
           </div>

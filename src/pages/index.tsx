@@ -1025,6 +1025,7 @@ export default function Home(): React.ReactNode {
       title="Physical AI & Humanoid Robotics Book"
       description="The definitive 2026 guide to building intelligent physical robots. Master ROS 2 Kilted Kaiju, Simulation, and VLA policies."
     >
+      <HeroVideoSection />
       <HeroSection />
       <RobotShowcase />
       <VscodeInterface />
