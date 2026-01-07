@@ -19,6 +19,8 @@
     "@docusaurus/preset-classic": "3.9.2",
     "@mdx-js/react": "^3.0.0",
     "@react-spring/web": "^10.0.3",
+    "@react-three/drei": "^9.88.16",
+    "@react-three/fiber": "^8.17.10",
     "@types/three": "^0.182.0",
     "clsx": "^2.0.0",
     "dompurify": "^3.3.1",
