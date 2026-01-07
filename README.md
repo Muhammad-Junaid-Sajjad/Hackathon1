@@ -235,7 +235,7 @@ Traditional educational approaches cannot scale to meet the diverse needs of lea
 - **Page Load Time**: < 2 seconds average
 - **RAG Response Time**: < 1.5 seconds average
 - **Translation Speed**: Real-time processing
-- **Concurrent Users**: Tested up to 1000 simultaneous sessions
+- **Concurrent Users**: Tested up to 1000+ simultaneous sessions
 
 #### Content Quality
 - **Sections Completed**: 87+ comprehensive learning sections

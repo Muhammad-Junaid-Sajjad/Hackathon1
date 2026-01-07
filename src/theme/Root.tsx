@@ -9,8 +9,8 @@
  */
 
 import React from 'react';
-import { AuthProvider } from '@site/src/components/Auth/AuthContext';
-import Chatbot from '@site/src/components/Chatbot';
+import { AuthProvider } from '@site/src/components/Utils/AuthContext';
+import Chatbot from '@site/src/components/Widgets';
 
 // API URL from environment or default for development
 const API_URL = typeof window !== 'undefined'

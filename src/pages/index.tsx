@@ -12,6 +12,7 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
+import VscodeInterface from '@site/src/components/VscodeInterface';
 
 // Animated Robot SVG Component
 function RobotIllustration() {
@@ -654,10 +655,60 @@ function RobotShowcase() {
             Witness the physical manifestation of the digital brain. Our curriculum integrates with the leading humanoid platforms on earth.
           </p>
         </div>
-        <div id="video-showcase" className={styles.robotGrid}>
-          <RobotShowcaseItem name="Figure 02" src="https://www.youtube.com/embed/Q5XNoIK8nbM" delay={100} />
-          <RobotShowcaseItem name="Unitree G1" src="https://www.youtube.com/embed/Me8_vofae98" delay={300} />
-          <RobotShowcaseItem name="Tesla Optimus Gen 2" src="https://www.youtube.com/embed/cpraXaw7dyc" delay={500} />
+
+        {/* Featured Video: UBTECH Walker S2 - Full Width */}
+        <div className={styles.featuredVideoContainer}>
+          <div className={styles.videoWrapper}>
+            <iframe
+              src="https://www.youtube.com/embed/nzflxCHT4vw?autoplay=1&mute=1&loop=1&playlist=nzflxCHT4vw&controls=0&modestbranding=1"
+              title="UBTECH Walker S2 - World's First Mass Delivery of Humanoid Robot"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+
+        {/* Additional Small Videos Grid */}
+        <div className={styles.additionalVideosGrid}>
+          <div className={styles.smallVideoItem}>
+            <div className={styles.videoWrapperSmall}>
+              <iframe
+                src="https://www.youtube.com/embed/HOoRnv3lA0k"
+                title="Scaling Helix - Laundry"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div className={styles.videoLabel}>Scaling Helix - Laundry</div>
+          </div>
+
+          <div className={styles.smallVideoItem}>
+            <div className={styles.videoWrapperSmall}>
+              <iframe
+                src="https://www.youtube.com/embed/Eu5mYMavctM"
+                title="Introducing Figure 03"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div className={styles.videoLabel}>Introducing Figure 03</div>
+          </div>
+
+          <div className={styles.smallVideoItem}>
+            <div className={styles.videoWrapperSmall}>
+              <iframe
+                src="https://www.youtube.com/embed/n1Mi3ISXNjc"
+                title="Engine AI T800 vs Tesla Optimus V3 vs Figure 03 (AI NEWS)"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div className={styles.videoLabel}>AI News: T800 vs Optimus vs Figure 03</div>
+          </div>
         </div>
       </div>
     </section>
@@ -821,6 +872,75 @@ if __name__ == '__main__':
   );
 }
 
+// Robot Showcase Section
+function RobotShowcase() {
+  return (
+    <section className={`${styles.showcaseSection} ${styles.sectionAnimate}`}>
+      <div className={styles.sectionContainer}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionBadge}>Frontier Hardware</span>
+          <h2 className={styles.sectionTitle}>
+            Built for the
+            <span className={styles.gradientText}> 2026 Generation</span>
+          </h2>
+          <p className={styles.sectionSubtitle}>
+            Witness the physical manifestation of the digital brain. Our curriculum integrates with the leading humanoid platforms on earth.
+          </p>
+        </div>
+
+        {/* Featured Video: UBTECH Walker S2 - Full Width */}
+        <div className={styles.featuredVideoContainer}>
+          <div className={styles.videoWrapper}>
+            <iframe
+              src="https://www.youtube.com/embed/nzflxCHT4vw?autoplay=1&mute=1&loop=1&playlist=nzflxCHT4vw&controls=0&modestbranding=1"
+              title="UBTECH Walker S2 - World's First Mass Delivery of Humanoid Robot"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+
+        {/* Additional Small Videos Grid */}
+        <div className={styles.additionalVideos}>
+          <div className={styles.videoCard}>
+            <iframe
+              src="https://www.youtube.com/embed/HOoRnv3lA0k"
+              title="Scaling Helix - Laundry"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <h3>Scaling Helix - Laundry</h3>
+          </div>
+
+          <div className={styles.videoCard}>
+            <iframe
+              src="https://www.youtube.com/embed/Eu5mYMavctM"
+              title="Introducing Figure 03"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <h3>Introducing Figure 03</h3>
+          </div>
+
+          <div className={styles.videoCard}>
+            <iframe
+              src="https://www.youtube.com/embed/n1Mi3ISXNjc"
+              title="Engine AI T800 vs Tesla Optimus V3 vs Figure 03 (AI NEWS)"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <h3>AI News: T800 vs Optimus vs Figure 03</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Enhanced Content Section
 function EnhancedContentSection() {
   return (
@@ -957,9 +1077,11 @@ export default function Home(): React.ReactNode {
   return (
     <Layout
       title="Physical AI & Humanoid Robotics Book"
-      description="The definitive 2025 guide to building intelligent physical robots. Master ROS 2 Kilted Kaiju, Simulation, and VLA policies."
+      description="The definitive 2026 guide to building intelligent physical robots. Master ROS 2 Kilted Kaiju, Simulation, and VLA policies."
     >
       <HeroSection />
+      <RobotShowcase />
+      <VscodeInterface />
       <EnhancedContentSection />
       <FeaturesSection />
       <AIFeaturesSection />

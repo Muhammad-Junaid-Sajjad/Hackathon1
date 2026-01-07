@@ -127,25 +127,15 @@
 }
 
 
-/* Light Mode Overrides */
+/* Force Dark Mode Only */
 [data-theme='light'] {
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #fafafa;
-  --color-bg-tertiary: #f4f4f5;
-  --color-bg-elevated: #ffffff;
-  --color-bg-code: #f8fafc;
+  display: none !important;
+}
 
-  --color-text-primary: #000000;
-  --color-text-secondary: #0a0a0f;
-  --color-text-tertiary: #1a1a24;
-  --color-text-muted: #3f3f46;
-
-  --color-border-light: #d4d4d8;
-  --color-border-medium: #a1a1aa;
-  --color-border-highlight: #71717a;
-
-  --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.1);
-  --shadow-glow-lg: 0 0 80px rgba(59, 130, 246, 0.15);
+/* Ensure dark mode is always active */
+html:not([data-theme='dark']) {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
 }
 
 /* ============================================

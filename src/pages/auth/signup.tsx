@@ -6,7 +6,7 @@
 
 import React from 'react';
 import Layout from '@theme/Layout';
-import SignupForm from '@site/src/components/Auth/SignupForm';
+import SignupForm from '@site/src/components/Utils/SignupForm';
 
 export default function SignupPage(): JSX.Element {
   const handleSuccess = (user: any) => {

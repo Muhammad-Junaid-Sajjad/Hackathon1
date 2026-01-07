@@ -13,8 +13,8 @@ import Layout from '@theme-original/DocItem/Layout';
 import type LayoutType from '@theme/DocItem/Layout';
 import type { WrapperProps } from '@docusaurus/types';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
-import ChapterTools from '@site/src/components/ChapterTools';
-import { useAuth } from '@site/src/components/Auth/AuthContext';
+import ChapterTools from '@site/src/components/Navigation';
+import { useAuth } from '@site/src/components/Utils/AuthContext';
 
 type Props = WrapperProps<typeof LayoutType>;
 

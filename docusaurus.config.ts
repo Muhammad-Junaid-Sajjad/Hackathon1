@@ -81,8 +81,7 @@ const config: Config = {
       style: 'dark',
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'textbookSidebar',
+          to: '/',
           position: 'left',
           label: '📚 Textbook',
         },

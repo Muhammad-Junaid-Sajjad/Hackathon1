@@ -6,7 +6,7 @@
 
 import React from 'react';
 import Layout from '@theme/Layout';
-import SigninForm from '@site/src/components/Auth/SigninForm';
+import SigninForm from '@site/src/components/Utils/SigninForm';
 
 export default function SigninPage(): JSX.Element {
   const handleSuccess = (user: any) => {
