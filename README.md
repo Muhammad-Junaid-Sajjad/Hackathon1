@@ -32,6 +32,7 @@ The project encompasses the development of a complete educational ecosystem for 
 - Real-time content translation capabilities
 - AI-powered chatbot for instant assistance
 - Practical implementation guides for industry-standard hardware
+- **2026 Edition Updates**: Latest hardware platforms, advanced AI models, and cutting-edge robotics technologies
 
 ### Objectives of the Project
 1. Create a world-class interactive textbook for Physical AI and Humanoid Robotics
@@ -39,6 +40,40 @@ The project encompasses the development of a complete educational ecosystem for 
 3. Implement real-time content translation for global accessibility
 4. Integrate advanced AI services for instant student support
 5. Establish a comprehensive curriculum covering all aspects of humanoid robotics
+6. **2026 Edition Enhancement**: Upgrade to latest hardware and software stacks with modern UI/UX
+
+---
+
+## Latest 2026 Edition Features
+
+### 🎥 UBTECH Walker S2 Hero Video
+- **World's First Mass Delivery of Humanoid Robot** prominently featured at the top of the homepage
+- **Autoplay functionality** with muted audio and loop for seamless viewing experience
+- **Full-screen responsive design** that fits perfectly on all screen sizes (including 1920x1080)
+- **Advanced YouTube embedding** with optimized parameters for performance
+
+### 💻 Full-Screen VS Code Interface
+- **Complete VS Code simulation** similar to agentfactory.panaversity.org
+- **Auto-typing code animation** demonstrating real-time development
+- **Terminal with build process simulation** showing "Building website through Qwen/Claude Code and SpecifyPlus"
+- **File explorer with animated file appearance** and multiple split-screen code panels
+- **Sign-in page integration** within the editor view
+- **Agent chatbot functionality** working seamlessly in the central code section
+
+### 🎯 Additional YouTube Content
+- **Scaling Helix - Laundry** video in smaller format
+- **Introducing Figure 03** showcasing the latest humanoid platforms
+- **Engine AI T800 vs Tesla Optimus V3 vs Figure 03** comparison video
+- **Responsive grid layout** for optimal viewing experience
+
+### 🌙 Dark Mode Only
+- **Exclusive dark mode theme** for enhanced visual experience
+- **Light mode completely removed** for consistent user experience
+- **Modern dark UI design** with enhanced contrast and readability
+
+### 📚 Navigation Improvements
+- **Textbook button** now redirects to homepage for better user experience
+- **Enhanced navigation structure** with improved user flow
 
 ---
 
@@ -59,9 +94,8 @@ Traditional educational approaches cannot scale to meet the diverse needs of lea
 
 ---
 
-## Proposed Solution / System Design
+## Overall System Architecture
 
-### Overall System Architecture
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                           FRONTEND LAYER                                │
@@ -72,6 +106,7 @@ Traditional educational approaches cannot scale to meet the diverse needs of lea
 │  • User Authentication & Profiles                                      │
 │  • Personalization Engine                                              │
 │  • Urdu Translation Interface                                          │
+│  • 2026 Edition Features: VS Code Interface, Video Showcases         │
 └─────────────────────────────────────────────────────────────────────────┘
                                     │
                                     ▼
@@ -116,6 +151,7 @@ Traditional educational approaches cannot scale to meet the diverse needs of lea
 - **Technical Documentation**: ROS 2 Kilted Kaiju, NVIDIA Isaac Sim, Jetson Thor
 - **Code Examples**: Production-grade implementations for all concepts
 - **Multimedia Assets**: Diagrams, videos, and interactive elements
+- **2026 Edition Content**: Latest hardware specifications and AI models
 
 ### Model Selection and Justification
 - **RAG Model**: Langchain + OpenAI embeddings for contextual understanding
@@ -136,6 +172,7 @@ Traditional educational approaches cannot scale to meet the diverse needs of lea
 - **Languages**: TypeScript, JavaScript
 - **Styling**: TailwindCSS, CSS Modules
 - **UI Components**: React, Headless UI
+- **2026 Enhancements**: Full-screen VS Code interface, YouTube integration
 
 #### Backend Technologies
 - **Framework**: FastAPI (Python)
@@ -162,6 +199,7 @@ Traditional educational approaches cannot scale to meet the diverse needs of lea
 - **Function**: Interactive textbook interface
 - **Features**: Dynamic content rendering, navigation, search
 - **Technology**: Docusaurus, React, TypeScript
+- **2026 Enhancements**: Full-screen VS Code interface, YouTube video integration
 
 #### 2. AI Services Module
 - **Location**: `/api/`
@@ -176,7 +214,7 @@ Traditional educational approaches cannot scale to meet the diverse needs of lea
 - **Technology**: Markdown, MDX, Docusaurus
 
 #### 4. Authentication Module
-- **Location**: `/src/components/Auth/`
+- **Location**: `/src/components/Utils/`
 - **Function**: User management and personalization
 - **Features**: Login/Signup, profile management, preferences
 - **Technology**: Better-Auth, React Context
@@ -341,6 +379,12 @@ The platform successfully delivers a comprehensive educational experience for hu
 - **Interactive Elements**: Hover animations, dynamic routing, and responsive design
 - **Auto-cycling Demo**: Shows code snippets, agent interaction, and terminal output in a continuous loop
 
+### 2026 Edition Exclusive Features
+- **UBTECH Walker S2 Hero Video**: World's first mass delivery humanoid robot showcased prominently
+- **Full-Screen VS Code Interface**: Complete VS Code simulation with auto-typing, terminal, and split-screen views
+- **Dark Mode Only**: Enhanced dark theme for better visual experience
+- **Improved Navigation**: Textbook button redirects to homepage
+
 ### Technical Features
 - **Responsive Design**: Works on all device sizes and platforms
 - **Offline Capability**: Progressive web app functionality
@@ -402,7 +446,7 @@ The platform successfully delivers a comprehensive educational experience for hu
 ## Conclusion
 
 ### Summary of Work Completed
-This project successfully delivers a world-class educational platform for Physical AI and Humanoid Robotics, combining comprehensive theoretical knowledge with practical implementation guidance. The system integrates advanced AI services for personalized learning, real-time assistance, and multilingual support. The modular architecture ensures scalability and maintainability while providing a rich, interactive learning experience.
+This project successfully delivers a world-class educational platform for Physical AI and Humanoid Robotics, combining comprehensive theoretical knowledge with practical implementation guidance. The system integrates advanced AI services for personalized learning, real-time assistance, and multilingual support. The modular architecture ensures scalability and maintainability while providing a rich, interactive learning experience. The 2026 edition introduces groundbreaking features including the UBTECH Walker S2 hero video, full-screen VS Code interface, and enhanced dark mode experience.
 
 ### Key Learning Outcomes
 - **Technical Mastery**: Comprehensive understanding of ROS 2, simulation, and deployment
