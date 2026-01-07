@@ -798,67 +798,77 @@ if __name__ == '__main__':
   );
 }
 
-// Robot Showcase Section
-function RobotShowcase() {
+// Hero Video Section (FIXED - MOVED TO TOP)
+function HeroVideoSection() {
   return (
-    <section className={`${styles.showcaseSection} ${styles.sectionAnimate}`}>
+    <section className={styles.heroVideoSection}>
+      <div className={styles.heroVideoContainer}>
+        <div className={styles.videoWrapper}>
+          <iframe
+            src="https://www.youtube.com/embed/nzflxCHT4vw?autoplay=1&mute=1&loop=1&playlist=nzflxCHT4vw&controls=0&modestbranding=1"
+            title="UBTECH Walker S2 - World's First Mass Delivery of Humanoid Robot"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Additional YouTube Videos Section
+function AdditionalVideosSection() {
+  return (
+    <section className={styles.additionalVideosSection}>
       <div className={styles.sectionContainer}>
         <div className={styles.sectionHeader}>
-          <span className={styles.sectionBadge}>Frontier Hardware</span>
+          <span className={styles.sectionBadge}>Featured Robotics Content</span>
           <h2 className={styles.sectionTitle}>
-            Built for the
-            <span className={styles.gradientText}> 2026 Generation</span>
+            Watch <span className={styles.gradientText}>Physical AI</span> in Action
           </h2>
           <p className={styles.sectionSubtitle}>
-            Witness the physical manifestation of the digital brain. Our curriculum integrates with the leading humanoid platforms on earth.
+            See the latest advancements in humanoid robotics and AI
           </p>
         </div>
 
-        {/* Featured Video: UBTECH Walker S2 - Full Width */}
-        <div className={styles.featuredVideoContainer}>
-          <div className={styles.videoWrapper}>
-            <iframe
-              src="https://www.youtube.com/embed/nzflxCHT4vw?autoplay=1&mute=1&loop=1&playlist=nzflxCHT4vw&controls=0&modestbranding=1"
-              title="UBTECH Walker S2 - World's First Mass Delivery of Humanoid Robot"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-
-        {/* Additional Small Videos Grid */}
-        <div className={styles.additionalVideos}>
+        <div className={styles.additionalVideosGrid}>
           <div className={styles.videoCard}>
-            <iframe
-              src="https://www.youtube.com/embed/HOoRnv3lA0k"
-              title="Scaling Helix - Laundry"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <div className={styles.videoWrapperSmall}>
+              <iframe
+                src="https://www.youtube.com/embed/HOoRnv3lA0k"
+                title="Scaling Helix - Laundry"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
             <h3>Scaling Helix - Laundry</h3>
           </div>
 
           <div className={styles.videoCard}>
-            <iframe
-              src="https://www.youtube.com/embed/Eu5mYMavctM"
-              title="Introducing Figure 03"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <div className={styles.videoWrapperSmall}>
+              <iframe
+                src="https://www.youtube.com/embed/Eu5mYMavctM"
+                title="Introducing Figure 03"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
             <h3>Introducing Figure 03</h3>
           </div>
 
           <div className={styles.videoCard}>
-            <iframe
-              src="https://www.youtube.com/embed/n1Mi3ISXNjc"
-              title="Engine AI T800 vs Tesla Optimus V3 vs Figure 03 (AI NEWS)"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            <div className={styles.videoWrapperSmall}>
+              <iframe
+                src="https://www.youtube.com/embed/n1Mi3ISXNjc"
+                title="Engine AI T800 vs Tesla Optimus V3 vs Figure 03 (AI NEWS)"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
             <h3>AI News: T800 vs Optimus vs Figure 03</h3>
           </div>
         </div>
@@ -969,6 +979,16 @@ function EnhancedContentSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+// Robot showcase section
+function RobotShowcase() {
+  return (
+    <>
+      <HeroVideoSection />
+      <AdditionalVideosSection />
+    </>
   );
 }
 

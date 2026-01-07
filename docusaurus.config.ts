@@ -15,10 +15,13 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://Muhammad-Junaid-Sajjad.github.io',
+  url: 'https://muhammad-junaid-sajjad.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/Hackathon1/',
+
+  // Deployment branch
+  deploymentBranch: 'gh-pages',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.

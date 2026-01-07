@@ -39,6 +39,26 @@ Revolutionary digital textbook for Physical AI and Humanoid Robotics, transformi
 
 </div>
 
+### 🎞️ Visual Journey
+
+<div align="center">
+  <p align="center">
+    <img src="https://img.shields.io/badge/Humanoid-Robotics-blue?style=for-the-badge&logo=ai&logoColor=white" alt="Robotics" height="30">
+    <img src="https://img.shields.io/badge/ROS2-Kilted_Kaiju-orange?style=for-the-badge&logo=ros&logoColor=white" alt="ROS2" height="30">
+    <img src="https://img.shields.io/badge/NVIDIA-Jetson_Thor-green?style=for-the-badge&logo=nvidia&logoColor=white" alt="NVIDIA" height="30">
+  </p>
+</div>
+
+<details>
+<summary><b>🎬 Latest Humanoid Progress (Click to Expand)</b></summary>
+
+| UBTECH Walker S2 | Figure 03 | Tesla Optimus Gen 2 |
+|:---:|:---:|:---:|
+| [![UBTECH](https://img.youtube.com/vi/nzflxCHT4vw/0.jpg)](https://www.youtube.com/watch?v=nzflxCHT4vw) | [![Figure 03](https://img.youtube.com/vi/Eu5mYMavctM/0.jpg)](https://www.youtube.com/watch?v=Eu5mYMavctM) | [![Tesla Optimus](https://img.youtube.com/vi/cpraXaw7dyc/0.jpg)](https://www.youtube.com/watch?v=cpraXaw7dyc) |
+| *2026 Edition Focus* | *VLA Integration* | *Precision Control* |
+
+</details>
+
 ### 🤖 Revolutionary Digital Textbook
 - **World's First**: Mass delivery of interactive AI-powered robotics textbook
 - **RAG Integration**: Chatbot answers questions directly from book content
