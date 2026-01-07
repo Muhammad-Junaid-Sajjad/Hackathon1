@@ -1026,6 +1026,7 @@ export default function Home(): React.ReactNode {
       description="The definitive 2026 guide to building intelligent physical robots. Master ROS 2 Kilted Kaiju, Simulation, and VLA policies."
     >
       <HeroVideoSection />
+      <AdditionalVideosSection />
       <HeroSection />
       <RobotShowcase />
       <VscodeInterface />
