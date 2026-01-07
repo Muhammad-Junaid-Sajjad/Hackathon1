@@ -4,7 +4,7 @@
  * Design inspired by: Figure.ai (futuristic robotics), GitHub (clean), Panaversity (educational)
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -172,31 +172,40 @@ function NervousSystemVisual() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Generate static nodes
-    const initialNodes = Array.from({ length: 15 }).map((_, i) => ({
-      x: Math.random() * 100,
-      y: Math.random() * 100,
+    // Generate static nodes with more "neural" distribution
+    const initialNodes = Array.from({ length: 20 }).map((_, i) => ({
+      x: 10 + Math.random() * 80,
+      y: 10 + Math.random() * 80,
       id: i,
     }));
     setNodes(initialNodes);
 
     const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      setMousePos({ x, y });
+      const rect = document.getElementById('neural-container')?.getBoundingClientRect();
+      if (rect) {
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        setMousePos({ x, y });
+      }
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   return (
-    <div className={styles.nervousSystemContainer}>
-      <svg className={styles.neuralSvg} viewBox="0 0 100 100">
+    <div id="neural-container" className={styles.nervousSystemContainer}>
+      <svg className={styles.neuralSvg} viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#3b82f6" stopOpacity="1" />
+            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+          </radialGradient>
+        </defs>
         {/* Connection lines */}
         {nodes.map((node, i) =>
           nodes.slice(i + 1).map((other) => {
             const dist = Math.hypot(node.x - other.x, node.y - other.y);
-            if (dist < 30) {
+            if (dist < 25) {
               return (
                 <line
                   key={`${node.id}-${other.id}`}
@@ -205,7 +214,7 @@ function NervousSystemVisual() {
                   x2={other.x}
                   y2={other.y}
                   className={styles.neuralLine}
-                  style={{ opacity: 1 - dist / 30 }}
+                  style={{ opacity: (1 - dist / 25) * 0.5 }}
                 />
               );
             }
@@ -214,17 +223,17 @@ function NervousSystemVisual() {
         )}
         {/* Interaction lines to mouse */}
         {nodes.map((node) => {
-          const dist = Math.hypot(node.x - mousePos.x % 100, node.y - mousePos.y % 100);
-          if (dist < 20) {
+          const dist = Math.hypot(node.x - mousePos.x, node.y - mousePos.y);
+          if (dist < 25) {
             return (
               <line
                 key={`mouse-${node.id}`}
                 x1={node.x}
                 y1={node.y}
-                x2={mousePos.x % 100}
-                y2={mousePos.y % 100}
+                x2={mousePos.x}
+                y2={mousePos.y}
                 className={styles.mouseLine}
-                style={{ opacity: 1 - dist / 20 }}
+                style={{ opacity: (1 - dist / 25) * 0.8 }}
               />
             );
           }
@@ -232,13 +241,22 @@ function NervousSystemVisual() {
         })}
         {/* Nodes */}
         {nodes.map((node) => (
-          <circle
-            key={node.id}
-            cx={node.x}
-            cy={node.y}
-            r="1"
-            className={styles.neuralNode}
-          />
+          <g key={node.id} className={styles.nodeGroup}>
+            <circle
+              cx={node.x}
+              cy={node.y}
+              r="1.5"
+              fill="url(#nodeGlow)"
+              className={styles.neuralNodePulse}
+            />
+            <circle
+              cx={node.x}
+              cy={node.y}
+              r="0.5"
+              fill="#fff"
+              className={styles.neuralNodeCore}
+            />
+          </g>
         ))}
       </svg>
       <div className={styles.neuralGlow} />
@@ -283,6 +301,7 @@ function InteractiveHero() {
     </div>
   );
 }
+
 
 // Hero section
 function HeroSection() {
@@ -397,7 +416,7 @@ function FeaturesSection() {
   ];
 
   return (
-    <section id="github-options" className={styles.featuresSection}>
+    <section id="github-options" className={`${styles.featuresSection} ${styles.sectionAnimate}`}>
       <div className={styles.sectionContainer}>
         <div className={styles.sectionHeader}>
           <span className={styles.sectionBadge}>Features</span>
@@ -465,7 +484,7 @@ function ModulesSection() {
   ];
 
   return (
-    <section className={styles.modulesSection}>
+    <section className={`${styles.modulesSection} ${styles.sectionAnimate}`}>
       <div className={styles.sectionContainer}>
         <div className={styles.sectionHeader}>
           <span className={styles.sectionBadge}>Curriculum</span>
@@ -492,7 +511,7 @@ function ModulesSection() {
 // AI Features section
 function AIFeaturesSection() {
   return (
-    <section id="free-account" className={styles.aiSection}>
+    <section id="free-account" className={`${styles.aiSection} ${styles.sectionAnimate}`}>
       <div className={styles.sectionContainer}>
         <div className={styles.aiContent}>
           <div className={styles.aiText}>
@@ -567,7 +586,7 @@ function AIFeaturesSection() {
 // CTA section
 function CTASection() {
   return (
-    <section className={styles.ctaSection}>
+    <section className={`${styles.ctaSection} ${styles.sectionAnimate}`}>
       <div className={styles.sectionContainer}>
         <div className={styles.ctaContent}>
           <h2 className={styles.ctaTitle}>
@@ -623,7 +642,7 @@ function RobotShowcaseItem({ name, src, delay }: { name: string; src: string; de
 // Robot Showcase Section
 function RobotShowcase() {
   return (
-    <section className={styles.showcaseSection}>
+    <section className={`${styles.showcaseSection} ${styles.sectionAnimate}`}>
       <div className={styles.sectionContainer}>
         <div className={styles.sectionHeader}>
           <span className={styles.sectionBadge}>Frontier Hardware</span>
@@ -648,6 +667,30 @@ function RobotShowcase() {
 // Main Home component
 export default function Home(): React.ReactNode {
   const { siteConfig } = useDocusaurusContext();
+  const [isVisible, setIsVisible] = useState(true);
+
+  // Scroll-triggered animations
+  useEffect(() => {
+    const handleScroll = () => {
+      // Add scroll-triggered animations here
+      const scrollPosition = window.scrollY;
+      const sections = document.querySelectorAll('.section-animate');
+
+      sections.forEach((section, index) => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (sectionTop < windowHeight * 0.75) {
+          section.classList.add('section-visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <Layout
@@ -660,6 +703,17 @@ export default function Home(): React.ReactNode {
       <ModulesSection />
       <AIFeaturesSection />
       <CTASection />
+
+      {/* Floating Quick Start Button */}
+      <button
+        className={styles.quickStartButton}
+        onClick={() => {
+          document.querySelector('#github-options')?.scrollIntoView({ behavior: 'smooth' });
+        }}
+        aria-label="Quick Start"
+      >
+        🚀
+      </button>
     </Layout>
   );
 }

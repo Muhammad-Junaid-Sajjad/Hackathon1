@@ -306,192 +306,114 @@
   letter-spacing: 0.05em;
 }
 
-/* Interactive Book & Agent */
-/* Robotic Face Styles */
-.roboticFaceContainer {
+/* Interactive Neural / Nervous System */
+.nervousSystemContainer {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 500px;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.1s ease-out;
-  transform-style: preserve-3d;
 }
 
-.roboticFace {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0f 100%);
-  border-radius: 50% 50% 45% 45%;
-  border: 4px solid rgba(255, 255, 255, 0.05);
-  box-shadow:
-    0 0 50px rgba(59, 130, 246, 0.2),
-    inset 0 0 30px rgba(59, 130, 246, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  animation: breathing 4s ease-in-out infinite;
+.neuralSvg {
+  width: 100%;
+  height: 100%;
 }
 
-.faceGlow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+.nodeGroup {
   pointer-events: none;
 }
 
-.eyeContainer {
-  display: flex;
-  gap: 60px;
-  margin-bottom: 20px;
-  z-index: 2;
+.neuralNodePulse {
+  animation: nodePulse 3s ease-in-out infinite;
 }
 
-.roboticEye {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  background: #0a0a0f;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+.neuralNodeCore {
+  filter: drop-shadow(0 0 2px #fff);
 }
 
-.eyeIris {
-  width: 20px;
-  height: 20px;
-  background: #3b82f6;
-  border-radius: 50%;
-  filter: blur(2px);
-  animation: eyePulse 3s ease-in-out infinite;
+.neuralLine {
+  stroke: #3b82f6;
+  stroke-width: 0.15;
+  stroke-linecap: round;
+  transition: opacity 0.3s ease;
 }
 
-.eyePupil {
+.mouseLine {
+  stroke: #60a5fa;
+  stroke-width: 0.4;
+  stroke-dasharray: 2 2;
+  animation: flowLine 1s linear infinite;
+  filter: drop-shadow(0 0 3px #3b82f6);
+}
+
+.neuralGlow {
   position: absolute;
-  width: 6px;
-  height: 6px;
-  background: white;
-  border-radius: 50%;
-  box-shadow: 0 0 10px white;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  z-index: 0;
+  animation: glowMove 10s ease-in-out infinite alternate;
 }
 
-.breathingCore {
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
-  border-radius: 2px;
-  opacity: 0.5;
-  filter: blur(1px);
-  animation: corePulse 4s ease-in-out infinite;
+@keyframes nodePulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.5); opacity: 0.4; }
 }
 
-@keyframes breathing {
-  0%, 100% { transform: scale(1) translateY(0); }
-  50% { transform: scale(1.02) translateY(-5px); }
+@keyframes flowLine {
+  from { stroke-dashoffset: 4; }
+  to { stroke-dashoffset: 0; }
 }
 
-@keyframes eyePulse {
-  0%, 100% { opacity: 1; transform: scale(1); filter: blur(2px); }
-  50% { opacity: 0.8; transform: scale(1.1); filter: blur(4px); }
+@keyframes glowMove {
+  from { transform: translate(-5%, -5%); }
+  to { transform: translate(5%, 5%); }
 }
 
-@keyframes corePulse {
-  0%, 100% { opacity: 0.3; width: 40px; }
-  50% { opacity: 0.8; width: 80px; }
-}
-
-.heroVisualContent {
+.interactiveHero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: 500px;
 }
 
-.bookActive .heroVisualContent {
-  transform: translateX(-50px);
-}
-
-/* Agent Avatar */
-.agentAvatar {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120px;
-  height: 120px;
-  background: #1a1a2e;
-  border: 3px solid var(--color-primary);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  box-shadow: 0 0 30px var(--color-primary-glow);
-}
-
-.bookActive .agentAvatar {
-  transform: translate(80px, -180px) scale(1);
-}
-
-.robotFace {
-  font-size: 3rem;
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Speech Bubble */
 .speechBubble {
   position: absolute;
-  top: -240px;
-  right: -120px;
-  background: white;
-  color: #0a0a0f;
-  padding: 1rem 1.5rem;
+  top: 10%;
+  right: 0;
+  background: rgba(10, 10, 15, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: white;
+  padding: 1.5rem;
   border-radius: 20px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  width: 200px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  font-weight: 600;
+  font-size: 1rem;
+  width: 280px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s ease;
-  pointer-events: none;
+  transform: translateY(20px) scale(0.95);
+  z-index: 10;
 }
 
-.speechBubble::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 20px;
-  border-width: 10px 10px 0;
-  border-style: solid;
-  border-color: white transparent transparent;
-}
-
-.bookActive .speechBubble {
+.heroActive .speechBubble {
   opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.5s;
+  transform: translateY(0) scale(1);
 }
 
-[data-theme='light'] .speechBubble {
-  background: var(--color-bg-elevated);
-  color: var(--color-text-primary);
-  border: 1px solid var(--color-border-light);
-}
-
-[data-theme='light'] .speechBubble::after {
-  border-color: var(--color-bg-elevated) transparent transparent;
+.typingIndicator {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
 .robotSvg {
@@ -1039,6 +961,38 @@
   padding: 8rem 0;
   background: var(--gradient-hero);
   text-align: center;
+  position: relative;
+}
+
+/* Quick Start Floating Button */
+.quickStartButton {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.quickStartButton:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.6);
+}
+
+.quickStartButton:active {
+  transform: translateY(1px) scale(0.95);
 }
 
 /* Showcase Section */
@@ -1047,6 +1001,26 @@
   background: var(--color-bg-primary);
   position: relative;
 }
+
+/* Scroll-triggered animations */
+.sectionAnimate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.sectionAnimate.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delays */
+.featuresGrid .featureCard:nth-child(1) { transition-delay: 0.1s; }
+.featuresGrid .featureCard:nth-child(2) { transition-delay: 0.2s; }
+.featuresGrid .featureCard:nth-child(3) { transition-delay: 0.3s; }
+.featuresGrid .featureCard:nth-child(4) { transition-delay: 0.4s; }
+.featuresGrid .featureCard:nth-child(5) { transition-delay: 0.5s; }
+.featuresGrid .featureCard:nth-child(6) { transition-delay: 0.6s; }
 
 .robotGrid {
   display: grid;

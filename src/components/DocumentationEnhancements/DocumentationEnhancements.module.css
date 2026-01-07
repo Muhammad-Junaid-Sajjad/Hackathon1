@@ -1,0 +1,121 @@
+.documentationContainer {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Floating Table of Contents */
+.floatingToc {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  z-index: 100;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  width: 280px;
+  max-height: 400px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.floatingToc.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tocToggle {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 101;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.tocToggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.tocContent {
+  padding: 1.5rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.tocTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tocList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.tocItem {
+  margin: 0.25rem 0;
+  padding: 0.25rem 0;
+}
+
+.tocItem.level2 { font-size: 0.9rem; }
+.tocItem.level3 { font-size: 0.85rem; padding-left: 0.5rem; }
+.tocItem.level4 { font-size: 0.8rem; padding-left: 1rem; }
+.tocItem.level5 { font-size: 0.75rem; padding-left: 1.5rem; }
+.tocItem.level6 { font-size: 0.7rem; padding-left: 2rem; }
+
+.tocLink {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-size: inherit;
+}
+
+.tocLink:hover {
+  color: var(--color-primary);
+  background: var(--color-bg-tertiary);
+}
+
+.tocItem.active .tocLink {
+  color: var(--color-primary);
+  background: var(--gradient-card);
+  font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .floatingToc {
+    display: none;
+  }
+}
