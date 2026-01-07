@@ -209,3 +209,62 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Intelligent File Management Guidelines (Matured Decision Framework)
+
+### File Preservation Intelligence:
+1. **Content Integrity**: Always verify that book content, documentation, and educational materials are preserved
+2. **Dependency Analysis**: Before any file operation, analyze dependencies and import statements
+3. **Impact Assessment**: Evaluate the impact of any deletion on project functionality
+4. **Recovery Strategy**: Ensure that deleted files can be regenerated or recovered
+5. **Verification Protocol**: Confirm project functionality after any file operations
+
+### Context-Aware File Classification:
+- **Category A (Immutable)**: Core content files that must never change or be deleted (docs/, book content)
+- **Category B (Regenerable)**: Build artifacts and dependencies that can be recreated (node_modules/, dist/, build/)
+- **Category C (Verifiable)**: Files requiring usage verification before modification (configuration files, imports)
+- **Category D (Disposable)**: Temporary or development-only files that are safe to remove
+
+### Decision-Making Heuristics:
+1. **Dependency Chain Analysis**: Check all import/require statements before deletion
+2. **Usage Verification**: Confirm files are not referenced elsewhere in the codebase
+3. **Functionality Testing**: Verify that project still works after file operations
+4. **Content Preservation**: Prioritize preservation of educational content and user data
+5. **Reversibility**: Only make changes that can be reversed if needed
+
+### Project-Specific Guidelines (Hackathon1):
+
+#### File Management Policy:
+1. **Book Content Preservation**: All files in `docs/` directory are critical educational content and must never be deleted
+2. **Website Functionality**: All files in `src/` directory maintain website functionality and user experience
+3. **API Dependencies**: Files in `api/` directory support backend services and AI features
+4. **Asset Management**: Files in `static/` directory provide essential website assets and images
+5. **Configuration Files**: All configuration files (docusaurus.config.ts, package.json, etc.) are required for proper operation
+
+#### File Classification System:
+- **Category A (Critical)**: All documentation, source code, and configuration files
+- **Category B (Build)**: Dependencies that can be regenerated (node_modules, package-lock.json)
+- **Category C (Investigate)**: Files requiring usage verification before modification
+- **Category D (Development)**: Optional files for development environment only
+
+#### Project Structure:
+- `.specify/memory/constitution.md` — Project principles
+- `specs/<feature>/spec.md` — Feature requirements
+- `specs/<feature>/plan.md` — Architecture decisions
+- `specs/<feature>/tasks.md` — Testable tasks with cases
+- `history/prompts/` — Prompt History Records
+- `history/adr/` — Architecture Decision Records
+- `history/state/state.md` — Conversation state management
+- `.specify/` — SpecKit Plus templates and scripts
+- `docs/` — Educational content and documentation
+- `src/` — Source code and components
+- `api/` — Backend services and APIs
+- `static/` — Static assets and images
+- `history/` — Project history and records
+
+### Intelligent Analysis Protocol:
+1. **Comprehensive Scan**: Always scan the entire project structure before making file decisions
+2. **Cross-Reference Check**: Verify that no other files depend on the target file
+3. **Risk Assessment**: Evaluate the risk level of each proposed deletion
+4. **Stakeholder Impact**: Consider the impact on users and project functionality
+5. **Recovery Plan**: Have a recovery plan before executing any deletions
