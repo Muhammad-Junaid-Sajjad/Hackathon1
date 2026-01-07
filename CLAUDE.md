@@ -268,3 +268,52 @@ See `.specify/memory/constitution.md` for code quality, testing, performance, se
 3. **Risk Assessment**: Evaluate the risk level of each proposed deletion
 4. **Stakeholder Impact**: Consider the impact on users and project functionality
 5. **Recovery Plan**: Have a recovery plan before executing any deletions
+
+### Revolutionary Digital Textbook Guidelines:
+
+#### Book Title: Physical AI & Humanoid Robotics Book
+- **Author**: Muhammad Junaid Sajjad
+- **Institution**: Panaversity
+- **No Advisor**: Solo authorship throughout the project
+
+#### Digital Textbook Transformation:
+1. **From Physical to Digital**: Move from bulky physical books to optimized digital format
+2. **AI-Powered Learning**: RAG-based chatbot for instant Q&A from book content
+3. **Interactive Experience**: Live VS Code simulation and multimedia content
+4. **Space Optimization**: 87% size reduction (572MB → 72MB) while preserving 100% content
+5. **Standardized Structure**: Following comprehensive documentation template for consistency
+
+#### Documentation Template Standards:
+- **Modular Structure**: Each concept is contained in discrete, reusable modules
+- **Interactive Elements**: Embedded code playgrounds, simulations, and quizzes
+- **AI Integration**: RAG-enabled Q&A functionality for each section
+- **Multimedia Support**: Videos, diagrams, and interactive visualizations
+- **Accessibility**: Multi-language support and responsive design
+- **Version Control**: Track changes and updates with clear versioning
+
+#### Learning Module Template:
+- **Header Section**: Module Title, Learning Objectives, Prerequisites, Completion Time
+- **Theory Section**: Core Concepts, Mathematical Foundations, Applications
+- **Practice Section**: Tutorials, Code Examples, Simulations, Troubleshooting
+- **Assessment Section**: Quizzes, Exercises, Projects, Reviews
+- **Resource Section**: References, Reading Materials, Video Content, Links
+
+#### AI Integration Standards:
+- **RAG Indexing**: All content indexed for AI-powered search
+- **Context Boundaries**: Clear boundaries for AI response generation
+- **Source Attribution**: All AI-generated content cites sources
+- **Quality Assurance**: Fact-checking and validation protocols
+
+#### Performance Metrics:
+- **Engagement Tracking**: Time spent, interaction rates, completion metrics
+- **Learning Assessment**: Quiz scores, project evaluations, progress tracking
+- **AI Effectiveness**: Query success rates, response accuracy, user satisfaction
+- **Content Updates**: Version tracking, improvement metrics, feedback integration
+
+#### Revolutionary Features:
+- **RAG-Based Q&A**: Answers questions directly from book content
+- **Personalized Learning**: Adaptive content based on individual patterns
+- **Real-Time Assistance**: Always-available learning support
+- **Space Efficiency**: Optimized delivery with significant size reduction
+- **Multimedia Integration**: Videos, simulations, and interactive elements
+- **Instant Accessibility**: Always-available learning support without dependencies
