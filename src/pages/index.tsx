@@ -971,7 +971,7 @@ function EnhancedContentSection() {
           </div>
           <div className={styles.youtubeGrid}>
             <YouTubeVideoItem title="Figure 03 Humanoid Robot" videoId="Eu5mYMavctM" delay={100} />
-            <YouTubeVideoItem title="Unitree G1 Walking Demo" videoId="Me8_vofae98" delay={300} />
+            <YouTubeVideoItem title="Unitree G1 Walking Demo" videoId="51VI8DZGGag" delay={300} />
             <YouTubeVideoItem title="Tesla Optimus Gen 2" videoId="cpraXaw7dyc" delay={500} />
             <YouTubeVideoItem title="UBTECH Walker S2 - World's First Mass Delivery" videoId="nzflxCHT4vw" delay={700} />
           </div>
