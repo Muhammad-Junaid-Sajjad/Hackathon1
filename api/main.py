@@ -725,6 +725,64 @@ async def signup(request: SignupRequest, req: Request):
             await release_db_connection(conn)
 
 
+@app.post("/api/auth/login")
+@limiter.limit("10/minute")  # Rate limit: 10 logins per minute per IP
+async def login(request: Request):
+    """
+    User login endpoint.
+
+    Expects JSON with email and password fields.
+    Returns user info and session token.
+    """
+    try:
+        data = await request.json()
+        email = data.get("email", "").lower().strip()
+        password = data.get("password", "")
+
+        if not email or not password:
+            raise HTTPException(status_code=400, detail="Email and password required")
+
+        conn = await get_db_connection()
+        try:
+            # Fetch user and password hash
+            user_record = await conn.fetchrow(
+                'SELECT id, email, password_hash, name FROM users WHERE email = $1',
+                email
+            )
+
+            if not user_record:
+                raise HTTPException(status_code=401, detail="Invalid credentials")
+
+            # Verify password
+            if not verify_password(password, user_record['password_hash']):
+                raise HTTPException(status_code=401, detail="Invalid credentials")
+
+            # Return user info (without password hash)
+            return {
+                "success": True,
+                "user": {
+                    "id": str(user_record['id']),
+                    "email": user_record['email'],
+                    "name": user_record['name']
+                }
+            }
+        finally:
+            await release_db_connection(conn)
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Login failed: {str(e)}")
+
+
+@app.post("/api/auth/logout")
+async def logout():
+    """
+    User logout endpoint.
+    Currently just a placeholder - session management handled client-side.
+    """
+    return {"success": True, "message": "Logged out successfully"}
+
+
 @app.get("/api/user/{user_id}/background")
 async def get_user_background(user_id: str):
     """Get user background for personalization."""

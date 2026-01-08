@@ -63,6 +63,30 @@ const config: Config = {
     ],
   ],
 
+  // Custom webpack configuration for API proxy
+  themes: [],
+  plugins: [
+    async function myPlugin() {
+      return {
+        name: 'custom-webpack-config',
+        configureWebpack() {
+          return {
+            devServer: {
+              proxy: [
+                {
+                  context: ['/api'],
+                  target: 'http://localhost:8000',
+                  changeOrigin: true,
+                  secure: false,
+                }
+              ],
+            },
+          };
+        },
+      };
+    },
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',

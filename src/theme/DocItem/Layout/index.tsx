@@ -14,7 +14,7 @@ import type LayoutType from '@theme/DocItem/Layout';
 import type { WrapperProps } from '@docusaurus/types';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import ChapterTools from '@site/src/components/Navigation';
-import { useAuth } from '@site/src/components/Utils/AuthContext';
+import { useAuth } from '@site/src/auth/AuthProvider';
 
 type Props = WrapperProps<typeof LayoutType>;
 
@@ -25,7 +25,7 @@ const API_URL = typeof window !== 'undefined'
 
 export default function LayoutWrapper(props: Props): JSX.Element {
   const { metadata, contentRef } = useDoc();
-  const { user, isLoggedIn } = useAuth();
+  const { user, isAuthenticated } = useAuth();
 
   // Extract chapter ID from the document path (e.g., "M2/C1/S3" from "M2-C1-S3")
   const chapterId = metadata.id || 'unknown';
@@ -47,7 +47,7 @@ export default function LayoutWrapper(props: Props): JSX.Element {
       <ChapterTools
         chapterId={chapterId}
         chapterContent={chapterContent}
-        isLoggedIn={isLoggedIn}
+        isLoggedIn={isAuthenticated}
         userId={user?.id}
         apiUrl={API_URL}
       />
