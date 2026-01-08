@@ -684,6 +684,66 @@ function YouTubeVideoItem({ title, videoId, delay }: { title: string; videoId: s
   );
 }
 
+// Learning Curve Steps Component
+function LearningCurveSteps() {
+  const steps = [
+    {
+      number: "01",
+      title: "Foundation",
+      description: "ROS 2 Kilted Kaiju basics and hardware abstraction layers",
+      icon: "🧱"
+    },
+    {
+      number: "02",
+      title: "Simulation",
+      description: "Gazebo Ionic physics and digital twin development",
+      icon: "🔄"
+    },
+    {
+      number: "03",
+      title: "AI Integration",
+      description: "NVIDIA Isaac Sim and reinforcement learning for locomotion",
+      icon: "🧠"
+    },
+    {
+      number: "04",
+      title: "Perception",
+      description: "Vision-language-action models and multimodal sensing",
+      icon: "👁️"
+    },
+    {
+      number: "05",
+      title: "Embodiment",
+      description: "Real-world deployment and human-robot interaction",
+      icon: "🦾"
+    }
+  ];
+
+  return (
+    <div className={styles.learningCurveSection}>
+      <div className={styles.sectionHeader}>
+        <span className={styles.sectionBadge}>Learning Path</span>
+        <h2 className={styles.sectionTitle}>
+          5-Step <span className={styles.gradientText}>Mastery Journey</span>
+        </h2>
+        <p className={styles.sectionSubtitle}>
+          Progress from beginner to expert with our structured curriculum
+        </p>
+      </div>
+      <div className={styles.learningStepsGrid}>
+        {steps.map((step, index) => (
+          <div key={index} className={styles.learningStepCard}>
+            <div className={styles.stepNumber}>{step.number}</div>
+            <div className={styles.stepIcon}>{step.icon}</div>
+            <h3 className={styles.stepTitle}>{step.title}</h3>
+            <p className={styles.stepDescription}>{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // Additional YouTube Video Section
 function AdditionalVideosSection() {
   return (
@@ -910,10 +970,10 @@ function EnhancedContentSection() {
             </p>
           </div>
           <div className={styles.youtubeGrid}>
-            <YouTubeVideoItem title="Figure 02 Humanoid Robot" videoId="Q5XNoIK8nbM" delay={100} />
+            <YouTubeVideoItem title="Figure 03 Humanoid Robot" videoId="Eu5mYMavctM" delay={100} />
             <YouTubeVideoItem title="Unitree G1 Walking Demo" videoId="Me8_vofae98" delay={300} />
             <YouTubeVideoItem title="Tesla Optimus Gen 2" videoId="cpraXaw7dyc" delay={500} />
-            <YouTubeVideoItem title="NVIDIA Blackwell Architecture" videoId="JNVYEIzY6tg" delay={700} />
+            <YouTubeVideoItem title="UBTECH Walker S2 - World's First Mass Delivery" videoId="nzflxCHT4vw" delay={700} />
           </div>
         </div>
 
@@ -994,7 +1054,12 @@ function EnhancedContentSection() {
           <VSCodeDemo />
         </div>
 
-        {/* Part 4: Additional Videos Section */}
+        {/* Part 5: Learning Curve */}
+        <div className={styles.learningCurveSection}>
+          <LearningCurveSteps />
+        </div>
+
+        {/* Part 6: Additional Videos Section */}
         <div className={styles.additionalVideosSection}>
           <div className={styles.sectionHeader}>
             <span className={styles.sectionBadge}>More Robotics Content</span>
