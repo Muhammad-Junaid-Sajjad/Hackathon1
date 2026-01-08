@@ -50,6 +50,90 @@ function Hero() {
   );
 }
 
+// Video Section with UBTECH video and 4-grid
+function VideoSection() {
+  return (
+    <section className={styles.videoSection}>
+      <div className="container padding-vert--lg">
+        <h2 className="text--center padding-horiz--md">🤖 Robotics in Action</h2>
+
+        {/* UBTECH Walker S2 Video - Full Width */}
+        <div className={styles.ubtechVideoContainer}>
+          <div className={styles.videoWrapperWide}>
+            <iframe
+              src="https://www.youtube.com/embed/nzflxCHT4vw"
+              title="UBTECH Walker S2"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className={styles.videoFrame}
+            ></iframe>
+          </div>
+        </div>
+
+        {/* Grid of 4 videos */}
+        <div className={styles.videoGrid}>
+          <div className={styles.videoItem}>
+            <div className={styles.videoWrapper}>
+              <iframe
+                src="https://www.youtube.com/embed/Eu5mYMavctM"
+                title="Figure 03"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className={styles.videoFrame}
+              ></iframe>
+            </div>
+            <h3 className="text--center padding-horiz--sm">Figure 03</h3>
+          </div>
+
+          <div className={styles.videoItem}>
+            <div className={styles.videoWrapper}>
+              <iframe
+                src="https://www.youtube.com/embed/n1Mi3ISXNjc"
+                title="Humanoid AI News"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className={styles.videoFrame}
+              ></iframe>
+            </div>
+            <h3 className="text--center padding-horiz--sm">Humanoid AI News</h3>
+          </div>
+
+          <div className={styles.videoItem}>
+            <div className={styles.videoWrapper}>
+              <iframe
+                src="https://www.youtube.com/embed/nzflxCHT4vw"
+                title="UBTECH Walker S2"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className={styles.videoFrame}
+              ></iframe>
+            </div>
+            <h3 className="text--center padding-horiz--sm">UBTECH Walker S2</h3>
+          </div>
+
+          <div className={styles.videoItem}>
+            <div className={styles.videoWrapper}>
+              <iframe
+                src="https://www.youtube.com/embed/cpraXaw7dyc"
+                title="Tesla Optimus Gen 2"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className={styles.videoFrame}
+              ></iframe>
+            </div>
+            <h3 className="text--center padding-horiz--sm">Tesla Optimus Gen 2</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Modules Grid
 function ModulesGrid() {
   const modules = [
@@ -95,6 +179,76 @@ function StatsDashboard() {
   );
 }
 
+// Technology Logos Showcase
+function TechLogosShowcase() {
+  const techLogos = [
+    { name: 'ROS 2', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ros/ros-plain.svg' },
+    { name: 'NVIDIA', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nvidia/nvidia-original.svg' },
+    { name: 'Gazebo', logo: 'https://gazebosim.org/assets/images/logos/gazebo.svg' },
+    { name: 'PyTorch', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg' },
+    { name: 'TensorFlow', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
+    { name: 'YOLO', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/YOLO.svg' },
+    { name: 'OpenCV', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg' },
+  ];
+
+  return (
+    <section className={styles.techShowcase}>
+      <div className="container padding-vert--lg">
+        <h2 className="text--center padding-horiz--md">Technologies You'll Master</h2>
+        <div className={styles.techGrid}>
+          {techLogos.map((tech, i) => (
+            <div key={i} className={styles.techItem}>
+              <img src={tech.logo} alt={tech.name} className={styles.techLogo} />
+              <span className={styles.techName}>{tech.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// VS Code Demo Section (Simplified)
+function VSCodeDemo() {
+  return (
+    <section className={styles.vscodeSection}>
+      <div className="container padding-vert--lg">
+        <h2 className="text--center padding-horiz--md">💻 Live Development Environment</h2>
+        <p className="text--center padding-horiz--md">Experience hands-on learning with our integrated VS Code simulator. Write, test, and debug robotics code in real-time.</p>
+        <div className={styles.vscodeContainer}>
+          <VscodeInterface />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Quick Feature Highlights
+function FeatureHighlights() {
+  const features = [
+    { icon: '🤖', title: 'Build Real Robots', desc: 'From simulation to hardware implementation' },
+    { icon: '💡', title: 'AI-Powered Learning', desc: 'Instant assistance with RAG-based Q&A' },
+    { icon: '🌍', title: 'Global Community', desc: 'Connect with learners worldwide' },
+  ];
+
+  return (
+    <section className={styles.featureHighlights}>
+      <div className="container padding-vert--lg">
+        <h2 className="text--center padding-horiz--md">Why Choose Our Platform</h2>
+        <div className={styles.featureGrid}>
+          {features.map((feature, i) => (
+            <div key={i} className={styles.featureCard}>
+              <div className={styles.featureIcon}>{feature.icon}</div>
+              <h3 className={styles.featureTitle}>{feature.title}</h3>
+              <p className={styles.featureDesc}>{feature.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
 
@@ -119,19 +273,15 @@ export default function Home(): JSX.Element {
           </div>
         </section>
 
+        <VideoSection />
+
         <ModulesGrid />
 
-        <section className="container padding-vert--xl">
-          <div className="row">
-            <div className="col">
-              <h2 className="text--center">💻 Live Development Environment</h2>
-              <p className="text--center padding-horiz--md">Experience hands-on learning with our integrated VS Code simulator. Write, test, and debug robotics code in real-time.</p>
-              <div style={{ height: '500px', marginTop: '2rem' }}>
-                <VscodeInterface />
-              </div>
-            </div>
-          </div>
-        </section>
+        <TechLogosShowcase />
+
+        <VSCodeDemo />
+
+        <FeatureHighlights />
 
         <section className="padding-vert--xl text--center" style={{ background: 'var(--ifm-color-primary-dark)' }}>
           <div className="container">
