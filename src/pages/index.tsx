@@ -684,6 +684,31 @@ function YouTubeVideoItem({ title, videoId, delay }: { title: string; videoId: s
   );
 }
 
+// Additional YouTube Video Section
+function AdditionalVideosSection() {
+  return (
+    <section className={styles.additionalVideosSection}>
+      <div className={styles.sectionContainer}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionBadge}>More Robotics Content</span>
+          <h2 className={styles.sectionTitle}>
+            Explore the <span className={styles.gradientText}>Robotics Landscape</span>
+          </h2>
+          <p className={styles.sectionSubtitle}>
+            Watch the latest developments in humanoid robotics and AI
+          </p>
+        </div>
+        <div className={styles.youtubeGrid}>
+          <YouTubeVideoItem title="UBTECH Walker S2 - World's First Mass Delivery" videoId="nzflxCHT4vw" delay={100} />
+          <YouTubeVideoItem title="Figure 03 Advanced Capabilities" videoId="Eu5mYMavctM" delay={300} />
+          <YouTubeVideoItem title="Humanoid AI News & Updates" videoId="n1Mi3ISXNjc" delay={500} />
+          <YouTubeVideoItem title="Tesla Optimus Gen 2 Demo" videoId="cpraXaw7dyc" delay={700} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Enhanced Module Card Component
 function EnhancedModuleCard({
   number,
@@ -920,6 +945,25 @@ function EnhancedContentSection() {
             </p>
           </div>
           <VSCodeDemo />
+        </div>
+
+        {/* Part 4: Additional Videos Section */}
+        <div className={styles.additionalVideosSection}>
+          <div className={styles.sectionHeader}>
+            <span className={styles.sectionBadge}>More Robotics Content</span>
+            <h2 className={styles.sectionTitle}>
+              Explore the <span className={styles.gradientText}>Robotics Landscape</span>
+            </h2>
+            <p className={styles.sectionSubtitle}>
+              Watch the latest developments in humanoid robotics and AI
+            </p>
+          </div>
+          <div className={styles.youtubeGrid}>
+            <YouTubeVideoItem title="UBTECH Walker S2 - World's First Mass Delivery" videoId="nzflxCHT4vw" delay={100} />
+            <YouTubeVideoItem title="Figure 03 Advanced Capabilities" videoId="Eu5mYMavctM" delay={300} />
+            <YouTubeVideoItem title="Humanoid AI News & Updates" videoId="n1Mi3ISXNjc" delay={500} />
+            <YouTubeVideoItem title="Tesla Optimus Gen 2 Demo" videoId="cpraXaw7dyc" delay={700} />
+          </div>
         </div>
       </div>
     </section>
