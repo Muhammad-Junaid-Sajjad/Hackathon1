@@ -755,17 +755,75 @@ function EnhancedModuleCard({
 function VSCodeDemo() {
   const [activeTab, setActiveTab] = useState('code');
   const [terminalOpen, setTerminalOpen] = useState(false);
+  const [codeLines, setCodeLines] = useState<string[]>([]);
+  const [currentLineIndex, setCurrentLineIndex] = useState(0);
+  const [terminalLines, setTerminalLines] = useState<string[]>([]);
+  const [terminalLineIndex, setTerminalLineIndex] = useState(0);
+
+  // Code lines for typing animation
+  const codeContent = [
+    "# Physical AI & Humanoid Robotics",
+    "import rospy",
+    "from geometry_msgs.msg import Twist",
+    "",
+    "class HumanoidController:",
+    "    def __init__(self):",
+    "        self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)",
+    "        rospy.init_node('humanoid_controller')",
+    "",
+    "    def move_forward(self):",
+    "        twist = Twist()",
+    "        twist.linear.x = 1.0",
+    "        self.pub.publish(twist)",
+    "",
+    "if __name__ == '__main__':",
+    "    controller = HumanoidController()",
+    "    controller.move_forward()"
+  ];
+
+  // Terminal commands and outputs
+  const terminalContent = [
+    "$ npm run build",
+    "Compiled successfully!",
+    "./src/App.js → ./dist/App.js",
+    "$ roslaunch humanoid_bringup bringup.launch",
+    "[INFO] [1234567890.123]: Humanoid robot initialized",
+    "[INFO] [1234567890.456]: Controllers loaded successfully",
+    "$ rosrun physical_ai_demo controller.py",
+    "[INFO] [1234567890.789]: Movement command sent to robot"
+  ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    // Animate code typing
+    const codeTimer = setInterval(() => {
+      if (currentLineIndex < codeContent.length) {
+        setCodeLines(prev => [...prev, codeContent[currentLineIndex]]);
+        setCurrentLineIndex(prev => prev + 1);
+      }
+    }, 100);
+
+    // Animate terminal output
+    const terminalTimer = setInterval(() => {
+      if (terminalLineIndex < terminalContent.length) {
+        setTerminalLines(prev => [...prev, terminalContent[terminalLineIndex]]);
+        setTerminalLineIndex(prev => prev + 1);
+      }
+    }, 800);
+
+    // Change tabs periodically
+    const tabTimer = setInterval(() => {
       setActiveTab(prev => prev === 'code' ? 'agent' : prev === 'agent' ? 'terminal' : 'code');
       if (!terminalOpen && activeTab === 'terminal') {
         setTerminalOpen(true);
       }
-    }, 3000);
+    }, 4000);
 
-    return () => clearInterval(interval);
-  }, [terminalOpen, activeTab]);
+    return () => {
+      clearInterval(codeTimer);
+      clearInterval(terminalTimer);
+      clearInterval(tabTimer);
+    };
+  }, [currentLineIndex, terminalLineIndex, terminalOpen, activeTab]);
 
   return (
     <div className={styles.vscodeDemo}>
@@ -794,23 +852,15 @@ function VSCodeDemo() {
         <div className={styles.vscodeEditor}>
           <pre className={styles.codeSnippet}>
             <code>
-{`# Physical AI & Humanoid Robotics
-import rospy
-from geometry_msgs.msg import Twist
-
-class HumanoidController:
-    def __init__(self):
-        self.pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
-        rospy.init_node('humanoid_controller')
-
-    def move_forward(self):
-        twist = Twist()
-        twist.linear.x = 1.0
-        self.pub.publish(twist)
-
-if __name__ == '__main__':
-    controller = HumanoidController()
-    controller.move_forward()`}
+              {codeLines.map((line, index) => (
+                <div key={index} className={styles.codeLine}>
+                  <span className={styles.lineNumber}>{String(index + 1).padStart(3, ' ')}</span>
+                  <span> {line}</span>
+                </div>
+              ))}
+              {currentLineIndex < codeContent.length && (
+                <span className={styles.cursor}>|</span>
+              )}
             </code>
           </pre>
         </div>
@@ -821,24 +871,21 @@ if __name__ == '__main__':
             <span>bash</span>
           </div>
           <div className={styles.terminalContent}>
-            <div className={styles.terminalLine}>
-              <span className={styles.terminalPrompt}>$</span>
-              <span className={styles.terminalCommand}>npm run build</span>
-            </div>
-            <div className={styles.terminalOutput}>
-              Compiled successfully!
-              <br />
-              ./src/App.js → ./dist/App.js
-            </div>
-            <div className={styles.terminalLine}>
-              <span className={styles.terminalPrompt}>$</span>
-              <span className={styles.terminalCommand}>roslaunch humanoid_bringup bringup.launch</span>
-            </div>
-            <div className={styles.terminalOutput}>
-              [INFO] [1234567890.123]: Humanoid robot initialized
-              <br />
-              [INFO] [1234567890.456]: Controllers loaded successfully
-            </div>
+            {terminalLines.map((line, index) => (
+              <div key={index} className={styles.terminalLine}>
+                {line.startsWith('$') ? (
+                  <>
+                    <span className={styles.terminalPrompt}>$</span>
+                    <span className={styles.terminalCommand}>{line.substring(2)}</span>
+                  </>
+                ) : (
+                  <div className={styles.terminalOutput}>{line}</div>
+                )}
+              </div>
+            ))}
+            {terminalLineIndex < terminalContent.length && (
+              <span className={styles.terminalCursor}>|</span>
+            )}
           </div>
         </div>
       </div>

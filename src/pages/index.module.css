@@ -1252,6 +1252,36 @@
   color: #d4d4d4;
 }
 
+.codeLine {
+  display: flex;
+  align-items: center;
+  min-height: 1.5em;
+}
+
+.lineNumber {
+  color: #858585;
+  user-select: none;
+  margin-right: 1rem;
+  text-align: right;
+  min-width: 2rem;
+  display: inline-block;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.2em;
+  background: #fff;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 /* Terminal Styles */
 .vscodeTerminal {
   max-height: 0;
@@ -1300,6 +1330,17 @@
   color: #cccccc;
   margin-left: 20px;
   margin-top: 4px;
+  display: block;
+}
+
+.terminalCursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.2em;
+  background: #fff;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+  margin-left: 2px;
 }
 
 /* Scroll-triggered animations */
