@@ -830,32 +830,39 @@ function ExternalResourcesSection() {
             delay={100}
           />
           <ExternalResourceCard
+            title="NVIDIA Embedded Systems"
+            url="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/"
+            imageUrl="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop"
+            description="Complete NVIDIA Jetson platform ecosystem for edge AI and autonomous machines development."
+            delay={200}
+          />
+          <ExternalResourceCard
             title="NVIDIA Jetson Thor Platform"
             url="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/"
-            imageUrl="https://images.unsplash.com/photo-1599202889720-1e7f82df2a19?w=400&h=300&fit=crop"
+            imageUrl="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300&fit=crop"
             description="Next-generation humanoid robotics platform with powerful AI acceleration capabilities."
-            delay={200}
+            delay={300}
           />
           <ExternalResourceCard
             title="Edouard Renard - ROS 2 Expert"
             url="https://www.packtpub.com/authors/edouard-renard"
             imageUrl="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop"
             description="The world's best robotics teacher. Follow his comprehensive ROS 2 courses and tutorials."
-            delay={300}
+            delay={400}
           />
           <ExternalResourceCard
             title="AI for Robotics - Complete Guide"
             url="https://www.amazon.com/Artificial-Intelligence-Robotics-intelligent-techniques/dp/1805129597"
             imageUrl="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=400&h=300&fit=crop"
             description="Build intelligent robots using ROS 2, Python, OpenCV, and AI/ML techniques for real-world tasks."
-            delay={400}
+            delay={500}
           />
           <ExternalResourceCard
             title="ROS 2 for Beginners Course"
             url="https://www.udemy.com/course/ros2-for-beginners/"
             imageUrl="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop"
             description="Start your robotics journey with this comprehensive beginner-friendly course."
-            delay={500}
+            delay={600}
           />
         </div>
 
@@ -889,41 +896,6 @@ function ExternalResourcesSection() {
               View Complete Resource Repository
               <span className={styles.arrowIcon}>→</span>
             </a>
-
-            {/* Special Thanks */}
-            <div className={styles.specialThanks}>
-              {/* Floating particles */}
-              <div className={styles.particle1}></div>
-              <div className={styles.particle2}></div>
-              <div className={styles.particle3}></div>
-              <div className={styles.particle4}></div>
-
-              {/* Content */}
-              <div className={styles.thanksContent}>
-                <div className={styles.thanksIconWrapper}>
-                  <div className={styles.heartGlow}></div>
-                  <span className={styles.heartIcon}>💜</span>
-                  <div className={styles.heartRing}></div>
-                </div>
-                <div className={styles.thanksTextWrapper}>
-                  <p className={styles.thanksLabel}>With Gratitude</p>
-                  <h4 className={styles.thanksTitle}>
-                    <span className={styles.sparkle}>✨</span>
-                    Special Thanks to <span className={styles.panaversityText}>Panaversity</span>
-                    <span className={styles.sparkle}>✨</span>
-                  </h4>
-                  <p className={styles.thanksDescription}>
-                    For curating and providing all these amazing resources for Physical AI
-                    and Humanoid Robotics learning in one comprehensive place
-                  </p>
-                  <div className={styles.thanksDivider}>
-                    <span className={styles.dividerDot}></span>
-                    <span className={styles.dividerLine}></span>
-                    <span className={styles.dividerDot}></span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -1022,6 +994,49 @@ function StartWithoutHardwareSection() {
               All our tutorials support simulation-first workflow. Master the concepts in virtual environments,
               then seamlessly transfer to physical robots when you're ready.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Special Thanks Section (Standalone)
+function SpecialThanksSection() {
+  return (
+    <section className={styles.specialThanksSection}>
+      <div className={styles.sectionContainer}>
+        <div className={styles.specialThanks}>
+          {/* Floating particles */}
+          <div className={styles.particle1}></div>
+          <div className={styles.particle2}></div>
+          <div className={styles.particle3}></div>
+          <div className={styles.particle4}></div>
+
+          {/* Content */}
+          <div className={styles.thanksContent}>
+            <div className={styles.thanksIconWrapper}>
+              <div className={styles.heartGlow}></div>
+              <span className={styles.heartIcon}>💜</span>
+              <div className={styles.heartRing}></div>
+            </div>
+            <div className={styles.thanksTextWrapper}>
+              <p className={styles.thanksLabel}>With Gratitude</p>
+              <h4 className={styles.thanksTitle}>
+                <span className={styles.sparkle}>✨</span>
+                Special Thanks to <span className={styles.panaversityText}>Panaversity</span>
+                <span className={styles.sparkle}>✨</span>
+              </h4>
+              <p className={styles.thanksDescription}>
+                For curating and providing all these amazing resources for Physical AI
+                and Humanoid Robotics learning in one comprehensive place
+              </p>
+              <div className={styles.thanksDivider}>
+                <span className={styles.dividerDot}></span>
+                <span className={styles.dividerLine}></span>
+                <span className={styles.dividerDot}></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1380,6 +1395,7 @@ export default function Home(): React.ReactNode {
       <ExternalResourcesSection />
       <HardwareEquipmentSection />
       <StartWithoutHardwareSection />
+      <SpecialThanksSection />
       <FeaturesSection />
       <AIFeaturesSection />
       <CTASection />

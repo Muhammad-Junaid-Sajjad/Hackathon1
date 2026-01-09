@@ -1881,7 +1881,7 @@
    ============================================ */
 
 .externalResourcesSection {
-  padding: 6rem 0;
+  padding: 8rem 0;
   background: var(--color-bg-primary);
   position: relative;
   overflow: hidden;
@@ -2570,7 +2570,7 @@
    ============================================ */
 
 .hardwareSection {
-  padding: 6rem 0;
+  padding: 8rem 0;
   background: var(--color-bg-secondary);
   position: relative;
   overflow: hidden;
@@ -2621,7 +2621,7 @@
    ============================================ */
 
 .startWithoutHardwareSection {
-  padding: 6rem 0;
+  padding: 8rem 0;
   background: var(--color-bg-primary);
   position: relative;
   overflow: hidden;
@@ -2772,4 +2772,27 @@
   .cloudNoteText {
     font-size: 0.9375rem;
   }
+}
+
+/* ============================================
+   SPECIAL THANKS SECTION (STANDALONE)
+   ============================================ */
+
+.specialThanksSection {
+  padding: 6rem 0;
+  background: var(--color-bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.specialThanksSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  animation: bgShift 15s ease-in-out infinite alternate;
 }
