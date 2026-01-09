@@ -23,6 +23,13 @@
   flex: 1;
 }
 
+.rightButtons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .toolButton {
   display: inline-flex;
   align-items: center;
@@ -74,11 +81,23 @@
   color: white;
 }
 
+.externalLinksButton {
+  border-color: #8b5cf6;
+  color: #8b5cf6;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.externalLinksButton:hover {
+  background: #8b5cf6;
+  color: white;
+  text-decoration: none;
+}
+
 .homeButton {
   border-color: #f59e0b;
   color: #f59e0b;
   text-decoration: none;
-  margin-left: auto;
   flex-shrink: 0;
 }
 
@@ -194,11 +213,12 @@
     align-items: stretch;
   }
 
-  .toolButton {
-    justify-content: center;
+  .rightButtons {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .homeButton {
-    margin-left: 0;
+  .toolButton {
+    justify-content: center;
   }
 }

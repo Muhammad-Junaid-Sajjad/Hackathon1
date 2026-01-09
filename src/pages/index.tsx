@@ -808,7 +808,7 @@ function ExternalResourceCard({
 // External Resources Section
 function ExternalResourcesSection() {
   return (
-    <section className={styles.externalResourcesSection}>
+    <section id="external-resources" className={styles.externalResourcesSection}>
       <div className={styles.sectionContainer}>
         <div className={styles.sectionHeader}>
           <span className={styles.sectionBadge}>Learn More</span>
@@ -870,6 +870,14 @@ function ExternalResourcesSection() {
               View Complete Resource Repository
               <span className={styles.arrowIcon}>→</span>
             </a>
+
+            {/* Special Thanks */}
+            <div className={styles.specialThanks}>
+              <p className={styles.thanksText}>
+                💜 <strong>Special Thanks to Panaversity</strong> for providing all these amazing resources
+                for Physical AI and Humanoid Robotics learning in one place
+              </p>
+            </div>
           </div>
         </div>
       </div>

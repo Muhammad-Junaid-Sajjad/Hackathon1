@@ -188,11 +188,20 @@ const ChapterTools: React.FC<ChapterToolsProps> = ({
           )}
         </div>
 
-        {/* Home Button - Right Corner */}
-        <Link to="/" className={`${styles.toolButton} ${styles.homeButton}`} title="Return to Homepage">
-          <span className={styles.icon}>🏠</span>
-          Home
-        </Link>
+        {/* Right side buttons */}
+        <div className={styles.rightButtons}>
+          {/* External Links Button */}
+          <Link to="/#external-resources" className={`${styles.toolButton} ${styles.externalLinksButton}`} title="View External Learning Resources">
+            <span className={styles.icon}>📚</span>
+            External Links
+          </Link>
+
+          {/* Home Button */}
+          <Link to="/" className={`${styles.toolButton} ${styles.homeButton}`} title="Return to Homepage">
+            <span className={styles.icon}>🏠</span>
+            Home
+          </Link>
+        </div>
       </div>
 
       {/* Login Prompt */}

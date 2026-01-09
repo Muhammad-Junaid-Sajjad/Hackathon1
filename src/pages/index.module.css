@@ -1960,3 +1960,23 @@
     padding: 0.875rem 1.5rem;
   }
 }
+
+/* Special Thanks Section */
+.specialThanks {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.thanksText {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.thanksText strong {
+  color: #a78bfa;
+  font-weight: 700;
+}
