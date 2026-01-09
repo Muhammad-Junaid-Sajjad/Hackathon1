@@ -1729,9 +1729,10 @@
 
 .resourcesGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
+  justify-items: center;
 }
 
 @media (max-width: 996px) {
@@ -2401,5 +2402,110 @@
   50% {
     transform: scale(1.3);
     box-shadow: 0 0 20px rgba(168, 85, 247, 1);
+  }
+}
+
+/* ============================================
+   HARDWARE & EQUIPMENT SECTION
+   ============================================ */
+
+.hardwareSection {
+  padding: 6rem 0;
+  background: var(--color-bg-secondary);
+  position: relative;
+}
+
+.hardwareGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 996px) {
+  .hardwareGrid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ============================================
+   START WITHOUT HARDWARE SECTION
+   ============================================ */
+
+.startWithoutHardwareSection {
+  padding: 6rem 0;
+  background: var(--color-bg-primary);
+  position: relative;
+}
+
+.noHardwareGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 996px) {
+  .noHardwareGrid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Cloud Note Box */
+.cloudNote {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+  border: 2px solid rgba(99, 102, 241, 0.3);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease forwards;
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+}
+
+.cloudNoteIcon {
+  font-size: 3rem;
+  flex-shrink: 0;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(255, 193, 7, 0.6));
+}
+
+.cloudNoteContent {
+  flex: 1;
+}
+
+.cloudNoteTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 0.75rem 0;
+  line-height: 1.4;
+}
+
+.cloudNoteText {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .cloudNote {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .cloudNoteIcon {
+    margin-bottom: 1rem;
   }
 }

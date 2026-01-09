@@ -823,18 +823,32 @@ function ExternalResourcesSection() {
         {/* Resource Cards Grid */}
         <div className={styles.resourcesGrid}>
           <ExternalResourceCard
+            title="ROS.org - Official Documentation"
+            url="https://www.ros.org/"
+            imageUrl="https://images.unsplash.com/photo-1555255707-c07966088b7b?w=400&h=300&fit=crop"
+            description="The official Robot Operating System documentation, tutorials, and community resources."
+            delay={100}
+          />
+          <ExternalResourceCard
+            title="NVIDIA Jetson Thor Platform"
+            url="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-thor/"
+            imageUrl="https://images.unsplash.com/photo-1599202889720-1e7f82df2a19?w=400&h=300&fit=crop"
+            description="Next-generation humanoid robotics platform with powerful AI acceleration capabilities."
+            delay={200}
+          />
+          <ExternalResourceCard
             title="Edouard Renard - ROS 2 Expert"
             url="https://www.packtpub.com/authors/edouard-renard"
             imageUrl="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop"
             description="The world's best robotics teacher. Follow his comprehensive ROS 2 courses and tutorials."
-            delay={100}
+            delay={300}
           />
           <ExternalResourceCard
             title="AI for Robotics - Complete Guide"
             url="https://www.amazon.com/Artificial-Intelligence-Robotics-intelligent-techniques/dp/1805129597"
             imageUrl="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=400&h=300&fit=crop"
             description="Build intelligent robots using ROS 2, Python, OpenCV, and AI/ML techniques for real-world tasks."
-            delay={300}
+            delay={400}
           />
           <ExternalResourceCard
             title="ROS 2 for Beginners Course"
@@ -910,6 +924,104 @@ function ExternalResourcesSection() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Hardware & Equipment Section
+function HardwareEquipmentSection() {
+  return (
+    <section id="hardware-equipment" className={styles.hardwareSection}>
+      <div className={styles.sectionContainer}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionBadge}>Hardware & Equipment</span>
+          <h2 className={styles.sectionTitle}>
+            Essential <span className={styles.gradientText}>Robotics Hardware</span>
+          </h2>
+          <p className={styles.sectionSubtitle}>
+            Professional-grade hardware platforms recommended for Physical AI development
+          </p>
+        </div>
+
+        <div className={styles.hardwareGrid}>
+          <ExternalResourceCard
+            title="Unitree G1 Humanoid Robot"
+            url="https://www.amazon.com/s?k=unitree+g1+robot"
+            imageUrl="https://images.unsplash.com/photo-1563207153-f403bf289096?w=400&h=300&fit=crop"
+            description="Advanced humanoid robot platform with full SDK support. Perfect for real-world deployment and testing."
+            delay={100}
+          />
+          <ExternalResourceCard
+            title="NVIDIA Jetson Development Kits"
+            url="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/"
+            imageUrl="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=400&h=300&fit=crop"
+            description="Powerful edge AI computing platforms for robotics. Jetson Orin and Thor series."
+            delay={300}
+          />
+          <ExternalResourceCard
+            title="RTX 5080/6080 GPU Cards"
+            url="https://www.newegg.com/p/pl?d=rtx+6080"
+            imageUrl="https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&h=300&fit=crop"
+            description="High-performance GPUs optimized for AI training and robotics simulation workloads."
+            delay={500}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Start Without Hardware Section
+function StartWithoutHardwareSection() {
+  return (
+    <section id="start-without-hardware" className={styles.startWithoutHardwareSection}>
+      <div className={styles.sectionContainer}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionBadge}>Getting Started</span>
+          <h2 className={styles.sectionTitle}>
+            Start Learning <span className={styles.gradientText}>Without Hardware</span>
+          </h2>
+          <p className={styles.sectionSubtitle}>
+            Begin your robotics journey with free simulation tools and cloud platforms
+          </p>
+        </div>
+
+        <div className={styles.noHardwareGrid}>
+          <ExternalResourceCard
+            title="The Construct - ROS Simulation"
+            url="https://www.theconstructsim.com/"
+            imageUrl="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop"
+            description="Free online ROS simulation platform. Learn and test robotics without any hardware setup."
+            delay={100}
+          />
+          <ExternalResourceCard
+            title="GitHub Codespaces for ROS"
+            url="https://github.com/features/codespaces"
+            imageUrl="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=400&h=300&fit=crop"
+            description="Cloud development environment. Set up ROS 2 development instantly in your browser."
+            delay={300}
+          />
+          <ExternalResourceCard
+            title="Docker ROS Containers"
+            url="https://hub.docker.com/_/ros"
+            imageUrl="https://images.unsplash.com/photo-1605745341112-85968b19335b?w=400&h=300&fit=crop"
+            description="Lightweight containers to run ROS locally. Perfect for development without full installation."
+            delay={500}
+          />
+        </div>
+
+        {/* Special Note */}
+        <div className={styles.cloudNote}>
+          <div className={styles.cloudNoteIcon}>💡</div>
+          <div className={styles.cloudNoteContent}>
+            <h4 className={styles.cloudNoteTitle}>Start with Simulation, Scale to Hardware</h4>
+            <p className={styles.cloudNoteText}>
+              All our tutorials support simulation-first workflow. Master the concepts in virtual environments,
+              then seamlessly transfer to physical robots when you're ready.
+            </p>
           </div>
         </div>
       </div>
@@ -1265,9 +1377,11 @@ export default function Home(): React.ReactNode {
     >
       <HeroSection />
       <EnhancedContentSection />
+      <ExternalResourcesSection />
+      <HardwareEquipmentSection />
+      <StartWithoutHardwareSection />
       <FeaturesSection />
       <AIFeaturesSection />
-      <ExternalResourcesSection />
       <CTASection />
 
       {/* Floating Quick Start Button */}
