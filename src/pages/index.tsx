@@ -848,8 +848,13 @@ function ExternalResourcesSection() {
         {/* Glowing GitHub CTA */}
         <div className={styles.githubCtaBox}>
           <div className={styles.glowEffect}></div>
+          <div className={styles.glowEffect2}></div>
+          <div className={styles.floatingOrb1}></div>
+          <div className={styles.floatingOrb2}></div>
           <div className={styles.githubCtaContent}>
-            <span className={styles.githubIcon}>⭐</span>
+            <div className={styles.iconWrapper}>
+              <span className={styles.githubIcon}>🎓</span>
+            </div>
             <h3 className={styles.githubCtaTitle}>
               Want to learn from <span className={styles.glowingText}>official resources</span>?
             </h3>
@@ -873,8 +878,11 @@ function ExternalResourcesSection() {
 
             {/* Special Thanks */}
             <div className={styles.specialThanks}>
+              <div className={styles.thanksIconWrapper}>
+                <span className={styles.heartIcon}>💜</span>
+              </div>
               <p className={styles.thanksText}>
-                💜 <strong>Special Thanks to Panaversity</strong> for providing all these amazing resources
+                <strong>Special Thanks to Panaversity</strong> for providing all these amazing resources
                 for Physical AI and Humanoid Robotics learning in one place
               </p>
             </div>
