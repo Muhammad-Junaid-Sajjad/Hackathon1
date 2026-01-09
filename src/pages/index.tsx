@@ -878,13 +878,37 @@ function ExternalResourcesSection() {
 
             {/* Special Thanks */}
             <div className={styles.specialThanks}>
-              <div className={styles.thanksIconWrapper}>
-                <span className={styles.heartIcon}>💜</span>
+              {/* Floating particles */}
+              <div className={styles.particle1}></div>
+              <div className={styles.particle2}></div>
+              <div className={styles.particle3}></div>
+              <div className={styles.particle4}></div>
+
+              {/* Content */}
+              <div className={styles.thanksContent}>
+                <div className={styles.thanksIconWrapper}>
+                  <div className={styles.heartGlow}></div>
+                  <span className={styles.heartIcon}>💜</span>
+                  <div className={styles.heartRing}></div>
+                </div>
+                <div className={styles.thanksTextWrapper}>
+                  <p className={styles.thanksLabel}>With Gratitude</p>
+                  <h4 className={styles.thanksTitle}>
+                    <span className={styles.sparkle}>✨</span>
+                    Special Thanks to <span className={styles.panaversityText}>Panaversity</span>
+                    <span className={styles.sparkle}>✨</span>
+                  </h4>
+                  <p className={styles.thanksDescription}>
+                    For curating and providing all these amazing resources for Physical AI
+                    and Humanoid Robotics learning in one comprehensive place
+                  </p>
+                  <div className={styles.thanksDivider}>
+                    <span className={styles.dividerDot}></span>
+                    <span className={styles.dividerLine}></span>
+                    <span className={styles.dividerDot}></span>
+                  </div>
+                </div>
               </div>
-              <p className={styles.thanksText}>
-                <strong>Special Thanks to Panaversity</strong> for providing all these amazing resources
-                for Physical AI and Humanoid Robotics learning in one place
-              </p>
             </div>
           </div>
         </div>
