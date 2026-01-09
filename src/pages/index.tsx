@@ -769,6 +769,114 @@ function AdditionalVideosSection() {
   );
 }
 
+// External Resource Card Component
+function ExternalResourceCard({
+  title,
+  url,
+  imageUrl,
+  description,
+  delay
+}: {
+  title: string;
+  url: string;
+  imageUrl: string;
+  description: string;
+  delay: number;
+}) {
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.resourceCard}
+      style={{ animationDelay: `${delay}ms` }}
+    >
+      <div className={styles.resourceImageWrapper}>
+        <img src={imageUrl} alt={title} className={styles.resourceImage} />
+        <div className={styles.resourceOverlay}>
+          <span className={styles.viewIcon}>🔗 Visit Site</span>
+        </div>
+      </div>
+      <div className={styles.resourceInfo}>
+        <h4 className={styles.resourceTitle}>{title}</h4>
+        <p className={styles.resourceDescription}>{description}</p>
+      </div>
+    </a>
+  );
+}
+
+// External Resources Section
+function ExternalResourcesSection() {
+  return (
+    <section className={styles.externalResourcesSection}>
+      <div className={styles.sectionContainer}>
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionBadge}>Learn More</span>
+          <h2 className={styles.sectionTitle}>
+            Official <span className={styles.gradientText}>Learning Resources</span>
+          </h2>
+          <p className={styles.sectionSubtitle}>
+            Explore curated courses, books, and tutorials from industry experts
+          </p>
+        </div>
+
+        {/* Resource Cards Grid */}
+        <div className={styles.resourcesGrid}>
+          <ExternalResourceCard
+            title="Edouard Renard - ROS 2 Expert"
+            url="https://www.packtpub.com/authors/edouard-renard"
+            imageUrl="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop"
+            description="The world's best robotics teacher. Follow his comprehensive ROS 2 courses and tutorials."
+            delay={100}
+          />
+          <ExternalResourceCard
+            title="AI for Robotics - Complete Guide"
+            url="https://www.amazon.com/Artificial-Intelligence-Robotics-intelligent-techniques/dp/1805129597"
+            imageUrl="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?w=400&h=300&fit=crop"
+            description="Build intelligent robots using ROS 2, Python, OpenCV, and AI/ML techniques for real-world tasks."
+            delay={300}
+          />
+          <ExternalResourceCard
+            title="ROS 2 for Beginners Course"
+            url="https://www.udemy.com/course/ros2-for-beginners/"
+            imageUrl="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop"
+            description="Start your robotics journey with this comprehensive beginner-friendly course."
+            delay={500}
+          />
+        </div>
+
+        {/* Glowing GitHub CTA */}
+        <div className={styles.githubCtaBox}>
+          <div className={styles.glowEffect}></div>
+          <div className={styles.githubCtaContent}>
+            <span className={styles.githubIcon}>⭐</span>
+            <h3 className={styles.githubCtaTitle}>
+              Want to learn from <span className={styles.glowingText}>official resources</span>?
+            </h3>
+            <p className={styles.githubCtaDescription}>
+              Access the complete collection of tutorials, documentation, and learning materials
+            </p>
+            <a
+              href="https://github.com/panaversity/learn-physical-ai-humanoid-robotics"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.githubCtaButton}
+            >
+              <span className={styles.githubLogo}>
+                <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+              </span>
+              View Complete Resource Repository
+              <span className={styles.arrowIcon}>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // Enhanced Module Card Component
 function EnhancedModuleCard({
   number,
@@ -1119,6 +1227,7 @@ export default function Home(): React.ReactNode {
       <EnhancedContentSection />
       <FeaturesSection />
       <AIFeaturesSection />
+      <ExternalResourcesSection />
       <CTASection />
 
       {/* Floating Quick Start Button */}
