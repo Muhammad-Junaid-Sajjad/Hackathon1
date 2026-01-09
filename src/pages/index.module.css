@@ -967,11 +967,11 @@
 /* Quick Start Floating Button */
 .quickStartButton {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 1000;
-  width: 60px;
-  height: 60px;
+  bottom: 92px;
+  right: 24px;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background: var(--gradient-primary);
   border: none;

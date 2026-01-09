@@ -10,6 +10,7 @@
 
 import React, { useState, useCallback, useMemo } from 'react';
 import DOMPurify from 'dompurify';
+import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
 /**
@@ -133,56 +134,65 @@ const ChapterTools: React.FC<ChapterToolsProps> = ({
     <div className={styles.chapterTools}>
       {/* Tool Buttons */}
       <div className={styles.toolButtons}>
-        {/* Personalize Button */}
-        <button
-          onClick={handlePersonalize}
-          disabled={activeTool === 'personalizing' || activeTool === 'translating'}
-          className={`${styles.toolButton} ${activeTool === 'personalized' ? styles.active : ''}`}
-          title={isLoggedIn ? 'Personalize content based on your background' : 'Sign in to personalize'}
-        >
-          {activeTool === 'personalizing' ? (
-            <>
-              <span className={styles.spinner}></span>
-              Personalizing...
-            </>
-          ) : (
-            <>
-              <span className={styles.icon}>✨</span>
-              {activeTool === 'personalized' ? 'Personalized' : 'Personalize for Me'}
-            </>
-          )}
-        </button>
-
-        {/* Translate Button */}
-        <button
-          onClick={handleTranslate}
-          disabled={activeTool === 'personalizing' || activeTool === 'translating'}
-          className={`${styles.toolButton} ${styles.translateButton} ${activeTool === 'translated' ? styles.active : ''}`}
-          title={isLoggedIn ? 'Translate content to Urdu' : 'Sign in to translate'}
-        >
-          {activeTool === 'translating' ? (
-            <>
-              <span className={styles.spinner}></span>
-              Translating...
-            </>
-          ) : (
-            <>
-              <span className={styles.icon}>🌐</span>
-              {activeTool === 'translated' ? 'اردو میں' : 'Translate to Urdu'}
-            </>
-          )}
-        </button>
-
-        {/* Reset Button */}
-        {(activeTool === 'personalized' || activeTool === 'translated') && (
+        {/* Left side buttons */}
+        <div className={styles.leftButtons}>
+          {/* Personalize Button */}
           <button
-            onClick={handleReset}
-            className={`${styles.toolButton} ${styles.resetButton}`}
+            onClick={handlePersonalize}
+            disabled={activeTool === 'personalizing' || activeTool === 'translating'}
+            className={`${styles.toolButton} ${activeTool === 'personalized' ? styles.active : ''}`}
+            title={isLoggedIn ? 'Personalize content based on your background' : 'Sign in to personalize'}
           >
-            <span className={styles.icon}>↩️</span>
-            Show Original
+            {activeTool === 'personalizing' ? (
+              <>
+                <span className={styles.spinner}></span>
+                Personalizing...
+              </>
+            ) : (
+              <>
+                <span className={styles.icon}>✨</span>
+                {activeTool === 'personalized' ? 'Personalized' : 'Personalize for Me'}
+              </>
+            )}
           </button>
-        )}
+
+          {/* Translate Button */}
+          <button
+            onClick={handleTranslate}
+            disabled={activeTool === 'personalizing' || activeTool === 'translating'}
+            className={`${styles.toolButton} ${styles.translateButton} ${activeTool === 'translated' ? styles.active : ''}`}
+            title={isLoggedIn ? 'Translate content to Urdu' : 'Sign in to translate'}
+          >
+            {activeTool === 'translating' ? (
+              <>
+                <span className={styles.spinner}></span>
+                Translating...
+              </>
+            ) : (
+              <>
+                <span className={styles.icon}>🌐</span>
+                {activeTool === 'translated' ? 'اردو میں' : 'Translate to Urdu'}
+              </>
+            )}
+          </button>
+
+          {/* Reset Button */}
+          {(activeTool === 'personalized' || activeTool === 'translated') && (
+            <button
+              onClick={handleReset}
+              className={`${styles.toolButton} ${styles.resetButton}`}
+            >
+              <span className={styles.icon}>↩️</span>
+              Show Original
+            </button>
+          )}
+        </div>
+
+        {/* Home Button - Right Corner */}
+        <Link to="/" className={`${styles.toolButton} ${styles.homeButton}`} title="Return to Homepage">
+          <span className={styles.icon}>🏠</span>
+          Home
+        </Link>
       </div>
 
       {/* Login Prompt */}

@@ -10,9 +10,17 @@
 
 .toolButtons {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.leftButtons {
+  display: flex;
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
+  flex: 1;
 }
 
 .toolButton {
@@ -64,6 +72,20 @@
 .resetButton:hover:not(:disabled) {
   background: var(--ifm-color-emphasis-500);
   color: white;
+}
+
+.homeButton {
+  border-color: #f59e0b;
+  color: #f59e0b;
+  text-decoration: none;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.homeButton:hover {
+  background: #f59e0b;
+  color: white;
+  text-decoration: none;
 }
 
 .icon {
@@ -167,7 +189,16 @@
     align-items: stretch;
   }
 
+  .leftButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .toolButton {
     justify-content: center;
+  }
+
+  .homeButton {
+    margin-left: 0;
   }
 }
