@@ -1,0 +1,9 @@
+node_modules/
+package-lock.json
+yarn.lock
+*.pptx
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

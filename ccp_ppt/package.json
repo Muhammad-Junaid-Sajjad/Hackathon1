@@ -1,0 +1,22 @@
+{
+  "name": "ccp-ppt-generator",
+  "version": "1.0.0",
+  "description": "Cloud-Enabled Distributed Matrix Multiplication PowerPoint Presentation Generator",
+  "main": "ccp_ppt.js",
+  "scripts": {
+    "start": "node ccp_ppt.js",
+    "generate": "node ccp_ppt.js"
+  },
+  "author": "Muhammad Junaid Sajjad",
+  "license": "ISC",
+  "dependencies": {
+    "pptxgenjs": "^3.12.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
+    "sharp": "^0.32.6"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
